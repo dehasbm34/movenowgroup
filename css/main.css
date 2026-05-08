@@ -71,7 +71,7 @@
   --r-sm: 4px; --r: 8px; --r-md: 12px; --r-lg: 20px; --r-xl: 32px; --r-full: 9999px;
   /* ── Layout ── */
   --container: 1280px; --container-sm: 860px;
-  --nav-h: 72px; --bar-h: 44px;
+  --nav-h: 76px; --bar-h: 44px;
   /* ── Compatibility aliases ── */
   --bg-primary:    #FFFFFF;
   --bg-secondary:  #F8FAFC;
@@ -270,22 +270,23 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
 .nav__inner {
   max-width: var(--container); margin-inline: auto;
   padding-inline: var(--s-6); height: var(--nav-h);
-  display: flex; align-items: center; justify-content: space-between; gap: var(--s-8);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-4);
 }
 .nav__logo {
-  font-family: var(--font-display); font-size: 1.625rem;
+  font-family: var(--font-display); font-size: 1.35rem;
   font-weight: 800; color: var(--gold-light);
   letter-spacing: -0.01em; flex-shrink: 0;
 }
 .nav__links {
-  display: flex; align-items: center; gap: var(--s-1);
+  display: flex; align-items: center; gap: 0;
   flex: 1; justify-content: center;
 }
 .nav__links > li { position: relative; }
 .nav__links > li > a {
   display: flex; align-items: center; gap: 4px;
-  padding: var(--s-2) var(--s-3); font-size: 0.875rem; font-weight: 500;
+  padding: var(--s-2) var(--s-2); font-size: 0.82rem; font-weight: 500;
   border-radius: var(--r); transition: var(--t-fast);
+  white-space: nowrap;
   /* colour override comes from .nav--scrolled block above */
 }
 .nav__links > li > a.active { color: var(--gold-light); }
@@ -314,7 +315,7 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
 }
 .nav__dropdown-menu a:hover { color: var(--text); background: rgba(0,0,0,0.04); }
 .nav__dropdown-menu a .icon { width: 20px; text-align: center; }
-.nav__actions { display: flex; align-items: center; gap: var(--s-3); flex-shrink: 0; }
+.nav__actions { display: flex; align-items: center; gap: var(--s-2); flex-shrink: 0; }
 .lang-toggle {
   display: flex; flex-wrap: wrap; background: rgba(0,0,0,0.05);
   border: 1px solid var(--border); border-radius: var(--r-lg); padding: 3px; gap: 2px;
@@ -1339,7 +1340,7 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
   .steps-grid { grid-template-columns: repeat(3,1fr); }
   .steps-grid::before { display: none; }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
   .nav__links { display: none; }
   .nav__hamburger { display: flex; }
   .nav__actions .btn:not(.nav__emergency) { display: none; }
