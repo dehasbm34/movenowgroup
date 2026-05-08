@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Iran Site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "/Users/gab/Desktop/Iran", "--no-clipboard"],
+      "port": 3456,
+      "autoPort": true
+    }
+  ]
+}

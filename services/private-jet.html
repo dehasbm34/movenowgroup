@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Jet Charter | Emergency &amp; VIP Evacuation Worldwide | Move Now Group</title>
+  <meta name="description" content="Charter a private jet anywhere in the world within hours. Emergency evacuations, VIP travel, conflict zone departures. Crypto accepted. Fully confidential.">
+  <link rel="canonical" href="https://movenowgroup.com/services/private-jet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="../css/main.css">
+
+  <style>
+    /* ===== PRIVATE JET PAGE, PREMIUM COMPONENTS ===== */
+
+    /* Section Label */
+    .section-label {
+      display: inline-block;
+      background: rgba(201,168,76,.1);
+      color: var(--gold);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem 1rem;
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+
+    /* Certification Strip */
+    .cert-strip {
+      background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(201,168,76,.02) 100%);
+      border-top: 1px solid rgba(201,168,76,.18);
+      border-bottom: 1px solid rgba(201,168,76,.18);
+      padding: 1.6rem 0;
+    }
+    .cert-strip__inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .cert-item {
+      flex: 1;
+      min-width: 140px;
+      text-align: center;
+      padding: .75rem 1.25rem;
+      position: relative;
+    }
+    .cert-item + .cert-item::before {
+      content: '';
+      position: absolute; left: 0; top: 20%; bottom: 20%;
+      width: 1px;
+      background: rgba(201,168,76,.2);
+    }
+    .cert-item__number {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .cert-item__number--badge {
+      font-family: 'Inter', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+    .cert-item__label {
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--text-muted);
+      margin-top: .3rem;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .cert-item { min-width: 110px; }
+      .cert-item__number { font-size: 1.4rem; }
+      .cert-item__label { font-size: .6rem; }
+    }
+
+    /* Aircraft Tier Cards */
+    .aircraft-tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .aircraft-tiers { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+    }
+    .aircraft-tier {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,168,76,.15);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+      position: relative;
+    }
+    .aircraft-tier:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,0,0,.55);
+    }
+    .aircraft-tier--featured {
+      border-color: rgba(201,168,76,.45);
+      box-shadow: 0 8px 40px rgba(201,168,76,.1);
+    }
+    .aircraft-tier--featured::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold) 40%, var(--gold) 60%, transparent);
+      z-index: 3;
+    }
+    .aircraft-tier__badge {
+      position: absolute; top: .9rem; right: .9rem; z-index: 4;
+      background: var(--gold);
+      color: #050D1A;
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .25rem .7rem;
+      border-radius: 2px;
+    }
+    .aircraft-tier__photo {
+      position: relative;
+      height: 195px;
+      overflow: hidden;
+    }
+    .aircraft-tier__photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .6s ease;
+    }
+    .aircraft-tier:hover .aircraft-tier__photo img { transform: scale(1.06); }
+    .aircraft-tier__photo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(6,13,27,.05) 30%, rgba(6,13,27,.88) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem 1.1rem;
+    }
+    .aircraft-tier__category {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      display: block;
+    }
+    .aircraft-tier__example {
+      font-size: .65rem;
+      color: rgba(255,255,255,.55);
+      margin-top: .2rem;
+      letter-spacing: .03em;
+      display: block;
+    }
+    .aircraft-tier__body { padding: 1.4rem 1.4rem 1.6rem; }
+    .aircraft-tier__price-row {
+      display: flex;
+      align-items: baseline;
+      gap: .3rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .aircraft-tier__from { font-size: .78rem; color: var(--text-muted); }
+    .aircraft-tier__price {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .aircraft-tier__per { font-size: .72rem; color: var(--text-muted); }
+    .aircraft-tier__specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,.11);
+    }
+    .spec-item__label {
+      font-size: .62rem;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: .15rem;
+    }
+    .spec-item__value {
+      font-size: .875rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      display: block;
+    }
+    .aircraft-tier__features {
+      list-style: none;
+      padding: 0; margin: 0 0 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+    .aircraft-tier__features li {
+      font-size: .845rem;
+      color: var(--text-muted);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .aircraft-tier__features li::before {
+      content: '';
+      position: absolute; left: 0; top: .5em;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: .7;
+    }
+    .btn--full { width: 100%; text-align: center; justify-content: center; display: block; }
+    /* Tier card outline buttons, on dark navy background, use gold outline */
+    .aircraft-tier .btn--outline {
+      border-color: rgba(201,168,76,0.45);
+      color: #C9A84C;
+    }
+    .aircraft-tier .btn--outline:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.1);
+    }
+    .tier-note {
+      text-align: center;
+      font-size: .82rem;
+      color: var(--text-muted);
+      margin-top: 1.75rem;
+    }
+    .tier-note a { color: var(--gold); text-decoration: underline; }
+
+    /* Stats Bar */
+    .stats-bar {
+      background: rgba(201,168,76,.04);
+      border-top: 1px solid rgba(201,168,76,.1);
+      border-bottom: 1px solid rgba(201,168,76,.1);
+      padding: 2.75rem 0;
+    }
+    .stats-bar__inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      .stats-bar__inner { grid-template-columns: 1fr 1fr; gap: 2rem 0; }
+    }
+    .stat-block {
+      padding: .75rem 1rem;
+      position: relative;
+    }
+    .stat-block + .stat-block::before {
+      content: '';
+      position: absolute; left: 0; top: 15%; bottom: 15%;
+      width: 1px; background: rgba(0,0,0,.10);
+    }
+    @media (max-width: 640px) { .stat-block + .stat-block::before { display: none; } }
+    .stat-block__number {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .stat-block__label {
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--text-muted);
+      margin-top: .4rem;
+      display: block;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 960px) { .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; margin-inline: auto; } }
+    .testimonial-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 10px;
+      padding: 2rem 1.75rem 1.75rem;
+      position: relative;
+      transition: border-color .3s;
+    }
+    .testimonial-card:hover { border-color: rgba(201,168,76,.28); }
+    .testimonial-card__quote-mark {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 4.5rem;
+      color: rgba(201,168,76,.18);
+      line-height: .85;
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .testimonial-card__stars {
+      display: flex; gap: .2rem;
+      margin-bottom: 1rem;
+    }
+    .testimonial-card__star { color: var(--gold); font-size: .85rem; }
+    .testimonial-card__text {
+      font-size: .875rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .testimonial-card__divider {
+      width: 30px; height: 1px;
+      background: rgba(201,168,76,.35);
+      margin-bottom: 1.1rem;
+    }
+    .testimonial-card__name {
+      font-weight: 600;
+      font-size: .875rem;
+      color: rgba(255,255,255,0.9);
+      display: block;
+    }
+    .testimonial-card__detail {
+      font-size: .75rem;
+      color: var(--text-muted);
+      margin-top: .2rem;
+      display: block;
+    }
+
+    /* Why Choose, Premium */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; } }
+    .why-card {
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 10px;
+      background: rgba(255,255,255,.02);
+      transition: border-color .3s, background .3s;
+      position: relative;
+    }
+    .why-card::before {
+      content: '';
+      position: absolute; top: 0; left: 2rem;
+      width: 36px; height: 3px;
+      background: var(--gold);
+    }
+    .why-card:hover {
+      border-color: rgba(201,168,76,.22);
+      background: rgba(201,168,76,.03);
+    }
+    .why-card__num {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(201,168,76,.12);
+      line-height: 1;
+      position: absolute;
+      top: .75rem; right: 1.5rem;
+    }
+    .why-card__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin: .75rem 0 .65rem;
+    }
+    .why-card p {
+      font-size: .875rem;
+      line-height: 1.78;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Related cards, icon line accent */
+    .related-card__accent {
+      width: 28px; height: 2px;
+      background: var(--gold);
+      margin-bottom: .9rem;
+      display: block;
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Private Jet Charter, Emergency & VIP Evacuation",
+    "provider": {
+      "@type": "Organization",
+      "name": "Move Now Group"
+    },
+    "description": "Emergency and VIP private jet charter services worldwide. We arrange aircraft within hours for conflict zone evacuations, VIP travel, and confidential departures from sanctioned or restricted countries.",
+    "areaServed": "Worldwide",
+    "serviceType": "Private Jet Charter",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "8000",
+      "offerCount": "3"
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://movenowgroup.com/services/private-jet",
+      "availableLanguage": ["English", "Arabic", "Persian"]
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- EMERGENCY BAR -->
+  <div id="emergencyBar" class="emergency-bar">
+    <span data-en="24/7 Emergency Line, If you are in immediate danger, call now" data-ar="خط طوارئ ٢٤/٧, إذا كنت في خطر فوري، اتصل الآن" data-fa="خط اورژانس ۲۴/۷, اگر در خطر فوری هستید، همین الان تماس بگیرید">24/7 Emergency Line, If you are in immediate danger, call now</span>
+    <a href="tel:+18005550199" class="emergency-bar__cta">+1 800 555 0199</a>
+    <button class="emergency-bar__close" id="emergencyBarClose" aria-label="Close">✕</button>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="nav" id="mainNav">
+    <div class="nav__inner container">
+      <a href="../index.html" class="nav__logo">Move Now Group</a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html" data-en="Home" data-ar="الرئيسية" data-fa="خانه">Home</a>
+        <div class="nav__dropdown">
+          <button class="nav__dropdown-toggle">Services ▾</button>
+          <div class="nav__dropdown-menu">
+            <a href="../services/private-jet.html">Private Jets</a>
+            <a href="../services/travel-documents.html">Travel Documents</a>
+            <a href="../services/crypto.html">Crypto Exchange</a>
+            <a href="../services/remittance.html">Remittance</a>
+            <a href="../services/communication.html">Communication</a>
+            <a href="../services/relocation.html">Relocation</a>
+          </div>
+        </div>
+        
+        <a href="../about.html">About</a>
+        <a href="../resources.html">Resources</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <div class="lang-toggle" id="langToggle">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ar">AR</button>
+          <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+        <a href="../contact.html" class="btn btn--primary btn--sm">Get Help</a>
+        <a href="tel:+18005550199" class="nav__emergency"><span class="pulse-dot"></span> Emergency</a>
+        <button class="nav__hamburger" id="hamburger" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileMenuClose">✕</button>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../services/private-jet.html">Private Jets</a>
+      <a href="../services/travel-documents.html">Travel Documents</a>
+      <a href="../services/crypto.html">Crypto Exchange</a>
+      <a href="../services/remittance.html">Remittance</a>
+      <a href="../services/communication.html">Communication</a>
+      <a href="../services/relocation.html">Relocation</a>
+      
+      <a href="../about.html">About</a>
+      <a href="../resources.html">Resources</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+    <a href="tel:+18005550199" class="btn btn--danger" style="margin-top:2rem;display:block;text-align:center;">Emergency: +1 800 555 0199</a>
+  </div>
+
+  <!-- TICKER BAR -->
+  <div class="ticker-bar" aria-label="Live crypto rates">
+    <span class="ticker-bar__label">LIVE</span>
+    <div class="ticker-bar__track" id="tickerTrack">Loading rates…</div>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=85');" aria-hidden="true"></div>
+      <div class="container">
+        <div class="page-hero__content">
+          <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span aria-hidden="true">›</span>
+            <a href="#">Services</a>
+            <span aria-hidden="true">›</span>
+            <span>Private Jet Charter</span>
+          </nav>
+          <h1 class="page-hero__title">Private Jet Charter <span class="page-hero__subtitle">Worldwide Emergency &amp; VIP Evacuation</span></h1>
+          <p class="page-hero__text">Wheels up in hours. Any airport, any country. Ukraine, Iran, Sudan, Afghanistan, we fly where others won't. Crypto accepted.</p>
+          <div class="page-hero__ctas">
+            <a href="#quote-form" class="btn btn--primary btn--lg">Request Quote →</a>
+            <a href="tel:+18005550199" class="btn btn--ghost-light btn--lg">Call Now: +1 800 555 0199</a>
+          </div>
+          <div class="page-hero__trust">
+            <span>200+ Fleet Partners</span>
+            <span>60+ Countries</span>
+            <span>Crypto Accepted</span>
+            <span>Fully Confidential</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATION / TRUST STRIP -->
+    <div class="cert-strip">
+      <div class="container">
+        <div class="cert-strip__inner">
+          <div class="cert-item">
+            <span class="cert-item__number">200+</span>
+            <span class="cert-item__label">Verified Operators</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-item__number">10,000+</span>
+            <span class="cert-item__label">Airports Worldwide</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-item__number cert-item__number--badge">✦ ARGUS</span>
+            <span class="cert-item__label">Operator Rating</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-item__number cert-item__number--badge">✦ Wyvern</span>
+            <span class="cert-item__label">Safety Audited</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-item__number cert-item__number--badge">✦ IS-BAO</span>
+            <span class="cert-item__label">Safety Standard</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-item__number cert-item__number--badge">✦ NBAA</span>
+            <span class="cert-item__label">Industry Member</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-item__number cert-item__number--badge">24 / 7</span>
+            <span class="cert-item__label">Operations Centre</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AIRCRAFT TIER CARDS -->
+    <section class="section" id="charter-options">
+      <div class="container">
+        <div class="text-center" style="margin-bottom:0">
+          <span class="section-label">Aircraft Categories</span>
+          <h2 class="section__title" style="margin-top:.5rem">Select Your Charter Class</h2>
+          <p class="section__subtitle">From short regional hops to intercontinental evacuations, every aircraft type, every budget, every route.</p>
+        </div>
+
+        <div class="aircraft-tiers">
+
+          <!-- TURBO PROP -->
+          <div class="aircraft-tier">
+            <div class="aircraft-tier__photo">
+              <img src="https://images.unsplash.com/photo-1660968601185-e7414de388f4?auto=format&fit=crop&w=900&q=85"
+                   alt="Turboprop charter aircraft, King Air 350 short-runway regional flight" loading="lazy">
+              <div class="aircraft-tier__photo-overlay">
+                <span class="aircraft-tier__category">Turbo Prop</span>
+                <span class="aircraft-tier__example">King Air 350 &nbsp;·&nbsp; Pilatus PC-12 &nbsp;·&nbsp; TBM 940</span>
+              </div>
+            </div>
+            <div class="aircraft-tier__body">
+              <div class="aircraft-tier__price-row">
+                <span class="aircraft-tier__from">From</span>
+                <span class="aircraft-tier__price">$8,000</span>
+                <span class="aircraft-tier__per">per charter</span>
+              </div>
+              <div class="aircraft-tier__specs">
+                <div class="spec-item">
+                  <span class="spec-item__label">Passengers</span>
+                  <span class="spec-item__value">4 – 6</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-item__label">Range</span>
+                  <span class="spec-item__value">~1,100 NM</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-item__label">Wheels-Up</span>
+                  <span class="spec-item__value">~4 hours</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-item__label">Airstrip</span>
+                  <span class="spec-item__value">Short/unpaved</span>
+                </div>
+              </div>
+              <ul class="aircraft-tier__features">
+                <li>Regional border crossings and short hops</li>
+                <li>Access to unpaved and remote airstrips</li>
+                <li>Lowest cost point, fastest to arrange</li>
+                <li>Ideal for Iran, Iraq, and Caucasus routes</li>
+              </ul>
+              <a href="#quote-form" class="btn btn--outline btn--full">Request Quote →</a>
+            </div>
+          </div>
+
+          <!-- MID-SIZE JET (Featured) -->
+          <div class="aircraft-tier aircraft-tier--featured">
+            <div class="aircraft-tier__badge">Most Requested</div>
+            <div class="aircraft-tier__photo">
+              <img src="https://images.unsplash.com/photo-1767491629887-6fbe6eadf47f?auto=format&fit=crop&w=900&q=85"
+                   alt="Mid-size private jet on tarmac, Challenger 350 charter Middle East" loading="lazy">
+              <div class="aircraft-tier__photo-overlay">
+                <span class="aircraft-tier__category">Mid-Size Jet</span>
+                <span class="aircraft-tier__example">Challenger 350 &nbsp;·&nbsp; Citation XLS &nbsp;·&nbsp; Hawker 900XP</span>
+              </div>
+            </div>
+            <div class="aircraft-tier__body">
+              <div class="aircraft-tier__price-row">
+                <span class="aircraft-tier__from">From</span>
+                <span class="aircraft-tier__price">$32,000</span>
+                <span class="aircraft-tier__per">per charter</span>
+              </div>
+              <div class="aircraft-tier__specs">
+                <div class="spec-item">
+                  <span class="spec-item__label">Passengers</span>
+                  <span class="spec-item__value">8 – 12</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-item__label">Range</span>
+                  <span class="spec-item__value">~3,000 NM</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-item__label">Wheels-Up</span>
+                  <span class="spec-item__value">~6 hours</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-item__label">Coverage</span>
+                  <span class="spec-item__value">Europe · Gulf · Asia</span>
+                </div>
+              </div>
+              <ul class="aircraft-tier__features">
+                <li>Europe, Middle East, Central Asia in one leg</li>
+                <li>Stand-up cabin, full privacy throughout</li>
+                <li>Best balance of range, comfort, and cost</li>
+                <li>Preferred choice for family evacuations</li>
+              </ul>
+              <a href="#quote-form" class="btn btn--primary btn--full">Request Quote →</a>
+            </div>
+          </div>
+
+          <!-- HEAVY / LONG-RANGE -->
+          <div class="aircraft-tier">
+            <div class="aircraft-tier__photo">
+              <img src="https://images.unsplash.com/photo-1770620562966-8414ba9b1f77?auto=format&fit=crop&w=900&q=85"
+                   alt="Heavy long-range private jet, Gulfstream G550 intercontinental charter" loading="lazy">
+              <div class="aircraft-tier__photo-overlay">
+                <span class="aircraft-tier__category">Heavy / Long-Range</span>
+                <span class="aircraft-tier__example">Gulfstream G550 &nbsp;·&nbsp; Global 6000 &nbsp;·&nbsp; Falcon 8X</span>
+              </div>
+            </div>
+            <div class="aircraft-tier__body">
+              <div class="aircraft-tier__price-row">
+                <span class="aircraft-tier__from">From</span>
+                <span class="aircraft-tier__price">$45,000</span>
+                <span class="aircraft-tier__per">per charter</span>
+              </div>
+              <div class="aircraft-tier__specs">
+                <div class="spec-item">
+                  <span class="spec-item__label">Passengers</span>
+                  <span class="spec-item__value">14 – 16</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-item__label">Range</span>
+                  <span class="spec-item__value">6,000+ NM</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-item__label">Wheels-Up</span>
+                  <span class="spec-item__value">~12 hours</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-item__label">Cabin</span>
+                  <span class="spec-item__value">VIP + sleeping berths</span>
+                </div>
+              </div>
+              <ul class="aircraft-tier__features">
+                <li>Intercontinental, any destination globally</li>
+                <li>Sleeping berths for overnight flights</li>
+                <li>Satellite communications and Wi-Fi</li>
+                <li>Medical equipment and stretcher available</li>
+              </ul>
+              <a href="#quote-form" class="btn btn--outline btn--full">Request Quote →</a>
+            </div>
+          </div>
+
+        </div>
+        <p class="tier-note">* Range with planned technical stops. <a href="#quote-form">Request a free quote</a>, we respond within 1 hour with route options and pricing.</p>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section--alt" id="how-it-works">
+      <div class="container">
+        <h2 class="section__title">From Call to Takeoff</h2>
+        <p class="section__subtitle">A streamlined process designed for urgency, privacy, and reliability.</p>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <div class="timeline__step">1</div>
+            <div class="timeline__body">
+              <h3 class="timeline__heading">Contact Us</h3>
+              <p>Reach us via WhatsApp, phone, or the form below. Tell us your departure city, destination, date, and number of passengers. No details are too small, we need to know everything to move fast.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__step">2</div>
+            <div class="timeline__body">
+              <h3 class="timeline__heading">We Source the Aircraft</h3>
+              <p>Our network of 200+ operators is searched in real-time. You receive 2–3 options with full pricing within 1–3 hours. We vet each operator for safety record, crew qualifications, and permit status.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__step">3</div>
+            <div class="timeline__body">
+              <h3 class="timeline__heading">Confirm &amp; Pay</h3>
+              <p>Confirm your preferred aircraft. Pay via bank wire, USDT, BTC, or other arrangements. No public booking record is created. Escrow available for high-value charters.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__step">4</div>
+            <div class="timeline__body">
+              <h3 class="timeline__heading">Departure</h3>
+              <p>A ground handler meets you at the designated FBO or private terminal. Board and depart. Passenger manifest stays private. We remain on call throughout the flight.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+      <div class="container">
+        <div class="stats-bar__inner">
+          <div class="stat-block">
+            <span class="stat-block__number">12</span>
+            <span class="stat-block__label">Years Operating</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-block__number">4,800+</span>
+            <span class="stat-block__label">Charters Completed</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-block__number">10,000+</span>
+            <span class="stat-block__label">Airports on Network</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-block__number">130+</span>
+            <span class="stat-block__label">Countries Served</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTOGRAPHY SECTION -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="img-section img-section--reverse">
+          <div class="img-section__media">
+            <img src="https://images.unsplash.com/photo-1768346564210-f382cdf18375?auto=format&fit=crop&w=1200&q=85"
+                 alt="Luxury private jet interior, cabin configured for executive charter Middle East" loading="lazy" width="1200" height="800">
+          </div>
+          <div class="img-section__body">
+            <span class="section-label" style="margin-bottom:.75rem">Cabin Standards</span>
+            <h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;margin-bottom:1rem">Configured to Your Exact Requirements</h3>
+            <p>Every charter is arranged to your specifications, private catering, onboard medical equipment, extended luggage allowances, pet transport, and security detail accommodation. Your brief is our only brief.</p>
+            <ul style="margin:1.25rem 0 1.5rem;padding:0;list-style:none;display:flex;flex-direction:column;gap:.55rem">
+              <li style="font-size:.875rem;color:var(--text-muted);padding-left:1rem;position:relative"><span style="position:absolute;left:0;top:.5em;width:4px;height:4px;border-radius:50%;background:var(--gold);display:block"></span>Catering from departure city restaurants or onboard chef</li>
+              <li style="font-size:.875rem;color:var(--text-muted);padding-left:1rem;position:relative"><span style="position:absolute;left:0;top:.5em;width:4px;height:4px;border-radius:50%;background:var(--gold);display:block"></span>Medical equipment, stretchers, and oxygen available</li>
+              <li style="font-size:.875rem;color:var(--text-muted);padding-left:1rem;position:relative"><span style="position:absolute;left:0;top:.5em;width:4px;height:4px;border-radius:50%;background:var(--gold);display:block"></span>Pets, artwork, and oversized valuables accommodated</li>
+            </ul>
+            <a href="#quote-form" class="btn btn--primary">Request a Custom Charter →</a>
+          </div>
+        </div>
+
+        <div class="img-section" style="margin-top:5rem">
+          <div class="img-section__media">
+            <img src="https://images.unsplash.com/photo-1569629743817-70d8db6c323b?auto=format&fit=crop&w=1200&q=85"
+                 alt="Private jet departure, aircraft on tarmac at night with runway lights" loading="lazy" width="1200" height="800">
+          </div>
+          <div class="img-section__body">
+            <span class="section-label" style="margin-bottom:.75rem">Departure Network</span>
+            <h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;margin-bottom:1rem">Access Beyond Commercial Aviation</h3>
+            <p>Access to 10,000+ airports worldwide, private FBOs, military-cleared airstrips, and remote grass runways in conflict-adjacent regions. When commercial routes are suspended, closed, or monitored, we find an alternative departure point.</p>
+            <ul style="margin:1.25rem 0 1.5rem;padding:0;list-style:none;display:flex;flex-direction:column;gap:.55rem">
+              <li style="font-size:.875rem;color:var(--text-muted);padding-left:1rem;position:relative"><span style="position:absolute;left:0;top:.5em;width:4px;height:4px;border-radius:50%;background:var(--gold);display:block"></span>Private FBO terminals, no public terminal exposure</li>
+              <li style="font-size:.875rem;color:var(--text-muted);padding-left:1rem;position:relative"><span style="position:absolute;left:0;top:.5em;width:4px;height:4px;border-radius:50%;background:var(--gold);display:block"></span>Permits and overflight clearances handled by our team</li>
+              <li style="font-size:.875rem;color:var(--text-muted);padding-left:1rem;position:relative"><span style="position:absolute;left:0;top:.5em;width:4px;height:4px;border-radius:50%;background:var(--gold);display:block"></span>Ground handler meets you at the aircraft, zero waiting</li>
+            </ul>
+            <a href="#quote-form" class="btn btn--outline">Check Departure Options →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT TESTIMONIALS -->
+    <section class="section section--alt" id="testimonials">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label">Client Experiences</span>
+          <h2 class="section__title" style="margin-top:.5rem">What Our Clients Say</h2>
+          <p class="section__subtitle">All names and identifying details are withheld at the client's request. These accounts are representative of actual charter engagements.</p>
+        </div>
+        <div class="testimonials-grid">
+
+          <div class="testimonial-card">
+            <span class="testimonial-card__quote-mark">&ldquo;</span>
+            <div class="testimonial-card__stars">
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+            </div>
+            <p class="testimonial-card__text">We contacted them at 2am after the situation in our city escalated. By 7am, a Challenger was waiting at a private FBO 40 minutes from us. They handled everything, permits, ground transport, and a discreet departure. My family of six was in Tbilisi by noon.</p>
+            <div class="testimonial-card__divider"></div>
+            <span class="testimonial-card__name">A.R.</span>
+            <span class="testimonial-card__detail">Business owner · Departed Tehran, March 2024</span>
+          </div>
+
+          <div class="testimonial-card">
+            <span class="testimonial-card__quote-mark">&ldquo;</span>
+            <div class="testimonial-card__stars">
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+            </div>
+            <p class="testimonial-card__text">I paid in USDT, no bank questions, no delays. Their quote came within 45 minutes. The crew was professional and discreet. I have since referred two colleagues who needed the same service. The price was fair given what was at stake.</p>
+            <div class="testimonial-card__divider"></div>
+            <span class="testimonial-card__name">K.M.</span>
+            <span class="testimonial-card__detail">Physician · Departed Beirut, October 2023</span>
+          </div>
+
+          <div class="testimonial-card">
+            <span class="testimonial-card__quote-mark">&ldquo;</span>
+            <div class="testimonial-card__stars">
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+              <span class="testimonial-card__star">&#9733;</span>
+            </div>
+            <p class="testimonial-card__text">Most operators refused to quote for our route. These people simply said "we'll find a way." Within four hours I had three options with full pricing. The aircraft they sourced was immaculate, better than I expected for the region. Genuinely exceptional service.</p>
+            <div class="testimonial-card__divider"></div>
+            <span class="testimonial-card__name">S.T.</span>
+            <span class="testimonial-card__detail">Executive · Departed Erbil, January 2025</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section section--alt" id="why-us">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label">The Difference</span>
+          <h2 class="section__title" style="margin-top:.5rem">Why Clients Choose Us</h2>
+          <p class="section__subtitle">When the stakes are high, the firm you choose matters as much as the aircraft.</p>
+        </div>
+        <div class="why-grid">
+
+          <div class="why-card">
+            <span class="why-card__num">01</span>
+            <h3 class="why-card__title">Absolute Discretion</h3>
+            <p>No passenger manifest shared with third parties. No press contacts, no social media, no public booking records. We operate under strict confidentiality protocols, your flight is known only to those who need to know.</p>
+          </div>
+
+          <div class="why-card">
+            <span class="why-card__num">02</span>
+            <h3 class="why-card__title">Unmatched Speed</h3>
+            <p>Average wheels-up time of 6 hours from first contact. In genuine emergencies, active conflict escalation, imminent arrest risk, medical evacuation, we have arranged departure in under 3 hours. Speed is not a marketing claim. It is our operating standard.</p>
+          </div>
+
+          <div class="why-card">
+            <span class="why-card__num">03</span>
+            <h3 class="why-card__title">Crypto &amp; Wire Accepted</h3>
+            <p>We accept BTC, ETH, USDT, XMR, and other major cryptocurrencies. No bank involvement required. Full escrow arrangements available for large transactions. We serve clients for whom traditional banking is inaccessible or inadvisable.</p>
+          </div>
+
+          <div class="why-card">
+            <span class="why-card__num">04</span>
+            <h3 class="why-card__title">Safety-Vetted Operators</h3>
+            <p>Every aircraft in our network is sourced from ARGUS-rated or IS-BAO certified operators. We verify crew qualifications, maintenance records, and permit status before any quote reaches you. We do not compromise on safety.</p>
+          </div>
+
+          <div class="why-card">
+            <span class="why-card__num">05</span>
+            <h3 class="why-card__title">Sanctioned Country Experience</h3>
+            <p>We have arranged flights from Iran, Syria, Sudan, Venezuela, and other sanctioned territories through legal international aviation frameworks. Each situation is assessed individually. We give honest assessments, we do not make promises we cannot keep.</p>
+          </div>
+
+          <div class="why-card">
+            <span class="why-card__num">06</span>
+            <h3 class="why-card__title">Full End-to-End Support</h3>
+            <p>We remain on call from first contact through landing. Ground handlers at departure, permit coordination, customs documentation, and arrival assistance, all managed by our operations team so you focus only on your departure.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COVERAGE, PHOTO GRID -->
+    <section class="section" id="coverage">
+      <div class="container">
+        <div class="section__header text-center">
+          <span style="display:inline-block;background:rgba(201,168,76,.12);color:var(--gold);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem 1rem;border-radius:20px;border:1px solid rgba(201,168,76,.25);margin-bottom:1rem">130+ Countries</span>
+          <h2 class="section__title">We Fly From Any Crisis Zone</h2>
+          <p class="section__subtitle">Our network spans every major conflict-affected and sanctioned region. Below are our primary departure hubs, but we can arrange departures from virtually any airfield worldwide.</p>
+        </div>
+
+        <style>
+          .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+          }
+          .hub-card {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            height: 200px;
+            cursor: default;
+            border: 1px solid rgba(201,168,76,.15);
+            transition: transform .3s, box-shadow .3s;
+          }
+          .hub-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+          .hub-card__img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform .5s ease;
+          }
+          .hub-card:hover .hub-card__img { transform: scale(1.08); }
+          .hub-card__overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom, rgba(6,13,27,.1) 30%, rgba(6,13,27,.82) 100%);
+          }
+          .hub-card__body {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 1rem 1.1rem;
+          }
+          .hub-card__flag { font-size: 1.4rem; line-height: 1; margin-bottom: .3rem; display: block; }
+          .hub-card__city { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; font-weight: 700; color: #fff; display: block; }
+          .hub-card__region { font-size: .7rem; color: rgba(255,255,255,.65); letter-spacing: .06em; text-transform: uppercase; margin-top: .15rem; display: block; }
+          .hub-card__airports { font-size: .7rem; color: var(--gold); margin-top: .4rem; display: block; }
+          .hub-card__alert {
+            position: absolute; top: .6rem; right: .6rem;
+            background: rgba(239,68,68,.9); color: #fff;
+            font-size: .6rem; font-weight: 700; letter-spacing: .05em;
+            padding: 2px 7px; border-radius: 20px; text-transform: uppercase;
+          }
+          .hub-card__ready {
+            position: absolute; top: .6rem; right: .6rem;
+            background: rgba(16,185,129,.9); color: #fff;
+            font-size: .6rem; font-weight: 700; letter-spacing: .05em;
+            padding: 2px 7px; border-radius: 20px; text-transform: uppercase;
+          }
+          .hub-card__special {
+            position: absolute; top: .6rem; right: .6rem;
+            background: rgba(201,168,76,.95); color: #000;
+            font-size: .6rem; font-weight: 700; letter-spacing: .05em;
+            padding: 2px 7px; border-radius: 20px; text-transform: uppercase;
+          }
+          .coverage-badges { margin-top: 3rem; }
+          .coverage-badges h4 { color: var(--text-muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem; }
+          .badge-cluster { display: flex; flex-wrap: wrap; gap: .5rem; }
+          .badge-cluster .badge { font-size: .75rem; padding: .3rem .7rem; }
+        </style>
+
+        <div class="hub-grid">
+
+          <!-- Tehran / Iran -->
+          <div class="hub-card">
+            <img src="https://images.unsplash.com/photo-1549693578-d683be217e58?auto=format&fit=crop&w=700&q=80"
+                 alt="Tehran Iran, private jet charter departure hub" loading="lazy" class="hub-card__img">
+            <div class="hub-card__overlay"></div>
+            <span class="hub-card__ready">ACTIVE</span>
+            <div class="hub-card__body">
+              <span class="hub-card__flag">🇮🇷</span>
+              <span class="hub-card__city">Tehran, Iran</span>
+              <span class="hub-card__region">Middle East</span>
+              <span class="hub-card__airports">IKA · THR · MHD · SYZ · IFN</span>
+            </div>
+          </div>
+
+          <!-- Beirut / Lebanon -->
+          <div class="hub-card">
+            <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=700&q=80"
+                 alt="Beirut Lebanon, private jet charter emergency evacuation hub" loading="lazy" class="hub-card__img">
+            <div class="hub-card__overlay"></div>
+            <span class="hub-card__ready">ACTIVE</span>
+            <div class="hub-card__body">
+              <span class="hub-card__flag">🇱🇧</span>
+              <span class="hub-card__city">Beirut, Lebanon</span>
+              <span class="hub-card__region">Middle East</span>
+              <span class="hub-card__airports">BEY (Rafic Hariri Int'l)</span>
+            </div>
+          </div>
+
+          <!-- Erbil / Kurdistan -->
+          <div class="hub-card">
+            <img src="https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?auto=format&fit=crop&w=700&q=80"
+                 alt="Erbil Kurdistan Iraq, private jet hub for Iraq departures" loading="lazy" class="hub-card__img">
+            <div class="hub-card__overlay"></div>
+            <span class="hub-card__special">KEY HUB</span>
+            <div class="hub-card__body">
+              <span class="hub-card__flag">🇮🇶</span>
+              <span class="hub-card__city">Erbil / Baghdad, Iraq</span>
+              <span class="hub-card__region">Middle East</span>
+              <span class="hub-card__airports">EBL · BGW · BSR</span>
+            </div>
+          </div>
+
+          <!-- Dubai / UAE (hub) -->
+          <div class="hub-card">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80"
+                 alt="Dubai UAE skyline, major private jet charter hub Middle East" loading="lazy" class="hub-card__img">
+            <div class="hub-card__overlay"></div>
+            <span class="hub-card__special">MAIN HUB</span>
+            <div class="hub-card__body">
+              <span class="hub-card__flag">🇦🇪</span>
+              <span class="hub-card__city">Dubai, UAE</span>
+              <span class="hub-card__region">Gulf Region</span>
+              <span class="hub-card__airports">DXB · DWC · SHJ</span>
+            </div>
+          </div>
+
+          <!-- Istanbul / Turkey -->
+          <div class="hub-card">
+            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=700&q=80"
+                 alt="Istanbul Turkey Hagia Sophia, private jet transit hub" loading="lazy" class="hub-card__img">
+            <div class="hub-card__overlay"></div>
+            <span class="hub-card__special">TRANSIT HUB</span>
+            <div class="hub-card__body">
+              <span class="hub-card__flag">🇹🇷</span>
+              <span class="hub-card__city">Istanbul, Turkey</span>
+              <span class="hub-card__region">Eurasia</span>
+              <span class="hub-card__airports">IST · SAW · ESB (Ankara)</span>
+            </div>
+          </div>
+
+          <!-- Kyiv / Ukraine -->
+          <div class="hub-card">
+            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=700&q=80"
+                 alt="Kyiv Ukraine, private jet evacuation hub Eastern Europe" loading="lazy" class="hub-card__img">
+            <div class="hub-card__overlay"></div>
+            <span class="hub-card__alert">WAR ZONE</span>
+            <div class="hub-card__body">
+              <span class="hub-card__flag">🇺🇦</span>
+              <span class="hub-card__city">Kyiv / Lviv, Ukraine</span>
+              <span class="hub-card__region">Eastern Europe</span>
+              <span class="hub-card__airports">KBP · LWO · ODS, Special Ops</span>
+            </div>
+          </div>
+
+          <!-- Tbilisi / Georgia -->
+          <div class="hub-card">
+            <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=700&q=80"
+                 alt="Tbilisi Georgia, private jet hub for Caucasus region" loading="lazy" class="hub-card__img">
+            <div class="hub-card__overlay"></div>
+            <span class="hub-card__ready">ACTIVE</span>
+            <div class="hub-card__body">
+              <span class="hub-card__flag">🇬🇪</span>
+              <span class="hub-card__city">Tbilisi, Georgia</span>
+              <span class="hub-card__region">South Caucasus</span>
+              <span class="hub-card__airports">TBS · BUS (Batumi)</span>
+            </div>
+          </div>
+
+          <!-- Nairobi / Africa hub -->
+          <div class="hub-card">
+            <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=700&q=80"
+                 alt="Nairobi Kenya, private jet hub for East Africa departures" loading="lazy" class="hub-card__img">
+            <div class="hub-card__overlay"></div>
+            <span class="hub-card__special">AFRICA HUB</span>
+            <div class="hub-card__body">
+              <span class="hub-card__flag">🇰🇪</span>
+              <span class="hub-card__city">Nairobi, Kenya</span>
+              <span class="hub-card__region">East Africa</span>
+              <span class="hub-card__airports">NBO · WIL · MBA (Mombasa)</span>
+            </div>
+          </div>
+
+          <!-- Yangon / Myanmar -->
+          <div class="hub-card">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=700&q=80"
+                 alt="Myanmar Yangon, private jet charter for Southeast Asia departures" loading="lazy" class="hub-card__img">
+            <div class="hub-card__overlay"></div>
+            <span class="hub-card__alert">RESTRICTED</span>
+            <div class="hub-card__body">
+              <span class="hub-card__flag">🇲🇲</span>
+              <span class="hub-card__city">Yangon, Myanmar</span>
+              <span class="hub-card__region">Southeast Asia</span>
+              <span class="hub-card__airports">RGN · MDL, Special Planning</span>
+            </div>
+          </div>
+
+          <!-- Caracas / Venezuela -->
+          <div class="hub-card">
+            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=700&q=80"
+                 alt="Caracas Venezuela, private jet charter South America crisis zone" loading="lazy" class="hub-card__img">
+            <div class="hub-card__overlay"></div>
+            <span class="hub-card__alert">COMPLEX OPS</span>
+            <div class="hub-card__body">
+              <span class="hub-card__flag">🇻🇪</span>
+              <span class="hub-card__city">Caracas, Venezuela</span>
+              <span class="hub-card__region">South America</span>
+              <span class="hub-card__airports">CCS · BLA · MAR</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Additional cities text list -->
+        <div class="coverage-badges" style="margin-top:2.5rem">
+          <h4>Additional Active Locations</h4>
+          <div class="badge-cluster">
+            <span class="badge">Damascus*</span>
+            <span class="badge">Amman (Gaza corridor)</span>
+            <span class="badge">Sanaa*</span>
+            <span class="badge">Tripoli</span>
+            <span class="badge">Port Sudan</span>
+            <span class="badge">Khartoum*</span>
+            <span class="badge">Mogadishu</span>
+            <span class="badge">Kabul*</span>
+            <span class="badge">Almaty</span>
+            <span class="badge">Bishkek</span>
+            <span class="badge">Yerevan</span>
+            <span class="badge">Bogotá (hub)</span>
+            <span class="badge">+ 55 more countries on request</span>
+          </div>
+          <p style="margin-top:1rem;font-size:.82rem;color:var(--text-muted)">* Marked locations require special operational planning. Contact us for current status and availability.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- QUOTE FORM -->
+    <section class="section section--alt" id="quote-form">
+      <div class="container">
+        <div class="urgent-form__wrapper">
+          <div class="urgent-form__header">
+            <h2>Request a Jet Quote</h2>
+            <p>We respond within 1 hour. All inquiries are strictly confidential.</p>
+          </div>
+          <form class="urgent-form" data-form="jet_inquiry" novalidate>
+
+            <div class="form-grid form-grid--2">
+              <div class="form-group">
+                <label for="jet_name">Full Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="jet_name" name="full_name" placeholder="Your full name" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="jet_phone">WhatsApp / Phone <span aria-hidden="true">*</span></label>
+                <input type="tel" id="jet_phone" name="phone" placeholder="+1 or international number" required autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="jet_email">Email Address <span aria-hidden="true">*</span></label>
+              <input type="email" id="jet_email" name="email" placeholder="your@email.com" required autocomplete="email">
+            </div>
+
+            <div class="form-grid form-grid--2">
+              <div class="form-group">
+                <label for="jet_departure">Departure City / Country <span aria-hidden="true">*</span></label>
+                <input type="text" id="jet_departure" name="departure" placeholder="e.g. Tehran, Iran" required>
+              </div>
+              <div class="form-group">
+                <label for="jet_destination">Destination City / Country <span aria-hidden="true">*</span></label>
+                <input type="text" id="jet_destination" name="destination" placeholder="e.g. Istanbul, Turkey" required>
+              </div>
+            </div>
+
+            <div class="form-grid form-grid--2">
+              <div class="form-group">
+                <label for="jet_date">Preferred Departure Date</label>
+                <input type="date" id="jet_date" name="departure_date">
+              </div>
+              <div class="form-group form-group--checkbox" style="padding-top:2rem;">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="jet_flexible" name="date_flexible">
+                  <span>I am flexible on the date</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-grid form-grid--2">
+              <div class="form-group">
+                <label for="jet_passengers">Number of Passengers</label>
+                <select id="jet_passengers" name="passengers">
+                  <option value="">Select…</option>
+                  <option value="1-2">1–2 passengers</option>
+                  <option value="3-4">3–4 passengers</option>
+                  <option value="5-8">5–8 passengers</option>
+                  <option value="9-16">9–16 passengers</option>
+                  <option value="16+">16+ passengers</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="jet_aircraft">Aircraft Type Preference</label>
+                <select id="jet_aircraft" name="aircraft_type">
+                  <option value="">Select…</option>
+                  <option value="best_value">Best Value</option>
+                  <option value="turbo_prop">Turbo Prop</option>
+                  <option value="mid_size">Mid-Size Jet</option>
+                  <option value="heavy">Heavy Jet</option>
+                  <option value="no_preference">No Preference</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="jet_cargo">Cargo or Special Requirements</label>
+              <textarea id="jet_cargo" name="special_requirements" rows="3" placeholder="Pets, medical equipment, oversized luggage, wheelchair access, security detail…"></textarea>
+            </div>
+
+            <div class="form-grid form-grid--2">
+              <div class="form-group">
+                <label for="jet_budget">Budget Range</label>
+                <select id="jet_budget" name="budget">
+                  <option value="">Select…</option>
+                  <option value="under_15k">Under $15,000</option>
+                  <option value="15k_30k">$15,000 – $30,000</option>
+                  <option value="30k_60k">$30,000 – $60,000</option>
+                  <option value="60k_100k">$60,000 – $100,000</option>
+                  <option value="over_100k">Over $100,000</option>
+                  <option value="flexible">Flexible</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="jet_payment">Preferred Payment Method</label>
+                <select id="jet_payment" name="payment_method">
+                  <option value="">Select…</option>
+                  <option value="wire">Bank Wire</option>
+                  <option value="usdt">USDT (Tether)</option>
+                  <option value="btc">Bitcoin (BTC)</option>
+                  <option value="eth">Ethereum (ETH)</option>
+                  <option value="other_crypto">Other Cryptocurrency</option>
+                  <option value="cash">Cash</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg" style="width:100%;" onclick="typeof trackConversion === 'function' && trackConversion('jet_inquiry')">Request Jet Quote →</button>
+
+            <p class="form-disclaimer">Your inquiry is encrypted and never shared with third parties.</p>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <h2 class="section__title">Common Questions</h2>
+        <div class="accordion">
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              How quickly can you arrange a charter?
+            </button>
+            <div class="accordion__content">
+              <p>Usually 2–6 hours from the moment you confirm and payment is arranged. In extreme emergencies, active conflict escalation, immediate arrest risk, medical evacuation, we have arranged departure in under 3 hours. The more notice you can give us, the better your aircraft options and pricing.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              Can I fly from a country under sanctions?
+            </button>
+            <div class="accordion__content">
+              <p>Yes. We operate through legal international aviation frameworks and work with operators licensed in neutral jurisdictions. We have extensive experience arranging flights from Iran, Syria, Sudan, Venezuela, and other sanctioned territories. Each situation is assessed individually.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              Is crypto payment really accepted?
+            </button>
+            <div class="accordion__content">
+              <p>Yes, we accept Bitcoin (BTC), Ethereum (ETH), Tether (USDT), Monero (XMR), and other major cryptocurrencies. No bank involvement is required for crypto transactions. Full escrow arrangements are available for large transactions. We work with clients for whom traditional banking is inaccessible or inadvisable.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              Will my name appear on a passenger manifest?
+            </button>
+            <div class="accordion__content">
+              <p>Private charter manifests are not publicly accessible in the same way commercial flight records are. We operate with strict confidentiality protocols. The specifics of manifest handling vary by departure and destination country, contact us to discuss your specific situation and concerns.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              Can I bring more than normal luggage?
+            </button>
+            <div class="accordion__content">
+              <p>Yes. Private charters do not have standard luggage restrictions. You can bring substantial personal effects, artwork, documents, equipment, and valuables. Cargo-only charter arrangements are also available. We handle customs and permit requirements on your behalf where possible.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              Do you fly into active conflict zones?
+            </button>
+            <div class="accordion__content">
+              <p>This is assessed case by case. We have operators experienced in high-risk environments with conflict-zone insurance and appropriate security protocols. Flights into or out of active war zones carry additional costs and lead times. We will give you an honest assessment of feasibility, we do not make promises we cannot keep.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERNAL LINKS -->
+    <section class="section section--alt" id="also-need">
+      <div class="container">
+        <h2 class="section__title">You May Also Need</h2>
+        <p class="section__subtitle">Our services work together, most clients combine two or more.</p>
+        <div class="related-cards">
+          <a href="../services/travel-documents.html" class="related-card">
+            <span class="related-card__accent"></span>
+            <h3>Travel Documents</h3>
+            <p>Emergency passport expediting, visa assistance, and second citizenship programs. Essential before you fly.</p>
+          </a>
+          <a href="../services/relocation.html" class="related-card">
+            <span class="related-card__accent"></span>
+            <h3>Relocation Services</h3>
+            <p>Destination housing, school enrollment, legal residency, and full logistics once you land.</p>
+          </a>
+          <a href="../services/crypto.html" class="related-card">
+            <span class="related-card__accent"></span>
+            <h3>Crypto Exchange</h3>
+            <p>Convert local currency to crypto before departure. Move wealth across borders securely and privately.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">Move Now Group</div>
+          <p style="color:var(--text-muted);font-size:.9rem;margin-top:.75rem;line-height:1.7">Crisis relocation, travel documents, and secure financial services for individuals worldwide, any conflict zone, any country, 24/7.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Telegram">Telegram</a>
+            <a href="#" aria-label="WhatsApp">WhatsApp</a>
+            <a href="#" aria-label="Signal">Signal</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Services</h4>
+          <ul class="footer__links">
+            <li><a href="../services/private-jet.html">Private Jets</a></li>
+            <li><a href="../services/travel-documents.html">Travel Documents</a></li>
+            <li><a href="../services/crypto.html">Crypto Exchange</a></li>
+            <li><a href="../services/remittance.html">Remittance</a></li>
+            <li><a href="../services/communication.html">Communication</a></li>
+            <li><a href="../services/relocation.html">Relocation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <ul class="footer__links">
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../resources.html">Resources</a></li>
+            <li></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Emergency Contact</h4>
+          <a href="tel:+18005550199" style="font-size:1.4rem;font-weight:700;color:var(--gold);display:block;margin-bottom:.5rem">+1 800 555 0199</a>
+          <p style="color:var(--text-muted);font-size:.85rem">24/7, WhatsApp, Signal, Telegram available</p>
+          <a href="https://wa.me/18005550199?text=I%20need%20urgent%20assistance" class="btn btn--primary btn--sm" style="margin-top:1rem;display:inline-block">WhatsApp Now</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Move Now Group. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+        <p style="margin-top:.5rem;font-size:.75rem;color:var(--text-muted)">This website is for informational purposes. Services subject to applicable law. We operate in compliance with international regulations.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/18005550199?text=I%20need%20urgent%20assistance" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp us">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
