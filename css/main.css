@@ -347,11 +347,12 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
   animation: pulse 1.5s ease-in-out infinite; flex-shrink: 0;
 }
 .nav__emergency:hover .pulse-dot { background: #fff; }
-.nav__hamburger { display: none; flex-direction: column; gap: 5px; padding: var(--s-2); }
+.nav__hamburger { display: none; flex-direction: column; gap: 5px; padding: var(--s-2); flex-shrink: 0; }
 .nav__hamburger span {
-  display: block; width: 22px; height: 2px;
-  background: var(--text); border-radius: 2px; transition: var(--t);
+  display: block; width: 24px; height: 2.5px;
+  background: #fff; border-radius: 2px; transition: var(--t);
 }
+.nav--scrolled .nav__hamburger span { background: var(--text); }
 
 /* ============================================================
    9. MOBILE MENU
@@ -1345,6 +1346,7 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
   .nav__hamburger { display: flex; }
   .nav__actions .btn:not(.nav__emergency) { display: none; }
   .nav__emergency { display: none; }
+  .nav__actions .lang-toggle { display: none; }
   .hero__grid { grid-template-columns: 1fr; }
   .hero__form-panel { display: none; }
   .services-grid, .tiers-grid, .countries-grid { grid-template-columns: repeat(2,1fr); }
