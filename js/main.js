@@ -1,6 +1,6 @@
 /* ============================================================
    [BRAND] — MAIN JAVASCRIPT v2.0
-   Features: Live ticker · Lang toggle · Counters · Forms
+   Features: Lang toggle, Counters, Forms
    Calculator · Cart · Crypto copy · Typewriter · Clocks
    ============================================================ */
 (function () {
@@ -287,64 +287,8 @@
     });
   }
 
-  /* ── Live Ticker ─────────────────────────────────────────── */
-  function initTicker() {
-    const track = document.getElementById('tickerTrack');
-    if (!track) return;
-
-    // Simulated prices (realistic, updates every 30s with small variance)
-    var prices = {
-      BTC:  { price: 83450, change: 1.8 },
-      ETH:  { price: 2310,  change: -0.7 },
-      USDT: { price: 1.000, change: 0.01 },
-      XRP:  { price: 1.42,  change: 2.3 },
-      GOLD: { price: 3280,  change: 0.4 },
-      BNB:  { price: 598,   change: -1.2 }
-    };
-
-    function fmt(v, decimals) { return v.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
-    function renderTicker() {
-      var items = '';
-      Object.entries(prices).forEach(function([sym, d]) {
-        var sign = d.change >= 0 ? '+' : '';
-        var cls  = d.change >= 0 ? 'up' : 'down';
-        var arrow = d.change >= 0 ? '▲' : '▼';
-        var dec = sym === 'USDT' ? 3 : sym === 'GOLD' ? 0 : sym === 'BTC' ? 0 : sym === 'BNB' ? 0 : 2;
-        items += '<span class="ticker-bar__item"><span class="t-symbol">' + sym + '</span>'
-               + '<span class="t-price">$' + fmt(d.price, dec) + '</span>'
-               + '<span class="t-change ' + cls + '">' + arrow + ' ' + sign + d.change.toFixed(2) + '%</span></span>';
-      });
-      // Duplicate for seamless loop
-      track.innerHTML = items + items;
-    }
-
-    function updatePrices() {
-      Object.keys(prices).forEach(function(sym) {
-        var variance = (Math.random() - 0.5) * 0.4;
-        prices[sym].price  *= (1 + variance / 1000);
-        prices[sym].change += (Math.random() - 0.5) * 0.3;
-        prices[sym].change  = Math.max(-8, Math.min(8, prices[sym].change));
-      });
-      renderTicker();
-    }
-
-    renderTicker();
-    setInterval(updatePrices, 30000);
-
-    // Try real API (CoinGecko free tier)
-    try {
-      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether,ripple,binancecoin&vs_currencies=usd&include_24hr_change=true')
-        .then(function(r) { return r.json(); })
-        .then(function(d) {
-          if (d.bitcoin) { prices.BTC.price = d.bitcoin.usd; prices.BTC.change = d.bitcoin.usd_24h_change || 0; }
-          if (d.ethereum){ prices.ETH.price = d.ethereum.usd; prices.ETH.change = d.ethereum.usd_24h_change || 0; }
-          if (d.tether)  { prices.USDT.price = d.tether.usd; prices.USDT.change = d.tether.usd_24h_change || 0; }
-          if (d.ripple)  { prices.XRP.price = d.ripple.usd; prices.XRP.change = d.ripple.usd_24h_change || 0; }
-          if (d.binancecoin){ prices.BNB.price = d.binancecoin.usd; prices.BNB.change = d.binancecoin.usd_24h_change || 0; }
-          renderTicker();
-        }).catch(function() {});
-    } catch(e) {}
-  }
+  /* Live ticker removed — was off-brand for crisis services */
+  function initTicker() { /* no-op */ }
 
   /* ── Transfer Calculator ─────────────────────────────────── */
   function initCalculator() {
