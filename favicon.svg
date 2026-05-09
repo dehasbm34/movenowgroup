@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="Move Now Group">
+  <title>Move Now Group</title>
+  <circle cx="40" cy="40" r="38" fill="#0A1628"/>
+  <circle cx="40" cy="40" r="36" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+  <circle cx="40" cy="40" r="29" fill="none" stroke="#C9A84C" stroke-width="0.6" opacity="0.45"/>
+  <text x="40" y="56" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#C9A84C" text-anchor="middle">M</text>
+</svg>
