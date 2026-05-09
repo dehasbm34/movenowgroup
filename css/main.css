@@ -296,6 +296,13 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
 .nav--scrolled .nav__links > li > a.active,
 .nav--scrolled .nav__links > a.active { color: var(--gold); }
 .nav__dropdown { position: relative; }
+/* Invisible bridge fills the gap between link and menu so hover stays active */
+.nav__dropdown::after {
+  content: ""; position: absolute;
+  top: 100%; left: 0; right: 0; height: 14px;
+  pointer-events: none;
+}
+.nav__dropdown:hover::after { pointer-events: auto; }
 .nav__dropdown-menu {
   position: absolute; top: calc(100% + 12px); left: 50%;
   transform: translateX(-50%) translateY(-8px);
@@ -576,6 +583,95 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
 .press-logo--sans  { font-family: var(--font); font-weight: 800; letter-spacing: -0.04em; }
 .press-logo--italic { font-style: italic; }
 .press-logo--serif { font-family: var(--font-display); font-style: normal; }
+
+/* ============================================================
+   14B. SHOWCASE (passports + private jets)
+   ============================================================ */
+.showcase { background: var(--bg); }
+.showcase__grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-6);
+  margin-bottom: var(--s-12);
+}
+@media (max-width: 900px) {
+  .showcase__grid { grid-template-columns: 1fr; }
+}
+.showcase__card {
+  position: relative; background: var(--bg-surface);
+  border: 1px solid var(--border); border-radius: var(--r-lg);
+  overflow: hidden; display: flex; flex-direction: column;
+  text-decoration: none; color: inherit;
+  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+}
+.showcase__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.10);
+  border-color: var(--gold-border);
+}
+.showcase__img {
+  position: relative; height: 320px; overflow: hidden; background: #000;
+}
+.showcase__img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.showcase__card:hover .showcase__img img { transform: scale(1.05); }
+.showcase__badge {
+  position: absolute; top: var(--s-4); left: var(--s-4);
+  background: var(--gold); color: #fff;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.4rem 0.8rem;
+  border-radius: var(--r-full); box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.showcase__body { padding: var(--s-6) var(--s-6) var(--s-8); }
+.showcase__body h3 {
+  font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
+  color: var(--text); margin-bottom: var(--s-3); letter-spacing: -0.01em;
+}
+.showcase__body p {
+  font-size: 0.95rem; line-height: 1.7; color: var(--text-2);
+  margin-bottom: var(--s-4);
+}
+.showcase__list {
+  list-style: none; padding: 0; margin: 0 0 var(--s-5);
+  display: flex; flex-direction: column; gap: var(--s-2);
+}
+.showcase__list li {
+  font-size: 0.875rem; color: var(--text-2); padding-left: 1.4rem;
+  position: relative; line-height: 1.6;
+}
+.showcase__list li::before {
+  content: ""; position: absolute; left: 0; top: 0.55em;
+  width: 0.7rem; height: 2px; background: var(--gold);
+}
+.showcase__cta {
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  color: var(--gold); font-weight: 600; font-size: 0.95rem;
+  border-bottom: 1px solid transparent; padding-bottom: 2px;
+  transition: var(--t-fast);
+}
+.showcase__card:hover .showcase__cta { border-bottom-color: var(--gold); }
+
+.showcase__gallery {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-3);
+}
+@media (max-width: 900px) {
+  .showcase__gallery { grid-template-columns: repeat(2, 1fr); }
+}
+.showcase__gallery figure {
+  margin: 0; position: relative; border-radius: var(--r-md);
+  overflow: hidden; aspect-ratio: 4 / 3; background: #000;
+}
+.showcase__gallery img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.showcase__gallery figure:hover img { transform: scale(1.06); }
+.showcase__gallery figcaption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.78));
+  color: #fff; font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.02em; padding: var(--s-6) var(--s-3) var(--s-3);
+}
 
 /* ============================================================
    15. SERVICE CARDS
