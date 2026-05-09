@@ -781,17 +781,18 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
 }
 .form-card__title { font-size: 1.1875rem; font-weight: 700; margin-bottom: 4px; }
 .form-card__sub { font-size: 0.8125rem; color: var(--text-2); line-height: 1.5; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
-.form-group { margin-bottom: var(--s-4); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-5); }
+.form-group { margin-bottom: var(--s-5); }
 .form-label {
   display: block; font-size: 0.8125rem; font-weight: 600;
-  color: var(--text-2); margin-bottom: var(--s-2); letter-spacing: 0.01em;
+  color: var(--text-2); margin-bottom: var(--s-3); letter-spacing: 0.01em;
 }
 .form-label .req { color: var(--red); margin-left: 2px; }
 .form-input, .form-select, .form-textarea {
   width: 100%; background: #fff;
   border: 1.5px solid var(--border-strong); border-radius: var(--r);
-  padding: 0.75rem 1rem; color: var(--text); font-size: 0.9375rem;
+  padding: 0.95rem 1.15rem; color: var(--text); font-size: 0.9375rem;
+  line-height: 1.4;
   transition: border-color var(--t-fast), box-shadow var(--t-fast);
   appearance: none; -webkit-appearance: none;
 }
@@ -801,8 +802,8 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
 }
 .form-select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238B9AB8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 14px center;
-  padding-right: 2.5rem; cursor: pointer;
+  background-repeat: no-repeat; background-position: right 16px center;
+  padding-right: 2.75rem; cursor: pointer;
 }
 [dir="rtl"] .form-select { background-position: left 14px center; padding-right: 1rem; padding-left: 2.5rem; }
 .form-textarea { resize: vertical; min-height: 96px; line-height: 1.6; }
