@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://movenowgroup.com/">
   <meta property="og:title" content="Move Now Group: Global Crisis Services for Any Country, Any Situation">
   <meta property="og:description" content="Private jets, emergency passports in under 1 week, money transfers, crypto, and relocation. Serving clients in 80+ countries worldwide since 2015.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=85">
+  <meta property="og:image" content="https://images.pexels.com/photos/7433847/pexels-photo-7433847.jpeg?auto=compress&cs=tinysrgb&w=1200">
   <meta property="og:type" content="website">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Organization","name":"Move Now Group","url":"https://movenowgroup.com","logo":"https://movenowgroup.com/logo.svg","description":"Global crisis services: private jets, emergency travel document processing in under 1 week, crypto-powered money transfers, and relocation assistance for any country, any conflict zone, any situation.","telephone":"+1-888-000-0000","areaServed":"Worldwide","serviceType":["Crisis Evacuation","Private Jet Charter","Emergency Passport Processing","Money Transfer","Cryptocurrency Exchange","Relocation Assistance"],"sameAs":["https://wa.me/movenowgroup"]}
@@ -53,11 +53,7 @@
       <li><a href="contact.html" data-en="Contact" data-ar="اتصل بنا" data-fa="تماس">Contact</a></li>
     </ul>
     <div class="nav__actions">
-      <div class="lang-toggle" id="langToggle">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="ar">AR</button>
-        <button class="lang-btn" data-lang="fa">FA</button>
-      </div>
+      <select class="lang-select" id="langSelect" aria-label="Language"><option value="">EN</option><option value="ar">AR · العربية</option><option value="fa">FA · فارسی</option><option value="tr">TR · Türkçe</option><option value="ku">KU · کوردی</option><option value="ru">RU · Русский</option><option value="uk">UK · Українська</option><option value="es">ES · Español</option><option value="fr">FR · Français</option><option value="de">DE · Deutsch</option><option value="zh-CN">ZH · 中文</option><option value="hi">HI · हिन्दी</option><option value="ur">UR · اردو</option><option value="ps">PS · پښتو</option><option value="my">MY · မြန်မာ</option></select><div id="google_translate_element" style="display:none"></div>
       <a href="contact.html" class="btn btn--primary btn--sm" data-en="Get Help Now" data-ar="احصل على المساعدة" data-fa="کمک بگیرید">Get Help Now</a>
       <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -95,13 +91,17 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1920&q=85')"></div>
+  <div class="hero__bg" style="background-image:url('https://images.pexels.com/photos/7433847/pexels-photo-7433847.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div>
   <div class="hero__content">
     <div class="container">
       <div class="hero__grid">
         <!-- Left: Copy -->
         <div class="hero__left">
-          <p class="eyebrow" data-en="Private Crisis Services, Worldwide" data-ar="خدمات الأزمات الخاصة, عالمياً" data-fa="خدمات بحران خصوصی, سراسر جهان">Private Crisis Services, Worldwide</p>
+          <div class="hero__brand">
+            <span class="hero__brand-name">Move Now Group</span>
+            <span class="hero__brand-rule"></span>
+            <span class="hero__brand-tagline" data-en="Private Crisis Services · Worldwide · Since 2015" data-ar="خدمات أزمات خاصة · عالمياً · منذ 2015" data-fa="خدمات بحران خصوصی · سراسر جهان · از ۲۰۱۵">Private Crisis Services · Worldwide · Since 2015</span>
+          </div>
           <h1 class="hero__headline">
             <span data-en="Emergency Response" data-ar="الاستجابة للطوارئ" data-fa="پاسخ اضطراری">Emergency Response</span><br>
             <em data-en="for Any Country, Any Situation" data-ar="لأي دولة، في أي موقف" data-fa="برای هر کشوری، در هر موقعیتی">for Any Country, Any Situation</em>
@@ -568,5 +568,67 @@
 
 <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
+
+<!-- Google Translate (auto-translates entire page) -->
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+  // Restore stored language on next pageviews via cookie
+  try {
+    var stored = localStorage.getItem('mng_lang');
+    if (stored && stored !== 'en') {
+      var attempt = function(tries) {
+        var combo = document.querySelector('.goog-te-combo');
+        if (combo) { combo.value = stored; combo.dispatchEvent(new Event('change')); return; }
+        if (tries > 0) setTimeout(function(){ attempt(tries - 1); }, 200);
+      };
+      attempt(20);
+    }
+  } catch(e){}
+}
+(function () {
+  var sel = document.getElementById('langSelect');
+  if (sel) {
+    sel.addEventListener('change', function (e) {
+      var lang = e.target.value;
+      try { localStorage.setItem('mng_lang', lang || 'en'); } catch(e){}
+      var combo = document.querySelector('.goog-te-combo');
+      if (!lang || lang === 'en') {
+        // Reset by clearing the cookie and reloading
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + location.hostname;
+        location.reload();
+        return;
+      }
+      if (combo) {
+        combo.value = lang;
+        combo.dispatchEvent(new Event('change'));
+      }
+    });
+    // Pre-select stored language
+    try {
+      var stored = localStorage.getItem('mng_lang');
+      if (stored) sel.value = stored;
+    } catch(e){}
+  }
+})();
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+/* Hide Google Translate UI chrome (we use our own dropdown) */
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover,
+#goog-gt-tt,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd { display: none !important; }
+body { top: 0 !important; }
+.goog-text-highlight { background: transparent !important; box-shadow: none !important; }
+</style>
+
 </body>
 </html>

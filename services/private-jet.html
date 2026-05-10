@@ -463,11 +463,7 @@
         <a href="../contact.html">Contact</a>
       </nav>
       <div class="nav__actions">
-        <div class="lang-toggle" id="langToggle">
-          <button class="lang-btn active" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="ar">AR</button>
-          <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
+        <select class="lang-select" id="langSelect" aria-label="Language"><option value="">EN</option><option value="ar">AR · العربية</option><option value="fa">FA · فارسی</option><option value="tr">TR · Türkçe</option><option value="ku">KU · کوردی</option><option value="ru">RU · Русский</option><option value="uk">UK · Українська</option><option value="es">ES · Español</option><option value="fr">FR · Français</option><option value="de">DE · Deutsch</option><option value="zh-CN">ZH · 中文</option><option value="hi">HI · हिन्दी</option><option value="ur">UR · اردو</option><option value="ps">PS · پښتو</option><option value="my">MY · မြန်မာ</option></select><div id="google_translate_element" style="display:none"></div>
         <a href="../contact.html" class="btn btn--primary btn--sm">Get Help</a>
 
         <button class="nav__hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -1416,5 +1412,67 @@
 
   <script src="../js/translations.js"></script>
   <script src="../js/main.js"></script>
+
+<!-- Google Translate (auto-translates entire page) -->
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+  // Restore stored language on next pageviews via cookie
+  try {
+    var stored = localStorage.getItem('mng_lang');
+    if (stored && stored !== 'en') {
+      var attempt = function(tries) {
+        var combo = document.querySelector('.goog-te-combo');
+        if (combo) { combo.value = stored; combo.dispatchEvent(new Event('change')); return; }
+        if (tries > 0) setTimeout(function(){ attempt(tries - 1); }, 200);
+      };
+      attempt(20);
+    }
+  } catch(e){}
+}
+(function () {
+  var sel = document.getElementById('langSelect');
+  if (sel) {
+    sel.addEventListener('change', function (e) {
+      var lang = e.target.value;
+      try { localStorage.setItem('mng_lang', lang || 'en'); } catch(e){}
+      var combo = document.querySelector('.goog-te-combo');
+      if (!lang || lang === 'en') {
+        // Reset by clearing the cookie and reloading
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + location.hostname;
+        location.reload();
+        return;
+      }
+      if (combo) {
+        combo.value = lang;
+        combo.dispatchEvent(new Event('change'));
+      }
+    });
+    // Pre-select stored language
+    try {
+      var stored = localStorage.getItem('mng_lang');
+      if (stored) sel.value = stored;
+    } catch(e){}
+  }
+})();
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+/* Hide Google Translate UI chrome (we use our own dropdown) */
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover,
+#goog-gt-tt,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd { display: none !important; }
+body { top: 0 !important; }
+.goog-text-highlight { background: transparent !important; box-shadow: none !important; }
+</style>
+
 </body>
 </html>
