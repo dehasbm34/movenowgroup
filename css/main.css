@@ -526,24 +526,98 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
 
 /* Hero Form Panel — sits on dark hero image, so uses dark glass */
 .hero__form-panel {
-  background: rgba(10,22,40,0.88); backdrop-filter: blur(24px);
+  position: relative;
+  background: rgba(10,22,40,0.93); backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-lg);
-  padding: var(--s-7); box-shadow: var(--shadow-lg), var(--shadow-gold);
+  border: 1px solid rgba(201,168,76,0.32); border-radius: var(--r-lg);
+  padding: var(--s-6); /* slightly tighter to fit new content */
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.08),
+    0 24px 60px rgba(0,0,0,0.55),
+    0 0 90px rgba(201,168,76,0.10);
 }
+
+/* Live response indicator above tabs */
+.hero__form-status {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.55rem; margin-bottom: var(--s-3);
+  padding: 0.5rem 0.85rem;
+  background: linear-gradient(90deg, rgba(34,197,94,0.10), rgba(34,197,94,0.04));
+  border: 1px solid rgba(34,197,94,0.28);
+  border-radius: var(--r);
+  font-size: 0.72rem; font-weight: 600;
+  color: rgba(220,255,230,0.92);
+  letter-spacing: 0.04em;
+}
+.hero__form-status-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #22c55e; flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(34,197,94,0.7);
+  animation: pulse-live 1.6s cubic-bezier(.4,0,.6,1) infinite;
+}
+@keyframes pulse-live {
+  0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.55); }
+  70%  { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+.hero__form-status-text { white-space: nowrap; }
+@media (max-width: 380px) {
+  .hero__form-status { font-size: 0.65rem; padding: 0.4rem 0.6rem; }
+}
+
+/* Tabs with two-line label */
 .hero__form-tabs {
-  display: flex; background: rgba(255,255,255,0.06);
-  border-radius: var(--r); padding: 3px; margin-bottom: var(--s-5); gap: 2px;
+  display: flex; background: rgba(255,255,255,0.05);
+  border-radius: var(--r); padding: 3px; margin-bottom: var(--s-4); gap: 2px;
 }
 .hero__form-tab {
-  flex: 1; padding: var(--s-2) var(--s-3); border-radius: calc(var(--r) - 2px);
-  font-size: 0.78rem; font-weight: 600; text-align: center;
-  color: rgba(255,255,255,0.45); transition: var(--t-fast); cursor: pointer;
+  flex: 1; padding: 0.55rem 0.4rem; border-radius: calc(var(--r) - 2px);
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1px;
+  text-align: center; cursor: pointer;
+  background: transparent; border: 0; color: rgba(255,255,255,0.55);
+  transition: var(--t-fast);
 }
+.hero__form-tab-label {
+  font-size: 0.78rem; font-weight: 700; line-height: 1.2;
+}
+.hero__form-tab-meta {
+  font-size: 0.62rem; font-weight: 500;
+  letter-spacing: 0.04em; opacity: 0.75;
+}
+.hero__form-tab:hover { color: rgba(255,255,255,0.85); }
 .hero__form-tab.active {
-  background: var(--gold); color: #0A1628; box-shadow: var(--shadow-sm);
+  background: var(--gold); color: #0A1628;
+  box-shadow: 0 4px 14px rgba(201,168,76,0.35);
 }
-.hero__form-panel-title { font-size: 1.15rem; font-weight: 800; margin-bottom: var(--s-4); color: #fff; letter-spacing: -0.01em; }
+.hero__form-tab.active .hero__form-tab-meta { opacity: 0.85; }
+
+/* Panel title + subtitle + promise badges */
+.hero__form-panel-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 700;
+  color: #fff; letter-spacing: -0.015em;
+  margin: 0 0 0.35rem;
+}
+.hero__form-panel-sub {
+  font-size: 0.85rem; line-height: 1.55;
+  color: rgba(255,255,255,0.65);
+  margin: 0 0 var(--s-3);
+}
+.hero__form-promises {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+  margin-bottom: var(--s-5);
+}
+.hero__form-promise {
+  font-size: 0.7rem; font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  background: rgba(201,168,76,0.13);
+  border: 1px solid rgba(201,168,76,0.32);
+  border-radius: var(--r-full);
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
 /* Form inputs inside hero panel — keep dark */
 .hero__form-panel .form-input,
 .hero__form-panel .form-select,

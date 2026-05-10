@@ -120,15 +120,37 @@
 
         <!-- Right: Tabbed urgent forms -->
         <div class="hero__form-panel">
+
+          <!-- Live response indicator -->
+          <div class="hero__form-status" role="status">
+            <span class="hero__form-status-dot" aria-hidden="true"></span>
+            <span class="hero__form-status-text">Responding now · Within 1 hour, 24/7</span>
+          </div>
+
           <div class="hero__form-tabs">
-            <button class="hero__form-tab active" data-target="heroFormMove" data-en="Move Now" data-ar="انتقل الآن" data-fa="بروید">Move Now</button>
-            <button class="hero__form-tab" data-target="heroFormDocs" data-en="Documents" data-ar="وثائق" data-fa="اسناد">Documents</button>
-            <button class="hero__form-tab" data-target="heroFormJet" data-en="Jet" data-ar="طائرة" data-fa="جت">Jet</button>
+            <button class="hero__form-tab active" data-target="heroFormMove">
+              <span class="hero__form-tab-label">Evacuate Now</span>
+              <span class="hero__form-tab-meta">Within 24h</span>
+            </button>
+            <button class="hero__form-tab" data-target="heroFormDocs">
+              <span class="hero__form-tab-label">Emergency Passport</span>
+              <span class="hero__form-tab-meta">In 24h–7d</span>
+            </button>
+            <button class="hero__form-tab" data-target="heroFormJet">
+              <span class="hero__form-tab-label">Charter a Jet</span>
+              <span class="hero__form-tab-meta">Wheels up in 4h</span>
+            </button>
           </div>
 
           <!-- Pane 1: Move -->
           <div class="hero__form-pane active" id="heroFormMove">
-            <p class="hero__form-panel-title" data-en="I Need to Leave, Urgently" data-ar="أحتاج إلى المغادرة, بشكل عاجل" data-fa="باید بروم, فوری">I Need to Leave, Urgently</p>
+            <p class="hero__form-panel-title">Crisis Evacuation</p>
+            <p class="hero__form-panel-sub">Get out of any country in 24 hours. We arrange the route, the documents, and the transport.</p>
+            <div class="hero__form-promises">
+              <span class="hero__form-promise">⚡ Within 24h</span>
+              <span class="hero__form-promise">🔒 Fully confidential</span>
+              <span class="hero__form-promise">₿ Crypto accepted</span>
+            </div>
             <form data-form="immediate_move">
               <div class="form-group">
                 <label class="form-label" data-en="Full Name" data-ar="الاسم الكامل" data-fa="نام کامل">Full Name</label>
@@ -160,14 +182,20 @@
                   <label class="form-radio"><input type="radio" name="urgency" value="week"> <span data-en="This week" data-ar="هذا الأسبوع" data-fa="این هفته">This week</span></label>
                 </div>
               </div>
-              <button type="submit" class="btn btn--primary btn--full form-submit-btn" data-en="Request Urgent Help →" data-ar="طلب المساعدة العاجلة ←" data-fa="درخواست کمک فوری ←">Request Urgent Help →</button>
-              <p class="form-trust"><span data-en="Encrypted & 100% confidential" data-ar="مشفر وسري تماماً" data-fa="رمزگذاری شده و کاملاً محرمانه">Encrypted & 100% confidential</span></p>
+              <button type="submit" class="btn btn--primary btn--full form-submit-btn">Get Help Within 1 Hour →</button>
+              <p class="form-trust">Encrypted &amp; 100% confidential · No personal data shared</p>
             </form>
           </div>
 
           <!-- Pane 2: Documents -->
           <div class="hero__form-pane" id="heroFormDocs">
-            <p class="hero__form-panel-title" data-en="Emergency Document Services" data-ar="خدمات الوثائق الطارئة" data-fa="خدمات اسناد اضطراری">Emergency Document Services</p>
+            <p class="hero__form-panel-title">Emergency Passport</p>
+            <p class="hero__form-panel-sub">Genuine passports and visas processed in as little as 24 hours, even from sanctioned or conflict-affected countries.</p>
+            <div class="hero__form-promises">
+              <span class="hero__form-promise">⚡ 24h to 7 days</span>
+              <span class="hero__form-promise">🌍 Any nationality</span>
+              <span class="hero__form-promise">₿ Crypto accepted</span>
+            </div>
             <form data-form="passport_inquiry">
               <div class="form-group">
                 <label class="form-label" data-en="Full Name" data-ar="الاسم الكامل" data-fa="نام کامل">Full Name</label>
@@ -191,14 +219,20 @@
                 <label class="form-label" data-en="Destination Country" data-ar="دولة الوجهة" data-fa="کشور مقصد">Destination Country</label>
                 <input type="text" class="form-input" name="visaDest" placeholder="e.g. Germany, Canada...">
               </div>
-              <button type="submit" class="btn btn--primary btn--full form-submit-btn" data-en="Request Document Help →" data-ar="طلب مساعدة الوثائق ←" data-fa="درخواست کمک سند ←">Request Document Help →</button>
-              <p class="form-trust"><span data-en="Response within 2 hours" data-ar="استجابة خلال ساعتين" data-fa="پاسخ ظرف ۲ ساعت">Response within 2 hours</span></p>
+              <button type="submit" class="btn btn--primary btn--full form-submit-btn">Start My Passport Now →</button>
+              <p class="form-trust">Response within 2 hours · Encrypted intake</p>
             </form>
           </div>
 
           <!-- Pane 3: Jet -->
           <div class="hero__form-pane" id="heroFormJet">
-            <p class="hero__form-panel-title" data-en="Charter a Private Jet" data-ar="استأجر طائرة خاصة" data-fa="جت خصوصی چارتر کنید">Charter a Private Jet</p>
+            <p class="hero__form-panel-title">Private Jet Charter</p>
+            <p class="hero__form-panel-sub">Wheels up in as little as 4 hours from any city. Light to heavy jets, manifest fully private.</p>
+            <div class="hero__form-promises">
+              <span class="hero__form-promise">⚡ Wheels up in 4h</span>
+              <span class="hero__form-promise">✈ 130+ countries</span>
+              <span class="hero__form-promise">₿ Crypto accepted</span>
+            </div>
             <form data-form="jet_inquiry">
               <div class="form-row">
                 <div class="form-group">
@@ -226,8 +260,8 @@
                 <label class="form-label" data-en="Your WhatsApp / Phone" data-ar="واتساب / الهاتف" data-fa="واتساپ / تلفن">Your WhatsApp / Phone</label>
                 <input type="tel" class="form-input" name="phone" required placeholder="+1 or +971...">
               </div>
-              <button type="submit" class="btn btn--primary btn--full form-submit-btn" data-en="Request Jet Quote →" data-ar="طلب عرض سعر ←" data-fa="درخواست قیمت جت ←">Request Jet Quote →</button>
-              <p class="form-trust"><span data-en="Wheels up in hours. Fully discreet." data-ar="إقلاع خلال ساعات. سري تماماً." data-fa="پرواز در چند ساعت. کاملاً محرمانه.">Wheels up in hours. Fully discreet.</span></p>
+              <button type="submit" class="btn btn--primary btn--full form-submit-btn">Get Quote in 30 Minutes →</button>
+              <p class="form-trust">Wheels up in 4 hours · Manifest fully private</p>
             </form>
           </div>
         </div>
