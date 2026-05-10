@@ -570,33 +570,33 @@
 <script src="js/translations.js"></script>
 <script src="js/main.js"></script>
 
-<!-- Google Translate (auto-detects language by browser + IP) -->
+<!-- Google Translate (cookie-based, auto-detects on first visit) -->
 <script>
 (function () {
-  // Map browser/IP code -> Google Translate language code
+  // Browser locale primary -> Google Translate target language
   var BROWSER_MAP = {
     ar: 'ar', fa: 'fa', ps: 'fa', ur: 'ur',
     tr: 'tr', az: 'tr', ku: 'ku', ckb: 'ku', kmr: 'ku',
-    ru: 'ru', be: 'ru', kk: 'ru', tg: 'ru', ky: 'ru',
+    ru: 'ru', be: 'ru', kk: 'ru', tg: 'ru', ky: 'ru', uz: 'ru',
     uk: 'uk',
-    es: 'es', ca: 'es', gl: 'es', pt: 'es',
+    es: 'es', ca: 'es', gl: 'es', pt: 'pt',
     fr: 'fr', de: 'de',
     zh: 'zh-CN', hi: 'hi', my: 'my'
   };
-  // Country (ISO-3166 alpha-2) -> language. Used as fallback if browser is generic English
+  // ISO-3166 country -> probable native language (used when browser locale is generic English)
   var COUNTRY_MAP = {
     IR: 'fa', AF: 'fa', TJ: 'fa',
     IQ: 'ar', SY: 'ar', LB: 'ar', YE: 'ar', AE: 'ar', SA: 'ar', EG: 'ar',
     JO: 'ar', PS: 'ar', KW: 'ar', BH: 'ar', OM: 'ar', QA: 'ar', LY: 'ar',
-    TN: 'ar', DZ: 'ar', MA: 'ar', SD: 'ar', SO: 'ar', MR: 'ar',
+    TN: 'ar', DZ: 'ar', MA: 'ar', SD: 'ar', SO: 'ar', MR: 'ar', DJ: 'ar', KM: 'ar',
     TR: 'tr', AZ: 'tr',
     PK: 'ur',
-    RU: 'ru', BY: 'ru', KZ: 'ru', KG: 'ru', UZ: 'ru', TM: 'ru',
+    RU: 'ru', BY: 'ru', KZ: 'ru', KG: 'ru', UZ: 'ru', TM: 'ru', AM: 'ru', GE: 'ru',
     UA: 'uk',
     ES: 'es', MX: 'es', AR: 'es', CO: 'es', PE: 'es', VE: 'es', CL: 'es',
     EC: 'es', GT: 'es', BO: 'es', DO: 'es', HN: 'es', PY: 'es', SV: 'es',
-    NI: 'es', CR: 'es', PA: 'es', UY: 'es', PR: 'es',
-    BR: 'es', PT: 'es',
+    NI: 'es', CR: 'es', PA: 'es', UY: 'es', PR: 'es', CU: 'es',
+    BR: 'pt', PT: 'pt', AO: 'pt', MZ: 'pt',
     FR: 'fr', BE: 'fr', LU: 'fr', SN: 'fr', CI: 'fr', CM: 'fr', MG: 'fr',
     DE: 'de', AT: 'de', CH: 'de', LI: 'de',
     CN: 'zh-CN', TW: 'zh-CN', HK: 'zh-CN', SG: 'zh-CN', MO: 'zh-CN',
@@ -604,80 +604,78 @@
     MM: 'my'
   };
 
+  // Set or clear the googtrans cookie. Google Translate Element reads this
+  // on page load. We must set it BEFORE the GT script initialises.
+  function setGoogTrans (lang) {
+    var hosts = [
+      '',                                  // current path only
+      '; domain=' + location.hostname,
+      '; domain=.' + location.hostname
+    ];
+    if (!lang || lang === 'en') {
+      hosts.forEach(function (h) {
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + h;
+      });
+    } else {
+      var value = '/en/' + lang;
+      hosts.forEach(function (h) {
+        document.cookie = 'googtrans=' + value + '; path=/' + h;
+      });
+    }
+  }
+
   function detectFromBrowser () {
     var raw = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
     var primary = raw.split('-')[0];
     return BROWSER_MAP[primary] || null;
   }
 
-  function detectFromIP (cb) {
-    // Free, https, no API key, returns plain country code as text
-    fetch('https://get.geojs.io/v1/ip/country.json', { cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) {
-        var country = d && (d.country || d.country_code);
-        cb(country ? COUNTRY_MAP[country.toUpperCase()] || null : null);
-      })
-      .catch(function () { cb(null); });
-  }
+  // 1) Determine language synchronously (so cookie is set before GT loads)
+  var stored = null;
+  try { stored = localStorage.getItem('mng_lang'); } catch (e) {}
 
-  function applyToGoogle (lang) {
-    if (!lang || lang === 'en') return;
-    var attempts = 0;
-    var iv = setInterval(function () {
-      var combo = document.querySelector('.goog-te-combo');
-      attempts += 1;
-      if (combo) {
-        combo.value = lang;
-        combo.dispatchEvent(new Event('change'));
-        var sel = document.getElementById('langSelect');
-        if (sel) sel.value = lang;
-        clearInterval(iv);
-      } else if (attempts > 40) {
-        clearInterval(iv);
-      }
-    }, 150);
-  }
-
-  // Decide language and stash on window so the GT init can use it
-  function decide () {
-    var stored;
-    try { stored = localStorage.getItem('mng_lang'); } catch (e) {}
-    if (stored) { window.__mngLang = stored; return; }
+  if (stored) {
+    // Returning visitor — make sure cookie matches their saved preference
+    setGoogTrans(stored);
+  } else {
+    // First visit: try the browser locale (synchronous, instant)
     var browserLang = detectFromBrowser();
     if (browserLang) {
-      window.__mngLang = browserLang;
       try { localStorage.setItem('mng_lang', browserLang); } catch (e) {}
-      return;
+      setGoogTrans(browserLang);
+    } else {
+      // Generic English browser — fall back to IP-based country detection.
+      // This is async, so it forces ONE reload on first visit.
+      fetch('https://get.geojs.io/v1/ip/country.json', { cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (!d) return;
+          var country = (d.country || d.country_code || '').toUpperCase();
+          var ipLang = COUNTRY_MAP[country];
+          if (ipLang) {
+            try { localStorage.setItem('mng_lang', ipLang); } catch (e) {}
+            setGoogTrans(ipLang);
+            location.reload();
+          } else {
+            // Country not in map — stay on English, mark detection done
+            try { localStorage.setItem('mng_lang', 'en'); } catch (e) {}
+          }
+        })
+        .catch(function () { /* fail silently, stay on English */ });
     }
-    // Browser was generic English (or unknown) — try IP geolocation
-    detectFromIP(function (ipLang) {
-      if (ipLang) {
-        window.__mngLang = ipLang;
-        try { localStorage.setItem('mng_lang', ipLang); } catch (e) {}
-        applyToGoogle(ipLang);
-      }
-    });
   }
-  decide();
 
-  // Custom dropdown wires to Google's hidden combo
+  // 2) Wire the visible dropdown
   document.addEventListener('DOMContentLoaded', function () {
     var sel = document.getElementById('langSelect');
     if (!sel) return;
-    if (window.__mngLang) sel.value = window.__mngLang;
+    var current = stored || detectFromBrowser() || 'en';
+    sel.value = current === 'en' ? '' : current;
     sel.addEventListener('change', function (e) {
       var lang = e.target.value;
       try { localStorage.setItem('mng_lang', lang || 'en'); } catch (e) {}
-      if (!lang || lang === 'en') {
-        // Clear googtrans cookie and reload to restore English
-        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
-        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + location.hostname;
-        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.' + location.hostname;
-        location.reload();
-        return;
-      }
-      applyToGoogle(lang);
+      setGoogTrans(lang);
+      location.reload();
     });
   });
 })();
@@ -688,20 +686,6 @@ function googleTranslateElementInit () {
     autoDisplay: false,
     layout: google.translate.TranslateElement.InlineLayout.SIMPLE
   }, 'google_translate_element');
-  if (window.__mngLang && window.__mngLang !== 'en') {
-    var attempts = 0;
-    var iv = setInterval(function () {
-      var combo = document.querySelector('.goog-te-combo');
-      attempts += 1;
-      if (combo) {
-        combo.value = window.__mngLang;
-        combo.dispatchEvent(new Event('change'));
-        clearInterval(iv);
-      } else if (attempts > 40) {
-        clearInterval(iv);
-      }
-    }, 150);
-  }
 }
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -712,8 +696,9 @@ function googleTranslateElementInit () {
 .goog-tooltip,
 .goog-tooltip:hover,
 #goog-gt-tt,
-.VIpgJd-ZVi9od-l4eHX-hSRGPd { display: none !important; }
-body { top: 0 !important; }
+.VIpgJd-ZVi9od-l4eHX-hSRGPd,
+.skiptranslate iframe { display: none !important; visibility: hidden !important; }
+body { top: 0 !important; position: static !important; }
 .goog-text-highlight { background: transparent !important; box-shadow: none !important; }
 </style>
 
