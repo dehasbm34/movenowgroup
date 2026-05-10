@@ -893,6 +893,8 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
   justify-content: center; font-size: 0.95rem; color: var(--gold); font-weight: 700; flex-shrink: 0;
   font-family: var(--font-display);
 }
+.testimonial-card__avatar--lock { color: var(--gold); }
+.testimonial-card__avatar--lock svg { display: block; }
 .testimonial-card__name { font-weight: 700; font-size: 0.9rem; color: var(--text); }
 .testimonial-card__role { font-size: 0.78rem; color: var(--text-muted); margin-top: 1px; }
 .testimonial-card__meta {
