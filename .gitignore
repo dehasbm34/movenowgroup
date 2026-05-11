@@ -1,0 +1,10 @@
+# Wrangler local cache
+.wrangler/
+
+# Editor / OS
+.DS_Store
+*.swp
+Thumbs.db
+
+# Node modules (none used at runtime, but in case)
+node_modules/

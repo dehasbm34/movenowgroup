@@ -34,14 +34,15 @@ window.MNG_CONFIG = {
   CLARITY_ID: '',
 
   // 5. The one real phone number for the whole site. tel: links + display.
-  PHONE: '+1-888-000-0000',           // PLACEHOLDER — swap before launch
-  PHONE_DIGITS: '+18880000000',       // PLACEHOLDER — same number, digits only for tel:
+  PHONE: '+1 (423) 766-9105',         // 24/7 emergency line, US-based
+  PHONE_DIGITS: '+14237669105',       // digits only for tel: links
 
   // 6. The one real WhatsApp number. wa.me URLs are built as `https://wa.me/{WA_DIGITS}`.
-  WA_DIGITS: '18880000000',           // PLACEHOLDER — international digits, no +
+  WA_DIGITS: '14237669105',           // international digits, no +
 
-  // 7. Primary inbox where form submissions land (also used as fallback mailto:).
-  EMAIL_URGENT: 'urgent@movenowgroup.com'  // PLACEHOLDER — confirm before launch
+  // 7. Inboxes.
+  EMAIL_URGENT:  'urgent@movenowgroup.com',  // emergency / crisis intake
+  EMAIL_SUPPORT: 'support@movenowgroup.com'  // general inquiries, privacy, legal
 };
 
 (function () {
