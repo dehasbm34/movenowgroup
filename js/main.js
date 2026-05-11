@@ -1,16 +1,105 @@
 /* ============================================================
-   [BRAND] — MAIN JAVASCRIPT v2.0
-   Features: Lang toggle, Counters, Forms
-   Calculator · Cart · Crypto copy · Typewriter · Clocks
+   Move Now Group — MAIN JAVASCRIPT v3.0
+   Features: Lang toggle, Counters, Forms, Tracking
    ============================================================ */
+
+/* ───────────────────────────────────────────────────────────
+   GOING-LIVE CONFIG  ─  Edit these 6 values to ship for real.
+   Every other reference in the codebase reads from here.
+   See /GOING_LIVE.md for the full checklist.
+   ─────────────────────────────────────────────────────────── */
+window.MNG_CONFIG = {
+  // 1. Form submission backend. Sign up at https://formspree.io (free, 50/mo)
+  //    or https://web3forms.com (free, unlimited). Paste the endpoint URL below.
+  //    Each form is tagged with its data-form value, so a single endpoint is fine.
+  FORM_ENDPOINT: '',  // e.g. 'https://formspree.io/f/xeoqkjab'
+
+  // 2. Google Analytics 4 Measurement ID (G-XXXXXXXXXX). Create one at analytics.google.com.
+  GA4_ID: '',
+
+  // 3. Google Ads Conversion ID + per-event labels. From Google Ads → Goals → Conversions.
+  GADS_CONVERSION_ID: '',        // e.g. 'AW-1234567890'
+  GADS_CONVERSION_LABELS: {
+    jet_inquiry:        '',  // label for Private Jet Charter requests
+    passport_inquiry:   '',  // label for Emergency Passport requests
+    immediate_move:     '',  // label for Crisis Relocation requests
+    crypto_inquiry:     '',  // label for Crypto Exchange requests
+    remittance_inquiry: '',  // label for Money Transfer requests
+    consultation:       '',  // label for general consultation form
+    whatsapp_click:     '',  // label for WhatsApp link clicks
+    phone_click:        ''   // label for tel: link clicks
+  },
+
+  // 4. Microsoft Clarity project ID (free session replay). https://clarity.microsoft.com
+  CLARITY_ID: '',
+
+  // 5. The one real phone number for the whole site. tel: links + display.
+  PHONE: '+1-888-000-0000',           // PLACEHOLDER — swap before launch
+  PHONE_DIGITS: '+18880000000',       // PLACEHOLDER — same number, digits only for tel:
+
+  // 6. The one real WhatsApp number. wa.me URLs are built as `https://wa.me/{WA_DIGITS}`.
+  WA_DIGITS: '18880000000',           // PLACEHOLDER — international digits, no +
+
+  // 7. Primary inbox where form submissions land (also used as fallback mailto:).
+  EMAIL_URGENT: 'urgent@movenowgroup.com'  // PLACEHOLDER — confirm before launch
+};
+
 (function () {
   'use strict';
 
-  /* ── Google Ads conversion hook ─────────────────────────── */
+  var CFG = window.MNG_CONFIG;
+
+  /* ── Tracking helpers ────────────────────────────────────── */
+  // Calls window.gtag() if present, otherwise logs. Safe to call before gtag loads.
   function trackConversion(type) {
-    // Paste your gtag snippet here and uncomment:
-    // gtag('event','conversion',{'send_to':'AW-CONVERSION_ID/LABEL_' + type});
+    try {
+      var id    = CFG.GADS_CONVERSION_ID;
+      var label = CFG.GADS_CONVERSION_LABELS[type] || '';
+      if (typeof window.gtag === 'function' && id && label) {
+        window.gtag('event', 'conversion', { send_to: id + '/' + label });
+      }
+      if (typeof window.gtag === 'function' && CFG.GA4_ID) {
+        // Mirror to GA4 as a custom event for the funnel analysis
+        window.gtag('event', type, { send_to: CFG.GA4_ID });
+      }
+    } catch (e) { /* swallow — tracking must never break UX */ }
     console.log('[ADS] conversion:', type);
+  }
+
+  // Capture UTM parameters once per session so we can attribute every conversion.
+  function captureUtmsOnce() {
+    try {
+      if (sessionStorage.getItem('mng_utm_captured')) return;
+      var p = new URLSearchParams(location.search);
+      var utm = {};
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','msclkid','fbclid','referrer']
+        .forEach(function (k) {
+          var v = k === 'referrer' ? document.referrer : p.get(k);
+          if (v) utm[k] = v;
+        });
+      if (Object.keys(utm).length) sessionStorage.setItem('mng_utm', JSON.stringify(utm));
+      sessionStorage.setItem('mng_utm_captured', '1');
+    } catch (e) {}
+  }
+  captureUtmsOnce();
+
+  function readUtms() {
+    try { return JSON.parse(sessionStorage.getItem('mng_utm') || '{}'); }
+    catch (e) { return {}; }
+  }
+
+  // Track every WhatsApp and phone click as a conversion event.
+  function initLinkTracking() {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('wa.me/') !== -1 || href.indexOf('whatsapp://') === 0) {
+        trackConversion('whatsapp_click');
+      } else if (href.indexOf('tel:') === 0) {
+        trackConversion('phone_click');
+      }
+    });
   }
 
   /* ── Body offset for fixed bars ─────────────────────────── */
@@ -260,9 +349,21 @@
         var btn = form.querySelector('button[type=submit]');
         if (btn) { btn.classList.add('btn--loading'); btn.disabled = true; }
 
-        trackConversion(form.dataset.form);
+        // Build the submission payload: all form fields + form type + UTMs + page + UA
+        var payload = {};
+        var fd = new FormData(form);
+        fd.forEach(function (v, k) {
+          // FormData allows multiple values per key (checkboxes); join them
+          payload[k] = payload[k] === undefined ? v : payload[k] + ', ' + v;
+        });
+        payload._form     = form.dataset.form;
+        payload._page     = location.pathname;
+        payload._utms     = readUtms();
+        payload._lang     = document.documentElement.getAttribute('lang') || 'en';
+        payload._subject  = 'Move Now Group — new ' + form.dataset.form + ' lead';
+        payload._referrer = document.referrer || '';
 
-        setTimeout(function () {
+        function showSuccess(message) {
           if (btn) { btn.classList.remove('btn--loading'); btn.disabled = false; }
           var formEl    = form.querySelector('.form-fields') || form;
           var successEl = form.querySelector('.form-success') || form.nextElementSibling;
@@ -275,11 +376,47 @@
             s.style.display = 'block';
             s.innerHTML = '<div class="form-success__icon">✓</div>'
               + '<h3>Request Received</h3>'
-              + '<p>Our team will contact you within <strong>1 hour</strong>. For immediate help call <a href="tel:+18880000000">+1-888-000-0000</a>.</p>';
+              + '<p>' + message + '</p>'
+              + '<p style="margin-top:.5rem;font-size:.9rem;opacity:.8;">For immediate help, call <a href="tel:' + CFG.PHONE_DIGITS + '">' + CFG.PHONE + '</a> or message us on <a href="https://wa.me/' + CFG.WA_DIGITS + '" target="_blank" rel="noopener">WhatsApp</a>.</p>';
             form.innerHTML = '';
             form.appendChild(s);
           }
-        }, 1200);
+        }
+
+        function fallbackToMailto() {
+          // If the backend is unreachable (no endpoint, network down, sanctions block),
+          // open the user's mail client with the message pre-filled so the lead is never lost.
+          var body = Object.keys(payload).map(function (k) {
+            var val = typeof payload[k] === 'object' ? JSON.stringify(payload[k]) : payload[k];
+            return k + ': ' + val;
+          }).join('%0D%0A');
+          var href = 'mailto:' + encodeURIComponent(CFG.EMAIL_URGENT)
+                   + '?subject=' + encodeURIComponent(payload._subject)
+                   + '&body=' + body;
+          window.location.href = href;
+          showSuccess('Opening your email so you can send your request directly. Our team responds within 1 hour, 24/7.');
+        }
+
+        // Fire conversion as soon as the user clicks submit (intent is captured even if network fails)
+        trackConversion(form.dataset.form);
+
+        // If no endpoint configured yet, go straight to the fallback so leads still arrive.
+        if (!CFG.FORM_ENDPOINT) {
+          fallbackToMailto();
+          return;
+        }
+
+        fetch(CFG.FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (r) {
+          if (!r.ok) throw new Error('Non-2xx from form backend: ' + r.status);
+          showSuccess('Our team will contact you within <strong>1 hour</strong>.');
+        }).catch(function (err) {
+          console.warn('[form] backend submit failed, falling back to mailto:', err);
+          fallbackToMailto();
+        });
       });
 
       // Clear error on input
@@ -453,6 +590,7 @@
     initTicker();
     initCalculator();
     initFormHandling();
+    initLinkTracking();
     initConditionalFields();
     initAccordion();
     initProductCart();
