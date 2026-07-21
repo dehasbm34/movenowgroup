@@ -1,791 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service | Move Now Group | movenowgroup.com</title>
-  <meta name="description" content="Move Now Group Terms of Service. Our services are facilitation and information only. Read our payment terms, liability limitations, sanctions compliance position, and governing law." />
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <style>
-    /* ── Legal page layout (same as privacy.html) ── */
-    .legal-layout {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 3rem;
-      align-items: start;
-      padding: 4rem 0 6rem;
-    }
-    @media (max-width: 900px) {
-      .legal-layout { grid-template-columns: 1fr; }
-      .legal-toc { display: none; }
-    }
-
-    .legal-toc {
-      position: sticky;
-      top: 6rem;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.75rem 1.5rem;
-    }
-    .legal-toc__title {
-      font-size: .7rem;
-      font-weight: 700;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      margin-bottom: 1.25rem;
-    }
-    .legal-toc a {
-      display: block;
-      font-size: .875rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      padding: .45rem 0;
-      border-bottom: 1px solid rgba(0,0,0,.06);
-      transition: color .2s;
-      line-height: 1.4;
-    }
-    .legal-toc a:hover,
-    .legal-toc a.active {
-      color: var(--gold);
-    }
-    .legal-toc a:last-child { border-bottom: none; }
-
-    .legal-content {
-      max-width: 780px;
-    }
-    .legal-meta {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-    .legal-meta__pill {
-      font-size: .78rem;
-      font-weight: 600;
-      color: var(--gold);
-      background: rgba(201,168,76,.1);
-      border: 1px solid rgba(201,168,76,.25);
-      border-radius: 20px;
-      padding: .35rem .85rem;
-    }
-    .legal-section {
-      margin-bottom: 3.25rem;
-      scroll-margin-top: 7rem;
-    }
-    .legal-section h2 {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 1rem;
-      padding-bottom: .6rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .legal-section p {
-      color: var(--text-secondary);
-      font-size: .975rem;
-      line-height: 1.85;
-      margin-bottom: 1rem;
-    }
-    .legal-section p:last-child { margin-bottom: 0; }
-    .legal-section ul,
-    .legal-section ol {
-      color: var(--text-secondary);
-      font-size: .975rem;
-      line-height: 1.85;
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .legal-section li { margin-bottom: .5rem; }
-    .legal-section strong { color: var(--text); font-weight: 600; }
-
-    .legal-callout {
-      background: rgba(201,168,76,.06);
-      border-left: 3px solid var(--gold);
-      border-radius: 0 10px 10px 0;
-      padding: 1.25rem 1.5rem;
-      margin: 1.5rem 0;
-    }
-    .legal-callout p {
-      margin: 0;
-      font-size: .95rem;
-    }
-
-    .legal-callout--warning {
-      background: rgba(220,53,69,.06);
-      border-left-color: #dc3545;
-    }
-    .legal-callout--warning { background: rgba(220,38,38,.06); border-left-color: #DC2626; }
-    .legal-callout--warning p { color: #9B1C1C; }
-
-    .legal-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-      font-size: .9rem;
-    }
-    .legal-table th {
-      text-align: left;
-      padding: .7rem 1rem;
-      background: var(--bg-elevated);
-      color: var(--gold);
-      font-size: .75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      border: 1px solid var(--border);
-    }
-    .legal-table td {
-      padding: .7rem 1rem;
-      color: var(--text-secondary);
-      border: 1px solid var(--border);
-      vertical-align: top;
-      line-height: 1.6;
-    }
-    .legal-table tr:hover td {
-      background: rgba(0,0,0,.025);
-    }
-
-    .contact-block {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.75rem;
-      margin-top: 1.5rem;
-    }
-    .contact-block a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-    .contact-block a:hover { text-decoration: underline; }
-
-    .definition-list dt {
-      color: var(--text);
-      font-weight: 600;
-      font-size: .975rem;
-      margin-top: 1rem;
-    }
-    .definition-list dd {
-      color: var(--text-secondary);
-      font-size: .975rem;
-      line-height: 1.8;
-      margin-left: 1.25rem;
-      margin-bottom: .25rem;
-    }
-  </style>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="apple-touch-icon" href="favicon.svg">
-<script>
-/* MNG analytics loader — reads window.MNG_CONFIG (defined at the top of js/main.js).
-   Loads gtag.js and Microsoft Clarity ONLY when real IDs are configured.
-   Safe to ship empty; becomes active the instant you set the IDs in main.js. */
-(function () {
-  function loadScript(src, attrs) {
-    var s = document.createElement('script');
-    s.src = src; s.async = true;
-    Object.keys(attrs || {}).forEach(function (k) { s.setAttribute(k, attrs[k]); });
-    document.head.appendChild(s);
-    return s;
-  }
-  // Wait one tick so MNG_CONFIG (defined in main.js after this <script>) is available.
-  window.addEventListener('DOMContentLoaded', function () {
-    var cfg = window.MNG_CONFIG || {};
-    var ga4  = cfg.GA4_ID;
-    var gads = cfg.GADS_CONVERSION_ID;
-    var clar = cfg.CLARITY_ID;
-    if (ga4 || gads) {
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () { window.dataLayer.push(arguments); };
-      window.gtag('js', new Date());
-      if (ga4)  { loadScript('https://www.googletagmanager.com/gtag/js?id=' + ga4); window.gtag('config', ga4, { anonymize_ip: true }); }
-      if (gads) { window.gtag('config', gads); }
-    }
-    if (clar) {
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, 'clarity', 'script', clar);
-    }
-  });
-})();
-</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Terms of Service | Move Now Group</title>
+<meta name="description" content="Move Now Group terms of service covering private aviation coordination, urgent travel support, relocation planning, lawful routing, payments, and no-guarantee limitations.">
+<link rel="canonical" href="https://movenowgroup.com/terms.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.legal-page .hero { padding: 100px 0 86px; }
+.legal-page .legal-content { max-width: 920px; }
+.legal-page .legal-card { padding: 34px; margin-bottom: 22px; }
+.legal-page .legal-card h2 { margin-bottom: 14px; }
+.legal-page .legal-card p,
+.legal-page .legal-card li { font-size: 0.98rem; }
+.legal-page .legal-card ul { padding-left: 20px; margin-top: 12px; }
+.legal-page .legal-note {
+  border-left: 3px solid var(--gold-500);
+  background: var(--paper-warm);
+  padding: 18px 22px;
+  margin-bottom: 28px;
+}
+</style>
 </head>
-<body>
+<body class="legal-page">
 
-<!-- EMERGENCY BAR -->
-<div id="emergencyBar" class="emergency-bar">
-  <span>24/7 Emergency Line, If you are in immediate danger, call now</span>
-  <a href="tel:+14237669105" class="emergency-bar__cta">+1 (423) 766-9105</a>
-  <button class="emergency-bar__close" id="emergencyBarClose" aria-label="Close">✕</button>
-</div>
+<div class="alert-bar">24/7 Emergency Line, we respond within 1 hour. Call or WhatsApp: <a href="tel:+15097806963">+1 (509) 780-6963</a></div>
 
-<!-- NAVIGATION -->
-<header class="nav" id="mainNav">
-  <div class="nav__inner container">
-    <a href="index.html" class="nav__logo" aria-label="Move Now Group"><img src="logo.svg" alt="Move Now Group" width="180" height="40"></a>
-    <nav class="nav__links" id="navLinks">
-      <a href="index.html">Home</a>
-      <div class="nav__dropdown">
-        <button class="nav__dropdown-toggle">Services ▾</button>
-        <div class="nav__dropdown-menu">
-          <a href="services/private-jet.html">Private Jets</a>
-          <a href="services/last-minute-private-jet-charter.html">Last-Minute Private Jet</a>
-          <a href="services/travel-documents.html">Travel Documents</a>
-          <a href="services/urgent-travel-coordination.html">Urgent Travel Coordination</a>
-          <a href="services/crypto.html">Crypto Exchange</a>
-          <a href="services/remittance.html">Remittance</a>
-          <a href="services/crisis-relocation-planning.html">Crisis Relocation Planning</a>
-          <a href="services/relocation.html">Relocation</a>
-        </div>
-      </div>
-      <a href="about.html">About</a>
-      <a href="resources.html">Resources</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="nav__actions">
-      <select class="lang-select" id="langSelect" aria-label="Language"><option value="">EN</option><option value="ar">AR · العربية</option><option value="fa">FA · فارسی</option><option value="tr">TR · Türkçe</option><option value="ku">KU · کوردی</option><option value="ru">RU · Русский</option><option value="uk">UK · Українська</option><option value="es">ES · Español</option><option value="fr">FR · Français</option><option value="de">DE · Deutsch</option><option value="zh-CN">ZH · 中文</option><option value="hi">HI · हिन्दी</option><option value="ur">UR · اردو</option><option value="ps">PS · پښتو</option><option value="my">MY · မြန်မာ</option></select><div id="google_translate_element" style="display:none"></div>
-      <a href="contact.html" class="btn btn--primary btn--sm">Get Help</a>
-
-      <button class="nav__hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
+<header class="site-header">
+ <div class="header-inner">
+ <a href="index.html" class="logo"><img src="logo-light.svg" alt="Move Now Group"></a>
+ <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
+ <nav class="main-nav" aria-label="Main navigation">
+ <a href="index.html">Home</a>
+ <div class="dropdown">
+ <a href="#" aria-haspopup="true">Services</a>
+ <div class="dropdown-menu">
+ <a href="services/private-jet.html">Private Jet Charter</a>
+ <a href="services/last-minute-private-jet-charter.html">Last-Minute Private Jet</a>
+ <a href="services/travel-documents.html">Travel Documents</a>
+ <a href="services/urgent-travel-coordination.html">Urgent Travel Coordination</a>
+ <a href="services/crisis-relocation-planning.html">Crisis Relocation Planning</a>
+ <a href="services/relocation.html">Relocation</a>
+ </div>
+ </div>
+ <a href="about.html">About</a>
+ <a href="contact.html">Contact</a>
+ <div class="nav-cta"><a href="contact.html" class="btn btn-gold">Get Help Now</a></div>
+ </nav>
+ </div>
 </header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu__close" id="mobileMenuClose">✕</button>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services/private-jet.html">Private Jets</a>
-          <a href="services/last-minute-private-jet-charter.html">Last-Minute Private Jet</a>
-    <a href="services/travel-documents.html">Travel Documents</a>
-          <a href="services/urgent-travel-coordination.html">Urgent Travel Coordination</a>
-    <a href="services/crypto.html">Crypto Exchange</a>
-    <a href="services/remittance.html">Remittance</a>
-          <a href="services/crisis-relocation-planning.html">Crisis Relocation Planning</a>
-          <a href="services/relocation.html">Relocation</a>
-    <a href="about.html">About</a>
-    <a href="resources.html">Resources</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <a href="tel:+14237669105" class="btn btn--danger" style="margin-top:2rem;display:block;text-align:center;">Emergency: +1 (423) 766-9105</a>
-</div><!-- PAGE HERO -->
-<section class="page-hero" style="background:linear-gradient(rgba(6,13,27,0.80) 0%,rgba(6,13,27,0.65) 100%),url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;padding:5.5rem 0 4.5rem;text-align:center;position:relative;">
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:1.5rem;font-size:.85rem;color:var(--text-muted);display:flex;align-items:center;justify-content:center;gap:.5rem;">
-      <a href="index.html" style="color:var(--gold);text-decoration:none;">Home</a>
-      <span style="color:var(--text-muted);">›</span>
-      <span>Terms of Service</span>
-    </nav>
-    <h1 class="hero__title" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:700;color:#fff;margin-bottom:1rem;">Terms of Service</h1>
-    <p class="hero__subtitle" style="font-size:1.15rem;color:var(--gold);margin-bottom:.75rem;font-weight:500;">Plain language. No hidden clauses. Governed by Australian law.</p>
-    <p style="max-width:580px;margin:0 auto;color:rgba(255,255,255,.75);font-size:.975rem;line-height:1.7;">These terms form the legal basis of our relationship. Please read them, particularly the sections on payment, sanctions compliance, and what we can and cannot guarantee.</p>
-  </div>
+<section class="hero" style="--hero-img: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1920&q=85')">
+ <div class="container">
+ <span class="eyebrow">Terms</span>
+ <h1>Terms of Service</h1>
+ <p class="lede">Plain-language terms for enquiries, quotes, coordination, payments, lawful routing, and service limits.</p>
+ </div>
 </section>
 
-<!-- MAIN CONTENT -->
-<div style="background:var(--bg-primary);">
-  <div class="container">
-    <div class="legal-layout">
+<section class="section">
+ <div class="container legal-content">
+ <div class="legal-note">
+ <strong>Legal review note:</strong> These terms should be reviewed by qualified counsel before they are treated as a complete final contract. A signed service agreement may add or replace terms for a specific client engagement.
+ </div>
 
-      <!-- SIDEBAR TOC -->
-      <aside class="legal-toc" aria-label="Table of contents">
-        <div class="legal-toc__title">Contents</div>
-        <a href="#definitions">1. Definitions</a>
-        <a href="#nature-of-services">2. Nature of Services</a>
-        <a href="#sanctions">3. Sanctions Compliance</a>
-        <a href="#no-guarantees">4. No Guarantee of Outcomes</a>
-        <a href="#payment">5. Payment Terms</a>
-        <a href="#crypto-payments">6. Cryptocurrency Payments</a>
-        <a href="#client-obligations">7. Client Obligations</a>
-        <a href="#liability">8. Limitation of Liability</a>
-        <a href="#termination">9. Termination</a>
-        <a href="#confidentiality">10. Confidentiality</a>
-        <a href="#intellectual-property">11. Intellectual Property</a>
-        <a href="#disputes">12. Disputes</a>
-        <a href="#governing-law">13. Governing Law</a>
-        <a href="#amendments">14. Amendments</a>
-        <a href="#contact-legal">15. Contact</a>
-      </aside>
+ <article class="card legal-card">
+ <h2>Nature Of Services</h2>
+ <p>Move Now Group coordinates private aviation requests, urgent travel planning, documentation readiness, relocation planning, and related support. We are not a government agency, airline, air carrier, law firm, or immigration authority.</p>
+ </article>
 
-      <!-- CONTENT -->
-      <main class="legal-content">
+ <article class="card legal-card">
+ <h2>Third-Party Operators And Professionals</h2>
+ <p>Flights are operated by certificated third-party air carriers or operators, not by Move Now Group. Legal, immigration, tax, security, medical, and regulated advice must come from qualified professionals in the relevant jurisdiction.</p>
+ </article>
 
-        <div class="legal-meta">
-          <span class="legal-meta__pill">Last Updated: May 2026</span>
-          <span class="legal-meta__pill">Jurisdiction: [To be confirmed by counsel]</span>
-          <span class="legal-meta__pill">Move Now Group Pty Ltd</span>
-        </div>
+ <article class="card legal-card">
+ <h2>No Guarantee Of Outcomes</h2>
+ <p>We do not guarantee aircraft availability, departure time, airport slots, permits, weather clearance, visa issuance, passport issuance, citizenship, residency, asylum, border entry, evacuation, payment processing, or any government decision. We coordinate practical options through lawful channels and explain known constraints.</p>
+ </article>
 
-        <div style="background:#FEF3C7;border:1.5px solid #F59E0B;border-radius:12px;padding:1.25rem 1.5rem;margin:1.5rem 0;color:#78350F;">
-          <p style="margin:0 0 .35rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase;font-size:.8rem;">Draft, legal counsel review required before reliance</p>
-          <p style="margin:0;font-size:.9rem;line-height:1.55;">This document is a working draft for review by qualified legal counsel in our governing jurisdiction. Several provisions, including governing law, sanctions licences, limitation of liability caps, and dispute resolution forum, are commercially sensitive and must be confirmed by a lawyer before this document is relied upon by either the business or any client. Items in square brackets are placeholders awaiting confirmation by the business or counsel. Until that review is complete, the more conservative of either these draft terms or any specific written Service Agreement signed between the parties should be treated as controlling.</p>
-        </div>
+ <article class="card legal-card">
+ <h2>Client Responsibilities</h2>
+ <ul>
+ <li>Provide complete, accurate, and current information.</li>
+ <li>Hold valid travel documents and comply with applicable laws, sanctions, carrier rules, and border requirements.</li>
+ <li>Respond quickly when urgent travel, charter, or relocation coordination depends on timing.</li>
+ <li>Review quotes, invoices, operator conditions, cancellation terms, and any written service agreement before payment.</li>
+ </ul>
+ </article>
 
-        <div class="legal-callout">
-          <p>By contacting us, submitting an enquiry form, making a payment, or engaging any of our services, you confirm that you have read and understood these Terms of Service and agree to be bound by them. If you do not agree, do not engage our services. These terms do not affect any mandatory consumer rights you may have under applicable law that cannot lawfully be excluded.</p>
-        </div>
+ <article class="card legal-card">
+ <h2>Payments And Cancellations</h2>
+ <p>Quotes may change based on aircraft availability, routing, permits, fuel, airport charges, crew duty time, ground handling, currency movement, and supplier terms. Services may require deposits or full payment before confirmation. Cancellation and refund rights depend on the specific supplier, operator, route, service type, and written agreement.</p>
+ </article>
 
-        <!-- 1. Definitions -->
-        <section class="legal-section" id="definitions">
-          <h2>1. Definitions</h2>
-          <dl class="definition-list">
-            <dt>"Move Now Group," "we," "us," "our"</dt>
-            <dd>Move Now Group Pty Ltd, an Australian proprietary limited company, and its authorised representatives and operational partners.</dd>
+ <article class="card legal-card">
+ <h2>Compliance</h2>
+ <p>We may refuse, pause, or cancel a request if it appears unlawful, unsafe, misleading, incomplete, sanctions-restricted, or inconsistent with operator, payment, or compliance requirements.</p>
+ </article>
 
-            <dt>"Client," "you," "your"</dt>
-            <dd>The individual or individuals who contact us, engage our services, or enter into a service agreement with us, including any person on whose behalf a service is arranged.</dd>
+ <article class="card legal-card">
+ <h2>Limitation Of Liability</h2>
+ <p>To the fullest extent permitted by law, Move Now Group is not responsible for indirect losses, missed travel, government refusal, carrier decisions, third-party delays, force majeure, weather, security closures, documentation defects, or client-provided inaccuracies. Specific liability limits may be set in a written service agreement.</p>
+ </article>
 
-            <dt>"Services"</dt>
-            <dd>The facilitation, brokerage, consultancy, and assistance services offered by Move Now Group, including but not limited to: private aviation arrangement, travel document facilitation, international money transfer, cryptocurrency exchange facilitation, satellite communication equipment supply, and crisis relocation coordination.</dd>
+ <article class="card legal-card">
+ <h2>Contact</h2>
+ <p>Questions about these terms can be sent to <a href="mailto:info@movenowgroup.com">info@movenowgroup.com</a>.</p>
+ </article>
+ </div>
+</section>
 
-            <dt>"Service Agreement"</dt>
-            <dd>The specific written or verbal agreement between Move Now Group and a Client for the provision of a defined Service, including any quoted scope, fees, and timelines.</dd>
-
-            <dt>"Engagement"</dt>
-            <dd>The commencement of a Client relationship, marked by the Client's payment of a deposit or written confirmation of a Service Agreement.</dd>
-
-            <dt>"Deposit"</dt>
-            <dd>A non-refundable upfront payment made by a Client to secure a service and initiate active work on their case.</dd>
-          </dl>
-        </section>
-
-        <!-- 2. Nature of Services -->
-        <section class="legal-section" id="nature-of-services">
-          <h2>2. Nature of Services: Facilitation and Information Only</h2>
-          <p>Move Now Group provides facilitation, brokerage, coordination, and advisory services. This distinction is critical to understanding what we do and what we do not do:</p>
-
-          <ul>
-            <li><strong>We are not a law firm.</strong> Nothing we say, write, or communicate constitutes legal advice. If you require legal advice on immigration, asylum, sanctions law, or any other legal matter, you must retain a qualified attorney licensed in the relevant jurisdiction. We can refer you to attorneys in our network, but our own communications are not legally privileged and do not constitute legal counsel.</li>
-            <li><strong>We are not an immigration authority.</strong> We do not issue visas, travel documents, or official government approvals. We facilitate access to processes and service providers that may result in the issuance of such documents. The decisions of government authorities are outside our control.</li>
-            <li><strong>We are not an airline or aircraft operator.</strong> Our aviation services involve brokering access to third-party operators. The carrier that operates any flight is a separate entity subject to its own terms, safety certifications, and legal obligations.</li>
-            <li><strong>We are not a bank or licensed financial institution.</strong> Our money transfer and cryptocurrency services involve facilitated transactions through our correspondent network. We are not a deposit-taking institution and we do not hold client funds beyond what is required to execute a specific transaction.</li>
-          </ul>
-
-          <p>Our services are information-based, network-based, and coordination-based. We apply our knowledge, relationships, and operational capabilities to your situation. The outcomes of that work depend on factors, government decisions, market conditions, border situations, flight availability, that are not entirely within our control.</p>
-          <p>This does not diminish our commitment to working hard on your behalf. It is an honest description of the limits of any private facilitation service operating in the world's most challenging environments.</p>
-        </section>
-
-        <!-- 3. Sanctions -->
-        <section class="legal-section" id="sanctions">
-          <h2>3. Sanctions Compliance</h2>
-          <p>We operate in jurisdictions that are subject to international sanctions regimes maintained by the United States (OFAC), the European Union, the United Nations Security Council, Australia (DFAT), and other bodies. Our compliance position is as follows:</p>
-
-          <div class="legal-callout">
-            <p><strong>We do not provide services to individuals or entities designated on OFAC's Specially Designated Nationals (SDN) list, the UN Consolidated Sanctions List, or the Australian Department of Foreign Affairs and Trade sanctions lists.</strong> Before engaging any client, we conduct screening against applicable sanctions lists. We reserve the right to decline or terminate any engagement where we identify a sanctions concern.</p>
-          </div>
-
-          <p>We operate under applicable OFAC general licences and specific humanitarian exemptions that permit services to individuals in sanctioned countries (including Iran, Syria, Cuba, and others) where those services are for personal humanitarian purposes and not for the benefit of designated parties or sanctioned governments.</p>
-          <p>Relevant regulatory frameworks include, but are not limited to:</p>
-          <ul>
-            <li>31 C.F.R. § 560.550 (Iran General License, personal communications)</li>
-            <li>31 C.F.R. Part 542 (Syria Sanctions Regulations, humanitarian exceptions)</li>
-            <li>OFAC General Licence 4 and related humanitarian carve-outs</li>
-            <li>Australian Autonomous Sanctions Act 2011 (Cth), as applicable</li>
-          </ul>
-          <p>By engaging our services, you confirm that you are not a designated person under any applicable sanctions regime, that you are not acting on behalf of a sanctioned entity, and that the purpose of your engagement is personal or humanitarian in nature. Providing false information in this regard voids any service agreement and may constitute a criminal offence.</p>
-          <p>We are not responsible for delays, failures, or additional costs caused by sanctions-related complications that arise during the delivery of a service, including unexpected changes to sanctions schedules or enforcement positions by any government authority.</p>
-        </section>
-
-        <!-- 4. No Guarantees -->
-        <section class="legal-section" id="no-guarantees">
-          <h2>4. No Guarantee of Outcomes</h2>
-          <p>We want to be direct: there are outcomes we pursue for our clients that we cannot guarantee. Anyone who tells you otherwise in this industry is lying to you. The following specific limitations apply:</p>
-
-          <table class="legal-table">
-            <thead>
-              <tr>
-                <th>Service Area</th>
-                <th>What We Guarantee</th>
-                <th>What We Cannot Guarantee</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Private Aviation</strong></td>
-                <td>We will use best efforts to source and confirm an aircraft meeting your requirements; we will provide options with accurate pricing and timeline estimates</td>
-                <td>Aircraft or slot availability on a specific date; clearance by destination country authorities; landing rights in all jurisdictions</td>
-              </tr>
-              <tr>
-                <td><strong>Travel Documents</strong></td>
-                <td>We will identify the most viable pathways available to you given your nationality and circumstances; we will connect you with the appropriate facilitators and legal counsel</td>
-                <td>Approval by any government authority of any visa, passport, or travel document application; processing times by government departments</td>
-              </tr>
-              <tr>
-                <td><strong>Money Transfer / Hawala</strong></td>
-                <td>We will initiate the transfer through our network and confirm receipt by the designated correspondent; we will provide you with a reference and expected delivery window</td>
-                <td>Delivery on a specific day where local conditions (banking closures, conflict disruption) prevent it; the availability of recipients in areas of active conflict</td>
-              </tr>
-              <tr>
-                <td><strong>Cryptocurrency Exchange</strong></td>
-                <td>We will execute transactions at the agreed rate within the agreed window; we will confirm wallet receipt</td>
-                <td>Cryptocurrency prices or exchange rates beyond the agreed transaction window; network congestion delays on blockchain confirmation</td>
-              </tr>
-              <tr>
-                <td><strong>Relocation Assistance</strong></td>
-                <td>We will develop a relocation plan, coordinate logistics, and brief you on each stage; we will remain available throughout the process</td>
-                <td>Entry to any specific country; the decisions of immigration officers at any border; safe passage through active conflict zones where conditions change dynamically</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <p>We work in environments where conditions can change within hours. A border that is open when we develop your plan may be closed by the time you arrive. We will update you as quickly as we receive information, but we are not responsible for outcomes caused by events outside our reasonable control.</p>
-        </section>
-
-        <!-- 5. Payment Terms -->
-        <section class="legal-section" id="payment">
-          <h2>5. Payment Terms</h2>
-          <p>The following payment terms apply to all service engagements unless a specific Service Agreement sets out alternative terms in writing:</p>
-
-          <ul>
-            <li><strong>Deposit requirement.</strong> All engagements require a non-refundable deposit before we commence active work. The deposit amount is specified in your Service Agreement and typically ranges from 25% to 50% of the total estimated fee, depending on the service and urgency.</li>
-            <li><strong>Non-refundable deposits.</strong> Deposits are non-refundable under all circumstances, including if you change your mind, if your circumstances change, or if a government authority denies an application we have pursued on your behalf. The deposit covers the time, resources, and network costs we incur from the moment work begins.</li>
-            <li><strong>Balance payments.</strong> The balance of fees is due as specified in your Service Agreement, typically before final delivery of a service (for example, before a flight departs, or before a money transfer is executed). We reserve the right to suspend service delivery if payments are not received on the agreed schedule.</li>
-            <li><strong>Additional costs.</strong> Where unforeseen costs arise, for example, a last-minute re-routing due to border closure, or additional filing fees imposed by a government authority, we will notify you immediately and obtain your approval before incurring the cost. We do not charge additional fees without your prior written consent.</li>
-            <li><strong>Refund policy.</strong> Deposits are never refunded. For balance payments, partial refunds may be considered at our sole discretion where we have been unable to deliver the agreed service due to circumstances within our control. Refunds are not provided for service failures caused by government decisions, third-party operators, or force majeure events.</li>
-            <li><strong>Force majeure.</strong> We are not liable for service delays or failures caused by war, natural disaster, pandemic, civil unrest, sudden changes in sanctions regimes, or any other event beyond our reasonable control. In such cases, we will use best efforts to find alternative solutions.</li>
-          </ul>
-        </section>
-
-        <!-- 6. Crypto Payments -->
-        <section class="legal-section" id="crypto-payments">
-          <h2>6. Cryptocurrency Payments</h2>
-          <p>We accept payment in USDT (Tether), Bitcoin (BTC), and Ethereum (ETH), in addition to traditional wire transfer and hawala arrangements. The following terms apply specifically to cryptocurrency payments:</p>
-          <ul>
-            <li><strong>Exchange rate.</strong> The exchange rate applied to cryptocurrency payments is the rate quoted to you at the time of invoice. Rates are typically valid for 30–60 minutes from the time of quotation. If the market moves significantly before your payment is confirmed on-chain, we reserve the right to re-quote.</li>
-            <li><strong>Network confirmation.</strong> A cryptocurrency payment is not considered received until it has reached the number of blockchain confirmations specified in your invoice (typically 3 for Bitcoin, 20 for Ethereum, and 1 for USDT on supported networks). We are not responsible for delays caused by blockchain network congestion.</li>
-            <li><strong>Wallet addresses.</strong> Cryptocurrency payments must be sent to the wallet address specified in your invoice. We are not responsible for payments sent to incorrect addresses. Always verify the wallet address through a secondary, confirmed channel before sending funds.</li>
-            <li><strong>No reversibility.</strong> Cryptocurrency transactions are irreversible. Once confirmed on-chain, a payment cannot be recalled. This is a property of the underlying technology and is not specific to our service.</li>
-            <li><strong>AML compliance.</strong> Consistent with our obligations under Australian anti-money laundering law and our own compliance framework, we may request information about the source of cryptocurrency funds. We do not accept funds that we have reason to believe originate from criminal activity.</li>
-            <li><strong>USDT network.</strong> When paying in USDT, specify the network (TRC-20, ERC-20, or BEP-20) in advance. Sending USDT on the wrong network may result in permanent loss of funds. We accept USDT on all three major networks but require confirmation of the intended network before issuing a wallet address.</li>
-          </ul>
-        </section>
-
-        <!-- 7. Client Obligations -->
-        <section class="legal-section" id="client-obligations">
-          <h2>7. Client Obligations</h2>
-          <p>The quality and safety of our services depends heavily on the accuracy of the information you provide. By engaging us, you agree to:</p>
-          <ul>
-            <li><strong>Provide accurate information.</strong> All information you share with us, identity documents, travel history, situation details, financial information, family composition, must be complete and accurate to the best of your knowledge. Providing false or misleading information may cause services to fail, may expose you to legal risk, and voids our liability for any resulting harm.</li>
-            <li><strong>Disclose material changes.</strong> If your situation changes materially after an engagement begins (for example, you are detained, your documents are seized, your travel plans change, or a family member's circumstances change), you must notify us immediately. Delays in notification that affect our ability to deliver a service are not our responsibility.</li>
-            <li><strong>Follow our instructions.</strong> Many of our services involve specific operational protocols, timing requirements, communication procedures, rendezvous instructions. Following these instructions precisely is essential for your safety and the success of the service. We are not responsible for failures caused by deviation from agreed instructions.</li>
-            <li><strong>Maintain communication.</strong> You must remain reachable via the communication channel(s) agreed at the start of your engagement. If we cannot reach you at a critical moment, service delivery may be delayed or compromised.</li>
-            <li><strong>Not disclose our involvement.</strong> Given the sensitive nature of our work, you must not disclose to third parties, including friends, family members who are not part of your engagement, social media contacts, or media, that you are using our services or the specific details of your service plan. Breaching this obligation may compromise your safety and the safety of our operational network.</li>
-            <li><strong>Legal compliance.</strong> You agree to use our services only for lawful purposes. We will not assist with or facilitate illegal activity, human trafficking, terrorism financing, or any other conduct that is unlawful under Australian law or international law. Engaging us for unlawful purposes voids your service agreement and may result in referral to relevant authorities.</li>
-          </ul>
-        </section>
-
-        <!-- 8. Liability -->
-        <section class="legal-section" id="liability">
-          <h2>8. Limitation of Liability</h2>
-
-          <div class="legal-callout--warning legal-callout">
-            <p>This section limits our liability to you. It is important that you read it carefully. Some of these limitations may not apply in all jurisdictions or may be limited by mandatory consumer protection laws.</p>
-          </div>
-
-          <p>To the maximum extent permitted by Australian law, including the <em>Competition and Consumer Act 2010</em> (Cth) and the Australian Consumer Law:</p>
-          <ul>
-            <li><strong>Consequential loss.</strong> Move Now Group is not liable for any indirect, consequential, incidental, special, or punitive damages arising from or related to our services, including loss of profits, loss of opportunity, loss of data, or any other economic or non-economic loss, even if we have been advised of the possibility of such damages.</li>
-            <li><strong>Cap on liability.</strong> Our total liability to you for any claim arising from or related to a specific service engagement is limited to the fees you have actually paid us for that specific engagement. We are not liable for amounts in excess of what you paid.</li>
-            <li><strong>Third-party actions.</strong> We are not liable for actions, errors, or omissions of third-party service providers, government authorities, carriers, or ground operators, even where we have referred you to or coordinated with those parties. Each third-party relationship is subject to that third party's own terms and liability framework.</li>
-            <li><strong>Force majeure.</strong> We are not liable for any failure or delay in performance caused by events beyond our reasonable control, including: acts of war, acts of terrorism, civil unrest, natural disasters, pandemics, changes in law or government policy, sanctions regime changes, or the actions of government authorities.</li>
-            <li><strong>Information accuracy.</strong> While we take reasonable care to provide accurate information about routes, document requirements, and market conditions, we are not liable for inaccuracies in information that is outside our direct knowledge and which we have obtained in good faith from third-party sources.</li>
-          </ul>
-
-          <p>Nothing in these Terms excludes, restricts, or modifies any right or remedy that you may have under Australian Consumer Law that cannot be excluded, restricted, or modified by agreement. If the Australian Consumer Law applies a non-excludable guarantee to our services, our liability for breach of that guarantee is limited, to the extent permitted by law, to re-supplying the services or paying the cost of re-supply.</p>
-        </section>
-
-        <!-- 9. Termination -->
-        <section class="legal-section" id="termination">
-          <h2>9. Termination</h2>
-          <p><strong>By the Client.</strong> You may terminate a service engagement at any time by written notice to us. Termination does not entitle you to a refund of any deposit or fees already paid. If work is in progress, we will cease work upon receiving notice and provide you with a summary of progress to date.</p>
-          <p><strong>By Move Now Group.</strong> We reserve the right to terminate any service engagement immediately and without liability if:</p>
-          <ul>
-            <li>You have provided materially false or misleading information.</li>
-            <li>We become aware that the engagement involves a sanctions-listed individual or entity.</li>
-            <li>We have reasonable grounds to believe the service is being used for unlawful purposes.</li>
-            <li>You have failed to make payments on the agreed schedule and have not remedied this within 48 hours of written notice.</li>
-            <li>Continuing the engagement would, in our reasonable assessment, create unacceptable risk to our staff, partners, or other clients.</li>
-          </ul>
-          <p>Where we terminate an engagement for reasons within our control (for example, a change in our operational capability that prevents us from delivering a specific service we agreed to), we will refund any balance payments received for work not yet performed. Deposits remain non-refundable.</p>
-        </section>
-
-        <!-- 10. Confidentiality -->
-        <section class="legal-section" id="confidentiality">
-          <h2>10. Confidentiality</h2>
-          <p>Both parties owe each other confidentiality obligations. Ours to you are set out in our <a href="privacy.html" style="color:var(--gold);text-decoration:none;">Privacy Policy</a>, which is incorporated into these Terms by reference. Yours to us are as follows:</p>
-          <ul>
-            <li>You must keep confidential all information we share with you about our operations, methods, networks, partners, pricing structures, and procedures.</li>
-            <li>You must not disclose to any third party the identity of any Move Now Group staff member, partner, or correspondent.</li>
-            <li>You must not use any information we share with you for any purpose other than arranging your own service engagement.</li>
-          </ul>
-          <p>These confidentiality obligations survive the termination of your service engagement indefinitely. Breach of these obligations may cause serious harm to our operational network and to other clients. We reserve the right to seek injunctive relief and damages for any material breach.</p>
-        </section>
-
-        <!-- 11. Intellectual Property -->
-        <section class="legal-section" id="intellectual-property">
-          <h2>11. Intellectual Property</h2>
-          <p>All content on the Move Now Group website, including text, design, graphics, and operational documentation we share with clients, is the property of Move Now Group Pty Ltd. You may not reproduce, redistribute, or use this content for any commercial purpose without our written consent.</p>
-          <p>Case plans, route assessments, and strategic documents we develop for your specific engagement remain the intellectual property of Move Now Group. You may use them for your own service-related purposes but may not share them with third parties or use them to reverse-engineer our operational methodology.</p>
-        </section>
-
-        <!-- 12. Disputes -->
-        <section class="legal-section" id="disputes">
-          <h2>12. Disputes</h2>
-          <p>We prefer to resolve disputes without litigation. If you have a concern about our services, contact us at the address below and we will attempt to resolve the matter within 14 days.</p>
-          <p>If a dispute cannot be resolved informally within 30 days, either party may refer the matter to mediation conducted under the Australian Commercial Disputes Centre (ACDC) mediation rules, with costs shared equally unless the mediator determines otherwise.</p>
-          <p>If mediation fails to resolve the dispute within 60 days of referral, either party may pursue the matter in the courts of New South Wales, Australia, as provided in Section 13.</p>
-          <p>Nothing in this section prevents either party from seeking urgent injunctive or interlocutory relief from a court where a delay would cause irreparable harm.</p>
-        </section>
-
-        <!-- 13. Governing Law -->
-        <section class="legal-section" id="governing-law">
-          <h2>13. Governing Law and Jurisdiction</h2>
-          <p>These Terms of Service, and any dispute arising out of or in connection with them or any service engagement, are governed by and construed in accordance with the laws of the State of New South Wales, Australia, without regard to its conflict of law principles.</p>
-          <p>You submit to the exclusive jurisdiction of the courts of New South Wales, Australia, for the resolution of any dispute. If you are located outside Australia, you acknowledge that this may require you to litigate in a foreign jurisdiction. Where mandatory local consumer protection laws provide you with rights that cannot be excluded by a choice-of-jurisdiction clause, those rights are not affected by this clause.</p>
-        </section>
-
-        <!-- 14. Amendments -->
-        <section class="legal-section" id="amendments">
-          <h2>14. Amendments to These Terms</h2>
-          <p>We may update these Terms of Service from time to time. Updated terms take effect when posted to this page, with the "Last Updated" date revised accordingly. We will provide at least 14 days' notice of any material changes by posting a notice on this website.</p>
-          <p>If you have an active service engagement at the time a material change takes effect, the terms in force at the commencement of your engagement continue to govern that engagement unless you agree in writing to the updated terms.</p>
-          <p>Your continued use of our services after updated terms take effect constitutes acceptance of those terms.</p>
-        </section>
-
-        <!-- 15. Contact -->
-        <section class="legal-section" id="contact-legal">
-          <h2>15. Contact</h2>
-          <p>For questions about these Terms of Service, payment arrangements, or legal correspondence:</p>
-          <div class="contact-block">
-            <p style="margin:0 0 .5rem;"><strong>Legal and Compliance</strong><br>Move Now Group Pty Ltd<br>[Registered address to be confirmed by counsel]</p>
-            <p style="margin:.75rem 0 .5rem;">Email: <a href="mailto:support@movenowgroup.com">support@movenowgroup.com</a> (legal and compliance correspondence)</p>
-            <p style="margin:.5rem 0 .5rem;">Phone (24/7): <a href="tel:+14237669105">+1 (423) 766-9105</a>, WhatsApp: <a href="https://wa.me/14237669105" target="_blank" rel="noopener">+1 (423) 766-9105</a></p>
-            <p style="margin:0;">General enquiries: <a href="contact.html">Contact page</a>, or reach us via Signal, WhatsApp, or Telegram for encrypted communication.</p>
-          </div>
-          <p style="margin-top:1.5rem;">For service enquiries (not legal matters), please use our <a href="contact.html" style="color:var(--gold);text-decoration:none;">main contact page</a> or call our 24/7 line: <a href="tel:+14237669105" style="color:var(--gold);text-decoration:none;">+1 (423) 766-9105</a>.</p>
-        </section>
-
-      </main>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <div class="footer__logo"><img src="logo-light.svg" alt="Move Now Group" width="220" height="49"></div>
-        <p style="color:var(--text-muted);font-size:.9rem;margin-top:.75rem;line-height:1.7">Crisis relocation, travel documents, and secure financial services for individuals worldwide, any conflict zone, any country, 24/7.</p>
-        <div class="footer__social">
-          <a href="#" aria-label="Telegram">Telegram</a>
-          <a href="#" aria-label="WhatsApp">WhatsApp</a>
-          <a href="#" aria-label="Signal">Signal</a>
-        </div>
-      </div>
-      <div>
-        <h4 class="footer__heading">Services</h4>
-        <ul class="footer__links">
-          <li><a href="services/private-jet.html">Private Jets</a></li>
-          <li><a href="services/last-minute-private-jet-charter.html">Last-Minute Private Jet</a></li>
-          <li><a href="services/travel-documents.html">Travel Documents</a></li>
-          <li><a href="services/urgent-travel-coordination.html">Urgent Travel Coordination</a></li>
-          <li><a href="services/crypto.html">Crypto Exchange</a></li>
-          <li><a href="services/remittance.html">Remittance</a></li>
-          <li><a href="services/crisis-relocation-planning.html">Crisis Relocation Planning</a></li>
-          <li><a href="services/relocation.html">Relocation</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="footer__heading">Company</h4>
-        <ul class="footer__links">
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="resources.html">Resources</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Service</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="footer__heading">Emergency</h4>
-        <a href="tel:+14237669105" style="font-size:1.4rem;font-weight:700;color:var(--gold);display:block;margin-bottom:.5rem">+1 (423) 766-9105</a>
-        <p style="color:var(--text-muted);font-size:.85rem">24/7, WhatsApp, Signal, Telegram</p>
-        <a href="https://wa.me/14237669105?text=I%20need%20urgent%20assistance" class="btn btn--primary btn--sm" style="margin-top:1rem;display:inline-block">WhatsApp Now</a>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <p>© 2026 Move Now Group. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
-      <p style="margin-top:.5rem;font-size:.75rem;color:var(--text-muted)">This website is for informational purposes. Services subject to applicable law.</p>
-    </div>
-  </div>
+<footer class="site-footer">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="index.html" class="logo"><img src="logo-light.svg" alt="Move Now Group"></a>
+ <p>Crisis relocation, private aviation, and emergency documents for clients worldwide, always through lawful channels. Trusted since 2015.</p>
+ </div>
+ <div>
+ <h4>Services</h4>
+ <ul>
+ <li><a href="services/private-jet.html">Private Jet Charter</a></li>
+ <li><a href="services/last-minute-private-jet-charter.html">Last-Minute Private Jet</a></li>
+ <li><a href="services/travel-documents.html">Travel Documents</a></li>
+ <li><a href="services/urgent-travel-coordination.html">Urgent Travel Coordination</a></li>
+ <li><a href="services/crisis-relocation-planning.html">Crisis Relocation Planning</a></li>
+ <li><a href="services/relocation.html">Relocation</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Company</h4>
+ <ul>
+ <li><a href="about.html">About Us</a></li>
+ <li><a href="contact.html">Contact</a></li>
+ <li><a href="privacy.html">Privacy Policy</a></li>
+ <li><a href="terms.html">Terms of Service</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Emergency</h4>
+ <ul>
+ <li><a href="tel:+15097806963">+1 (509) 780-6963</a></li>
+ <li><a href="mailto:info@movenowgroup.com">info@movenowgroup.com</a></li>
+ <li><a href="https://wa.me/15097806963">WhatsApp 24/7</a></li>
+ <li>24/7 operations desk</li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-legal">
+ <p>&copy; 2026 Move Now Group Pty Ltd. All rights reserved.</p>
+ </div>
+ </div>
 </footer>
-
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/14237669105?text=I%20need%20urgent%20assistance" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp us">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
-<!-- TOC active state on scroll -->
-<script>
-  (function() {
-    var sections = document.querySelectorAll('.legal-section[id]');
-    var tocLinks = document.querySelectorAll('.legal-toc a');
-    function onScroll() {
-      var scrollY = window.pageYOffset;
-      var active = null;
-      sections.forEach(function(sec) {
-        if (sec.offsetTop - 120 <= scrollY) active = sec.id;
-      });
-      tocLinks.forEach(function(link) {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + active);
-      });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  })();
-</script>
-
-<script src="js/translations.js"></script>
-<script src="js/main.js"></script>
-
-<!-- Google Translate (cookie-based, auto-detects on first visit) -->
-<script>
-(function () {
-  // Browser locale primary -> Google Translate target language
-  var BROWSER_MAP = {
-    ar: 'ar', fa: 'fa', ps: 'fa', ur: 'ur',
-    tr: 'tr', az: 'tr', ku: 'ku', ckb: 'ku', kmr: 'ku',
-    ru: 'ru', be: 'ru', kk: 'ru', tg: 'ru', ky: 'ru', uz: 'ru',
-    uk: 'uk',
-    es: 'es', ca: 'es', gl: 'es', pt: 'pt',
-    fr: 'fr', de: 'de',
-    zh: 'zh-CN', hi: 'hi', my: 'my'
-  };
-  // ISO-3166 country -> probable native language (used when browser locale is generic English)
-  var COUNTRY_MAP = {
-    IR: 'fa', AF: 'fa', TJ: 'fa',
-    IQ: 'ar', SY: 'ar', LB: 'ar', YE: 'ar', AE: 'ar', SA: 'ar', EG: 'ar',
-    JO: 'ar', PS: 'ar', KW: 'ar', BH: 'ar', OM: 'ar', QA: 'ar', LY: 'ar',
-    TN: 'ar', DZ: 'ar', MA: 'ar', SD: 'ar', SO: 'ar', MR: 'ar', DJ: 'ar', KM: 'ar',
-    TR: 'tr', AZ: 'tr',
-    PK: 'ur',
-    RU: 'ru', BY: 'ru', KZ: 'ru', KG: 'ru', UZ: 'ru', TM: 'ru', AM: 'ru', GE: 'ru',
-    UA: 'uk',
-    ES: 'es', MX: 'es', AR: 'es', CO: 'es', PE: 'es', VE: 'es', CL: 'es',
-    EC: 'es', GT: 'es', BO: 'es', DO: 'es', HN: 'es', PY: 'es', SV: 'es',
-    NI: 'es', CR: 'es', PA: 'es', UY: 'es', PR: 'es', CU: 'es',
-    BR: 'pt', PT: 'pt', AO: 'pt', MZ: 'pt',
-    FR: 'fr', BE: 'fr', LU: 'fr', SN: 'fr', CI: 'fr', CM: 'fr', MG: 'fr',
-    DE: 'de', AT: 'de', CH: 'de', LI: 'de',
-    CN: 'zh-CN', TW: 'zh-CN', HK: 'zh-CN', SG: 'zh-CN', MO: 'zh-CN',
-    IN: 'hi', NP: 'hi',
-    MM: 'my'
-  };
-
-  // Set or clear the googtrans cookie. Google Translate Element reads this
-  // on page load. We must set it BEFORE the GT script initialises.
-  function setGoogTrans (lang) {
-    var hosts = [
-      '',                                  // current path only
-      '; domain=' + location.hostname,
-      '; domain=.' + location.hostname
-    ];
-    if (!lang || lang === 'en') {
-      hosts.forEach(function (h) {
-        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + h;
-      });
-    } else {
-      var value = '/en/' + lang;
-      hosts.forEach(function (h) {
-        document.cookie = 'googtrans=' + value + '; path=/' + h;
-      });
-    }
-  }
-
-  function detectFromBrowser () {
-    var raw = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-    var primary = raw.split('-')[0];
-    return BROWSER_MAP[primary] || null;
-  }
-
-  // 1) Determine language synchronously (so cookie is set before GT loads)
-  var stored = null;
-  try { stored = localStorage.getItem('mng_lang'); } catch (e) {}
-
-  if (stored) {
-    // Returning visitor — make sure cookie matches their saved preference
-    setGoogTrans(stored);
-  } else {
-    // First visit: try the browser locale (synchronous, instant)
-    var browserLang = detectFromBrowser();
-    if (browserLang) {
-      try { localStorage.setItem('mng_lang', browserLang); } catch (e) {}
-      setGoogTrans(browserLang);
-    } else {
-      // Generic English browser — fall back to IP-based country detection.
-      // This is async, so it forces ONE reload on first visit.
-      fetch('https://get.geojs.io/v1/ip/country.json', { cache: 'no-store' })
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (d) {
-          if (!d) return;
-          var country = (d.country || d.country_code || '').toUpperCase();
-          var ipLang = COUNTRY_MAP[country];
-          if (ipLang) {
-            try { localStorage.setItem('mng_lang', ipLang); } catch (e) {}
-            setGoogTrans(ipLang);
-            location.reload();
-          } else {
-            // Country not in map — stay on English, mark detection done
-            try { localStorage.setItem('mng_lang', 'en'); } catch (e) {}
-          }
-        })
-        .catch(function () { /* fail silently, stay on English */ });
-    }
-  }
-
-  // 2) Wire the visible dropdown
-  document.addEventListener('DOMContentLoaded', function () {
-    var sel = document.getElementById('langSelect');
-    if (!sel) return;
-    var current = stored || detectFromBrowser() || 'en';
-    sel.value = current === 'en' ? '' : current;
-    sel.addEventListener('change', function (e) {
-      var lang = e.target.value;
-      try { localStorage.setItem('mng_lang', lang || 'en'); } catch (e) {}
-      setGoogTrans(lang);
-      location.reload();
-    });
-  });
-})();
-
-function googleTranslateElementInit () {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false,
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-  }, 'google_translate_element');
-}
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<style>
-/* Hide Google Translate UI chrome (we use our own dropdown) */
-.goog-te-banner-frame,
-.goog-te-balloon-frame,
-.goog-tooltip,
-.goog-tooltip:hover,
-#goog-gt-tt,
-.VIpgJd-ZVi9od-l4eHX-hSRGPd,
-.skiptranslate iframe { display: none !important; visibility: hidden !important; }
-body { top: 0 !important; position: static !important; }
-.goog-text-highlight { background: transparent !important; box-shadow: none !important; }
-</style>
 
 </body>
 </html>

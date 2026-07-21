@@ -1,14 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="Move Now Group">
-  <title>Move Now Group</title>
-  <!-- Mark: deep navy disc, gold ring, fine inner ring, serif M -->
-  <g>
-    <circle cx="40" cy="40" r="34" fill="#0A1628"/>
-    <circle cx="40" cy="40" r="34" fill="none" stroke="#C9A84C" stroke-width="1.25"/>
-    <circle cx="40" cy="40" r="28" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.4"/>
-    <text x="40" y="54.5" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" fill="#C9A84C" text-anchor="middle">M</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 88" role="img" aria-label="Move Now Group">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C9A35C"/>
+      <stop offset="0.55" stop-color="#B08B47"/>
+      <stop offset="1" stop-color="#8F6E33"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Emblem: globe ring with ascending flight path -->
+  <g transform="translate(44,44)">
+    <circle r="34" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
+    <circle r="28" fill="none" stroke="url(#gold)" stroke-width="0.8" opacity="0.55"/>
+    <path d="M 0,-28 A 14,28 0 0 1 0,28 A 14,28 0 0 1 0,-28" fill="none" stroke="url(#gold)" stroke-width="0.8" opacity="0.55"/>
+    <path d="M -28,0 A 28,10 0 0 0 28,0" fill="none" stroke="url(#gold)" stroke-width="0.8" opacity="0.55"/>
+    <path d="M -28,0 A 28,10 0 0 1 28,0" fill="none" stroke="url(#gold)" stroke-width="0.8" opacity="0.55"/>
+    <path d="M -22,16 C -8,12 4,2 18,-14" fill="none" stroke="#0E1A2E" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M 18,-14 L 8.5,-12.2 L 13.4,-8.2 Z" fill="#0E1A2E"/>
+    <path d="M 20,-16.5 L 27,-23.5 L 24.8,-14.6 Z" fill="url(#gold)"/>
+    <path d="M 24,-25 l 1.3,3.2 3.2,1.3 -3.2,1.3 -1.3,3.2 -1.3,-3.2 -3.2,-1.3 3.2,-1.3 Z" fill="url(#gold)"/>
   </g>
+
   <!-- Wordmark -->
-  <text x="92" y="40" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-size="26" font-weight="700" letter-spacing="2.5" fill="#0A1628">MOVE NOW</text>
-  <line x1="92" y1="48" x2="285" y2="48" stroke="#C9A84C" stroke-width="0.75"/>
-  <text x="92" y="64" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="600" letter-spacing="5.5" fill="#475569">GROUP &#183; WORLDWIDE</text>
+  <g fill="#0E1A2E">
+    <text x="96" y="44" font-family="Playfair Display, Georgia, serif" font-size="27" font-weight="600" letter-spacing="1">MOVE NOW</text>
+    <text x="97" y="66" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" letter-spacing="7.5" fill="#B08B47">GROUP</text>
+  </g>
 </svg>

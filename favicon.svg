@@ -1,7 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="Move Now Group">
-  <title>Move Now Group</title>
-  <circle cx="40" cy="40" r="38" fill="#0A1628"/>
-  <circle cx="40" cy="40" r="36" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
-  <circle cx="40" cy="40" r="29" fill="none" stroke="#C9A84C" stroke-width="0.6" opacity="0.45"/>
-  <text x="40" y="56" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#C9A84C" text-anchor="middle">M</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E4C687"/>
+      <stop offset="1" stop-color="#A98543"/>
+    </linearGradient>
+  </defs>
+  <rect width="88" height="88" rx="18" fill="#081124"/>
+  <g transform="translate(44,44)">
+    <circle r="30" fill="none" stroke="url(#g)" stroke-width="2.5"/>
+    <path d="M 0,-24 A 12,24 0 0 1 0,24 A 12,24 0 0 1 0,-24" fill="none" stroke="url(#g)" stroke-width="0.9" opacity="0.6"/>
+    <path d="M -24,0 A 24,9 0 0 0 24,0" fill="none" stroke="url(#g)" stroke-width="0.9" opacity="0.6"/>
+    <path d="M -19,14 C -7,10 3,2 15,-12" fill="none" stroke="#F4EDE0" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M 15,-12 L 6.5,-10.4 L 10.8,-6.8 Z" fill="#F4EDE0"/>
+    <path d="M 17,-14.5 L 23,-20.5 L 21.2,-12.9 Z" fill="url(#g)"/>
+  </g>
 </svg>

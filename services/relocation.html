@@ -1,1426 +1,576 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crisis Relocation & Asylum Assistance | Worldwide | Move Now Group</title>
-  <meta name="description" content="Professional relocation assistance for individuals and families fleeing conflict, persecution, or sanctions. Asylum guidance, safe routes, and settlement support worldwide.">
-  <meta name="keywords" content="crisis relocation assistance, refugee relocation Turkey Germany Canada, asylum application help Iran Afghanistan Ukraine, emergency evacuation service, conflict zone relocation">
-  <link rel="canonical" href="https://movenowgroup.com/services/relocation">
-  <meta property="og:title" content="Crisis Relocation & Asylum Assistance | Move Now Group">
-  <meta property="og:description" content="Professional relocation assistance for individuals and families fleeing conflict, persecution, or sanctions. Asylum guidance, safe routes, and settlement support.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=80">
-  <meta property="og:type" content="website">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Crisis Relocation Assistance",
-    "provider": { "@type": "Organization", "name": "Move Now Group" },
-    "description": "Safe relocation, asylum application guidance, and settlement support for individuals and families worldwide",
-    "areaServed": ["Worldwide"],
-    "serviceType": "Relocation Assistance"
-  }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/main.css">
-  <style>
-    /* ── Country Card Component (destination version) ── */
-    .dest-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-top: 2.5rem;
-    }
-    .dest-card {
-      background: var(--navy-mid);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(201,168,76,.15);
-      transition: transform .3s ease, box-shadow .3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .dest-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(0,0,0,.5), 0 0 0 1px rgba(201,168,76,.3);
-    }
-    .dest-card__img-wrap {
-      position: relative;
-      height: 200px;
-      overflow: hidden;
-    }
-    .dest-card__img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s ease;
-    }
-    .dest-card:hover .dest-card__img {
-      transform: scale(1.07);
-    }
-    .dest-card__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(6,13,27,.1) 0%, rgba(6,13,27,.7) 100%);
-    }
-    .dest-card__top {
-      position: absolute;
-      top: .75rem;
-      left: .75rem;
-      right: .75rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .dest-card__flag {
-      font-size: 2rem;
-      line-height: 1;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,.5));
-    }
-    .dest-card__badges {
-      display: flex;
-      gap: .4rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .dest-badge {
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 20px;
-    }
-    .dest-badge--green  { background: rgba(16,185,129,.9); color: #fff; }
-    .dest-badge--yellow { background: rgba(245,158,11,.9);  color: #000; }
-    .dest-badge--red    { background: rgba(239,68,68,.9);   color: #fff; }
-    .dest-badge--blue   { background: rgba(59,130,246,.9);  color: #fff; }
-    .dest-badge--gold   { background: var(--gold);           color: #000; }
-    .dest-card__name-wrap {
-      position: absolute;
-      bottom: .75rem;
-      left: .75rem;
-    }
-    .dest-card__name {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.1;
-      margin: 0;
-      text-shadow: 0 2px 8px rgba(0,0,0,.8);
-    }
-    .dest-card__region {
-      font-size: .75rem;
-      color: rgba(255,255,255,.7);
-      margin-top: .2rem;
-    }
-    .dest-card__stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid rgba(201,168,76,.1);
-    }
-    .dest-card__stat {
-      padding: .75rem 1rem;
-      border-right: 1px solid rgba(201,168,76,.1);
-      text-align: center;
-    }
-    .dest-card__stat:nth-child(even) { border-right: none; }
-    .dest-card__stat-val {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--gold);
-      display: block;
-    }
-    .dest-card__stat-lbl {
-      font-size: .65rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      margin-top: .15rem;
-      display: block;
-    }
-    .dest-card__body {
-      padding: 1.25rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: .85rem;
-    }
-    .dest-card__desc {
-      font-size: .875rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin: 0;
-    }
-    .dest-card__points {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: .4rem;
-    }
-    .dest-card__points li {
-      font-size: .82rem;
-      color: rgba(255,255,255,0.82);
-      display: flex;
-      gap: .5rem;
-    }
-    .dest-card__points li::before {
-      content: '✓';
-      color: var(--gold);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .dest-card__nationalities {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .35rem;
-    }
-    .nat-lbl {
-      font-size: .65rem;
-      font-weight: 600;
-      padding: 2px 7px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-    }
-    .nat-open       { background: rgba(16,185,129,.15); color: #34d399; border: 1px solid rgba(16,185,129,.3); }
-    .nat-moderate   { background: rgba(245,158,11,.15);  color: #fbbf24; border: 1px solid rgba(245,158,11,.3); }
-    .nat-hard       { background: rgba(239,68,68,.15);   color: #f87171; border: 1px solid rgba(239,68,68,.3); }
-    .dest-card__cta {
-      margin-top: auto;
-    }
-
-    /* Section label pill */
-    .section-pill {
-      display: inline-block;
-      background: rgba(201,168,76,.12);
-      color: var(--gold);
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: .35rem 1rem;
-      border-radius: 20px;
-      border: 1px solid rgba(201,168,76,.25);
-      margin-bottom: 1rem;
-    }
-
-    /* Pillar cards */
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2.5rem;
-    }
-    .pillar-card {
-      background: var(--navy-mid);
-      border: 1px solid rgba(201,168,76,.15);
-      border-radius: 16px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      transition: transform .3s, box-shadow .3s;
-    }
-    .pillar-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 36px rgba(0,0,0,.4);
-    }
-    .pillar-card--featured {
-      border-color: var(--gold);
-      background: linear-gradient(160deg, #112240 0%, #0d1d36 100%);
-    }
-    .pillar-card__icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .pillar-card__for  { font-size: .72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .5rem; }
-    .pillar-card__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.25rem; color: var(--gold); margin-bottom: .75rem; }
-    .pillar-card__desc  { font-size: .875rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; }
-    .pillar-card__services { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
-    .pillar-card__services li { font-size: .82rem; color: rgba(255,255,255,0.82); padding-left: 1.2rem; position: relative; }
-    .pillar-card__services li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
-  </style>
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="apple-touch-icon" href="../favicon.svg">
-<script>
-/* MNG analytics loader — reads window.MNG_CONFIG (defined at the top of js/main.js).
-   Loads gtag.js and Microsoft Clarity ONLY when real IDs are configured.
-   Safe to ship empty; becomes active the instant you set the IDs in main.js. */
-(function () {
-  function loadScript(src, attrs) {
-    var s = document.createElement('script');
-    s.src = src; s.async = true;
-    Object.keys(attrs || {}).forEach(function (k) { s.setAttribute(k, attrs[k]); });
-    document.head.appendChild(s);
-    return s;
-  }
-  // Wait one tick so MNG_CONFIG (defined in main.js after this <script>) is available.
-  window.addEventListener('DOMContentLoaded', function () {
-    var cfg = window.MNG_CONFIG || {};
-    var ga4  = cfg.GA4_ID;
-    var gads = cfg.GADS_CONVERSION_ID;
-    var clar = cfg.CLARITY_ID;
-    if (ga4 || gads) {
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () { window.dataLayer.push(arguments); };
-      window.gtag('js', new Date());
-      if (ga4)  { loadScript('https://www.googletagmanager.com/gtag/js?id=' + ga4); window.gtag('config', ga4, { anonymize_ip: true }); }
-      if (gads) { window.gtag('config', gads); }
-    }
-    if (clar) {
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, 'clarity', 'script', clar);
-    }
-  });
-})();
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<title>Crisis Relocation &amp; Asylum Assistance | Worldwide | Move Now Group</title>
+<meta name="description" content="Professional relocation assistance for individuals and families fleeing conflict or persecution. Lawful routes, asylum guidance, UNHCR coordination, and full settlement support in 35+ destination countries.">
+<link rel="canonical" href="https://movenowgroup.com/services/relocation.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Move Now Group">
+<meta property="og:title" content="Crisis Relocation &amp; Asylum Assistance | Move Now Group">
+<meta property="og:description" content="Relocation assistance for families fleeing conflict or persecution, lawful routes, asylum guidance, and settlement support worldwide.">
+<meta property="og:url" content="https://movenowgroup.com/services/relocation.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://images.pexels.com/photos/7433847/pexels-photo-7433847.jpeg?auto=compress&cs=tinysrgb&w=1200">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "serviceType": "Crisis Relocation and Asylum Application Support",
+ "provider": {"@type": "Organization", "name": "Move Now Group", "url": "https://movenowgroup.com/"},
+ "areaServed": "Worldwide",
+ "description": "Relocation assistance through lawful routes for individuals and families affected by conflict or persecution: urgent evacuation coordination, UNHCR registration support, asylum application assistance with licensed attorneys, and full settlement services."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {"@type": "Question", "name": "What does crisis relocation support include?", "acceptedAnswer": {"@type": "Answer", "text": "Route planning through lawful crossings, ground and air transport coordination, emergency documentation through official channels, transit accommodation, UNHCR registration support, asylum application assistance with licensed attorneys in 20+ countries, and full settlement services once status is granted."}},
+ {"@type": "Question", "name": "Do you arrange border crossings?", "acceptedAnswer": {"@type": "Answer", "text": "We support legal border crossings only, with valid documents at recognized crossing points. We do not arrange irregular crossings or undocumented travel; that endangers you and can permanently damage a future asylum or visa case. Where protection is needed we work within UNHCR and national asylum frameworks."}},
+ {"@type": "Question", "name": "Which destination countries do you support?", "acceptedAnswer": {"@type": "Answer", "text": "We maintain established networks, legal partners, and ground contacts in 35+ destination countries including Germany, the Netherlands, the UK, Sweden, Canada, the US, Türkiye, the UAE, Georgia, Australia, and Malaysia."}}
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://movenowgroup.com/"},{"@type":"ListItem","position":2,"name":"Relocation","item":"https://movenowgroup.com/services/relocation.html"}]}
 </script>
 </head>
 <body>
 
-<!-- EMERGENCY BAR -->
-<div id="emergencyBar" class="emergency-bar">
-  <span>24/7 Emergency Line, If you are in immediate danger, call now</span>
-  <a href="tel:+14237669105" class="emergency-bar__cta">+1 (423) 766-9105</a>
-  <button class="emergency-bar__close" id="emergencyBarClose" aria-label="Close">✕</button>
-</div>
+<div class="alert-bar">If you are in immediate danger, call <a href="tel:+15097806963">+1 (509) 780-6963</a> now or <a href="https://wa.me/15097806963">WhatsApp us</a>, 24/7</div>
 
-<!-- NAV -->
-<header class="nav" id="mainNav">
-  <div class="nav__inner container">
-    <a href="../index.html" class="nav__logo" aria-label="Move Now Group"><img src="../logo.svg" alt="Move Now Group" width="180" height="40"></a>
-    <nav class="nav__links" id="navLinks">
-      <a href="../index.html">Home</a>
-      <div class="nav__dropdown">
-        <button class="nav__dropdown-toggle">Services ▾</button>
-        <div class="nav__dropdown-menu">
-          <a href="../services/private-jet.html">Private Jets</a>
-            <a href="../services/last-minute-private-jet-charter.html">Last-Minute Private Jet</a>
-          <a href="../services/travel-documents.html">Travel Documents</a>
-            <a href="../services/urgent-travel-coordination.html">Urgent Travel Coordination</a>
-          <a href="../services/crypto.html">Crypto Exchange</a>
-          <a href="../services/remittance.html">Remittance</a>
-            <a href="../services/crisis-relocation-planning.html">Crisis Relocation Planning</a>
-            <a href="../services/relocation.html">Relocation</a>
-        </div>
-      </div>
-      
-      <a href="../about.html">About</a>
-      <a href="../resources.html">Resources</a>
-      <a href="../contact.html">Contact</a>
-    </nav>
-    <div class="nav__actions">
-      <select class="lang-select" id="langSelect" aria-label="Language"><option value="">EN</option><option value="ar">AR · العربية</option><option value="fa">FA · فارسی</option><option value="tr">TR · Türkçe</option><option value="ku">KU · کوردی</option><option value="ru">RU · Русский</option><option value="uk">UK · Українська</option><option value="es">ES · Español</option><option value="fr">FR · Français</option><option value="de">DE · Deutsch</option><option value="zh-CN">ZH · 中文</option><option value="hi">HI · हिन्दी</option><option value="ur">UR · اردو</option><option value="ps">PS · پښتو</option><option value="my">MY · မြန်မာ</option></select><div id="google_translate_element" style="display:none"></div>
-      <a href="../contact.html" class="btn btn--primary btn--sm">Get Help</a>
-
-      <button class="nav__hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
+<header class="site-header">
+ <div class="header-inner">
+ <a href="../index.html" class="logo"><img src="../logo-light.svg" alt="Move Now Group"></a>
+ <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
+ <nav class="main-nav" aria-label="Main navigation">
+ <a href="../index.html">Home</a>
+ <div class="dropdown">
+ <a href="#" aria-haspopup="true">Services</a>
+ <div class="dropdown-menu">
+ <a href="private-jet.html">Private Jet Charter</a>
+ <a href="last-minute-private-jet-charter.html">Last-Minute Private Jet</a>
+ <a href="travel-documents.html">Travel Documents</a>
+ <a href="urgent-travel-coordination.html">Urgent Travel Coordination</a>
+ <a href="crisis-relocation-planning.html">Crisis Relocation Planning</a>
+ <a href="relocation.html">Relocation</a>
+ </div>
+ </div>
+ <a href="../about.html">About</a>
+ <a href="../contact.html">Contact</a>
+ <div class="nav-cta"><a href="#relocation-form" class="btn btn-gold">I Need to Move</a></div>
+ </nav>
+ </div>
 </header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu__close" id="mobileMenuClose">✕</button>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../services/private-jet.html">Private Jets</a>
-            <a href="../services/last-minute-private-jet-charter.html">Last-Minute Private Jet</a>
-    <a href="../services/travel-documents.html">Travel Documents</a>
-            <a href="../services/urgent-travel-coordination.html">Urgent Travel Coordination</a>
-    <a href="../services/crypto.html">Crypto Exchange</a>
-    <a href="../services/remittance.html">Remittance</a>
-            <a href="../services/crisis-relocation-planning.html">Crisis Relocation Planning</a>
-            <a href="../services/relocation.html">Relocation</a>
-    
-    <a href="../about.html">About</a>
-    <a href="../resources.html">Resources</a>
-    <a href="../contact.html">Contact</a>
-  </nav>
-  <a href="tel:+14237669105" class="btn btn--danger" style="margin-top:2rem;display:block;text-align:center;">Emergency: +1 (423) 766-9105</a>
-</div><main>
+<section class="hero" style="--hero-img: url('https://images.pexels.com/photos/7433847/pexels-photo-7433847.jpeg?auto=compress&cs=tinysrgb&w=1600')">
+ <div class="container">
+ <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <span>Services</span> › Relocation</nav>
+ <span class="eyebrow">Safe Routes · Asylum Guidance · Full Settlement Support</span>
+ <h1>Crisis relocation assistance, <em>through lawful routes.</em></h1>
+ <p class="lede">We help individuals and families navigate the most difficult and complex moves of their lives. From Iran, Afghanistan, Sudan, Ukraine, Myanmar, Venezuela and beyond, we know the legal pathways, the systems, and the people who can help.</p>
+ <div class="hero-ctas">
+ <a href="#relocation-form" class="btn btn-gold">I Need to Move Now →</a>
+ <a href="../contact.html" class="btn btn-outline">Free Consultation</a>
+ </div>
+ <div class="hero-points">
+ <div><strong>4,200+</strong>People relocated</div>
+ <div><strong>35+</strong>Destination countries</div>
+ <div><strong>1-hour</strong>Response, 24/7</div>
+ <div><strong>100%</strong>Confidential</div>
+ </div>
+ </div>
+</section>
 
-  <!-- IMMEDIATE DANGER BAR -->
-  <div style="background:linear-gradient(90deg,#7f1d1d,#dc2626,#7f1d1d);color:white;text-align:center;padding:1rem 1.5rem;font-weight:600;font-size:.95rem;letter-spacing:.01em">
-    If you are in IMMEDIATE danger, <a href="tel:+14237669105" style="color:#fde68a;text-decoration:underline;font-weight:800">call +1 (423) 766-9105 NOW</a> &nbsp;|&nbsp; <a href="https://wa.me/14237669105" style="color:#fde68a;text-decoration:underline">WhatsApp us immediately</a>
-  </div>
+<section class="section">
+ <div class="container">
+ <div class="section-head">
+ <span class="eyebrow">Our Services</span>
+ <h2>Three levels of relocation support</h2>
+ <p>From urgent departures to full long-term settlement, we cover every stage of the journey, always within the law, for your safety as much as ours.</p>
+ </div>
+ <div class="grid grid-3">
+ <article class="program-card">
+ <span class="badge">Active conflict · Persecution risk</span>
+ <h3>Urgent Evacuation</h3>
+ <p class="muted">When time is critical, we mobilize fast: lawful routes out, valid documents, and transport coordinated end to end.</p>
+ <ul>
+ <li>Route planning via legal crossings and airports</li>
+ <li>Ground transport coordination</li>
+ <li>Emergency documentation through official channels</li>
+ <li>Transit accommodation</li>
+ <li>Charter flight coordination where lawful</li>
+ </ul>
+ <a href="#relocation-form" class="btn btn-outline-dark">Get Urgent Help →</a>
+ </article>
+ <article class="program-card">
+ <span class="badge">International protection</span>
+ <h3>Asylum &amp; Refugee Applications</h3>
+ <p class="muted">Navigate UNHCR registration, national asylum systems, and legal protection frameworks. We work with immigration attorneys in 20+ destination countries.</p>
+ <ul>
+ <li>UNHCR registration support</li>
+ <li>National asylum applications</li>
+ <li>Legal representation &amp; interview preparation</li>
+ <li>Appeal support</li>
+ <li>Family reunification</li>
+ <li>Translation services</li>
+ </ul>
+ <a href="#relocation-form" class="btn btn-outline-dark">Start Application →</a>
+ </article>
+ <article class="program-card">
+ <span class="badge">Families planning ahead</span>
+ <h3>Planned Relocation</h3>
+ <p class="muted">Comprehensive relocation planning, visas, housing, school enrollment, bank accounts, local registration. We handle the logistics so you can focus on the transition.</p>
+ <ul>
+ <li>Destination country selection</li>
+ <li>Visa and residency applications</li>
+ <li>Housing search &amp; lease</li>
+ <li>School enrollment</li>
+ <li>Banking setup &amp; community connections</li>
+ </ul>
+ <a href="#relocation-form" class="btn btn-outline-dark">Plan My Move →</a>
+ </article>
+ </div>
+ </div>
+</section>
 
-  <!-- HERO -->
-  <section class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1920&q=85')">
-    <div class="page-hero__overlay"></div>
-    <div class="container page-hero__content">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Home</a>
-        <span class="breadcrumb__sep">›</span>
-        <span>Services</span>
-        <span class="breadcrumb__sep">›</span>
-        <span>Relocation</span>
-      </nav>
-      <h1 class="page-hero__title">Crisis Relocation Assistance</h1>
-      <p class="page-hero__subtitle">Safe Routes, Asylum Guidance, Full Settlement Support</p>
-      <p class="page-hero__text">We help individuals and families navigate the most dangerous and complex moves of their lives. From Iran, Afghanistan, Sudan, Ukraine, Myanmar, Gaza, Venezuela, we know the routes, the systems, and the people who can help.</p>
-      <div class="page-hero__ctas">
-        <a href="#relocation-form" class="btn btn--primary btn--lg">I Need to Move Now →</a>
-        <a href="../contact.html" class="btn btn--outline btn--lg">Free Consultation</a>
-      </div>
-      <div class="trust-row">
-        <div class="trust-row__item"><span>👥</span> 4,200+ People Relocated</div>
-        <div class="trust-row__item"><span></span> 35+ Destination Countries</div>
-        <div class="trust-row__item"><span></span> 1-Hour Response</div>
-        <div class="trust-row__item"><span></span> Fully Confidential</div>
-      </div>
-    </div>
-  </section>
+<section class="section section-warm">
+ <div class="container">
+ <div class="section-head">
+ <span class="eyebrow">35+ Countries</span>
+ <h2>Popular destination countries</h2>
+ <p>We have established networks, legal partners, and ground contacts in all of these countries. Every pathway shown is a real, lawful route, click any card for a free consultation.</p>
+ </div>
 
-  <!-- URGENT FORM -->
-  <section class="section section--dark" id="relocation-form">
-    <div class="container">
-      <div class="urgent-form urgent-form--danger">
-        <div class="urgent-form__header">
-          <h2>Need to Leave Now?</h2>
-          <p class="urgent-form__sub">Tell us your situation, we respond within 1 hour, 24 hours a day.</p>
-        </div>
-        <form data-form="immediate_move" class="urgent-form__body" onsubmit="trackConversion('immediate_move'); return false;">
-          <div class="form-grid form-grid--2">
-            <div class="form-group">
-              <label class="form-label" for="relo_name">Full Name <span class="required">*</span></label>
-              <input type="text" id="relo_name" name="name" class="form-input" required placeholder="Your full name">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="relo_phone">WhatsApp / Phone <span class="required">*</span></label>
-              <input type="tel" id="relo_phone" name="phone" class="form-input" required placeholder="+1 234 567 8900">
-            </div>
-          </div>
-          <div class="form-grid form-grid--2">
-            <div class="form-group">
-              <label class="form-label" for="relo_country">Country You Are In NOW <span class="required">*</span></label>
-              <input type="text" id="relo_country" name="country_origin" class="form-input" required list="countriesList" placeholder="Type to search country…" autocomplete="country-name">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="relo_destination">Target Destination</label>
-              <input type="text" id="relo_destination" name="destination" class="form-input" list="countriesList" placeholder="Type to search country…" autocomplete="country-name">
-            </div>
-          </div>
-          <div class="form-grid form-grid--2">
-            <div class="form-group">
-              <label class="form-label" for="relo_people">Number of People</label>
-              <select id="relo_people" name="num_people" class="form-input form-select">
-                <option value="" disabled selected>Select…</option>
-                <option value="1">Just me</option>
-                <option value="2-4">2–4 people</option>
-                <option value="5-10">5–10 people</option>
-                <option value="10+">More than 10</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Urgency <span class="required">*</span></label>
-              <div class="radio-group" style="margin-top:.5rem">
-                <label class="radio-label"><input type="radio" name="urgency" value="24h" required> <span>Within 24 hours</span></label>
-                <label class="radio-label"><input type="radio" name="urgency" value="week"> <span>Within a week</span></label>
-                <label class="radio-label"><input type="radio" name="urgency" value="planning"> <span>Planning ahead (1–3 months)</span></label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="relo_message">Brief Situation</label>
-            <textarea id="relo_message" name="situation" class="form-input form-textarea" rows="4" placeholder="What is happening? Are you in danger? Do you have valid documents? We treat all information with complete confidentiality."></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--lg" style="width:100%">Request Urgent Help →</button>
-          <p style="text-align:center;margin-top:1rem;color:var(--text-muted);font-size:.875rem">Your information is encrypted and never shared. We've helped 4,200+ people reach safety.</p>
-        </form>
-      </div>
-    </div>
-  </section>
+ <h3 style="margin-bottom:24px">Europe</h3>
+ <div class="grid grid-2">
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80" alt="Brandenburg Gate in Berlin, Germany" loading="lazy">
+ <span class="badge">Most Popular</span>
+ <h3>Germany</h3>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>3–18 months</dd></div>
+ <div><dt>Approval rate</dt><dd>~56%</dd></div>
+ <div><dt>Support</dt><dd>~€450/month</dd></div>
+ <div><dt>Citizenship</dt><dd>~8 years</dd></div>
+ </dl>
+ <ul>
+ <li>One of Europe's largest, best-funded asylum systems: accommodation, monthly support, healthcare, legal aid</li>
+ <li>Humanitarian residence pathways for Afghans, Syrians, Iranians</li>
+ <li>Full legal aid and free interpreter services</li>
+ <li>Right to work and language courses</li>
+ <li>Strong family reunification once status is granted</li>
+ </ul>
+ <p class="nat-note">Iranian ✓ · Afghan ✓ · Syrian ✓ · Ukrainian ✓ · Iraqi ◑</p>
+ <a href="#relocation-form" class="btn btn-outline-dark">Relocate to Germany →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=800&q=80" alt="Canals of Amsterdam, Netherlands" loading="lazy">
+ <span class="badge">Recommended</span>
+ <h3>Netherlands</h3>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>6–24 months</dd></div>
+ <div><dt>Approval rate</dt><dd>~62%</dd></div>
+ <div><dt>Allowance</dt><dd>~€900/month</dd></div>
+ <div><dt>Citizenship</dt><dd>~5 years</dd></div>
+ </dl>
+ <ul>
+ <li>High recognition rates for persecuted nationalities</li>
+ <li>COA provides full housing, healthcare, and support during the procedure</li>
+ <li>Temporary Protection Directive for Ukrainians</li>
+ <li>Established Farsi, Dari, and Arabic support networks</li>
+ <li>Children have full right to education immediately</li>
+ </ul>
+ <p class="nat-note">Iranian ✓ · Afghan ✓ · Syrian ✓ · Ukrainian ✓</p>
+ <a href="#relocation-form" class="btn btn-outline-dark">Relocate to Netherlands →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80" alt="Westminster and Big Ben, London, United Kingdom" loading="lazy">
+ <span class="badge">Special Schemes</span>
+ <h3>United Kingdom</h3>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>6–24 months</dd></div>
+ <div><dt>Approval rate</dt><dd>~72%</dd></div>
+ <div><dt>Support</dt><dd>£49.18/week</dd></div>
+ <div><dt>To ILR</dt><dd>~5 years</dd></div>
+ </dl>
+ <ul>
+ <li>Full asylum system with free legal aid</li>
+ <li>ARAP &amp; ACRS schemes for Afghan nationals</li>
+ <li>Homes for Ukraine, up to 3-year visa</li>
+ <li>Right to work after 12 months in system</li>
+ <li>NHS healthcare from arrival</li>
+ </ul>
+ <p class="nat-note">Afghan ✓ · Ukrainian ✓ · Syrian ✓ · Iranian ◑</p>
+ <a href="#relocation-form" class="btn btn-outline-dark">Relocate to the UK →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=800&q=80" alt="Stockholm waterfront, Sweden" loading="lazy">
+ <span class="badge">High Approval</span>
+ <h3>Sweden</h3>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>3–12 months</dd></div>
+ <div><dt>Approval rate</dt><dd>~65%</dd></div>
+ <div><dt>Support</dt><dd>SEK 71/day</dd></div>
+ <div><dt>Citizenship</dt><dd>~5 years</dd></div>
+ </dl>
+ <ul>
+ <li>Historically among Europe's most welcoming systems, with a strong record for Iranians and Afghans</li>
+ <li>Migrationsverket provides full housing and support</li>
+ <li>Strong LGBT+ protection for persecution cases</li>
+ <li>Full healthcare and school access from day one</li>
+ <li>Large established Persian community</li>
+ </ul>
+ <p class="nat-note">Iranian ✓ · Afghan ✓ · Syrian ✓ · Stateless ✓</p>
+ <a href="#relocation-form" class="btn btn-outline-dark">Relocate to Sweden →</a>
+ </article>
+ </div>
 
-  <!-- THREE SERVICE PILLARS -->
-  <section class="section section--light">
-    <div class="container">
-      <div class="section__header text-center">
-        <span class="section-pill">Our Services</span>
-        <h2 class="section__title">Three Levels of Relocation Support</h2>
-        <p class="section__subtitle">From immediate emergency extraction to full long-term settlement, we cover every stage of the journey.</p>
-      </div>
-      <div class="pillars-grid">
+ <h3 style="margin:44px 0 24px">North America</h3>
+ <div class="grid grid-2">
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80" alt="Moraine Lake, Banff, Canada" loading="lazy">
+ <span class="badge">Top Choice</span>
+ <h3>Canada</h3>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>6–24 months</dd></div>
+ <div><dt>Approval rate</dt><dd>~60%</dd></div>
+ <div><dt>Support</dt><dd>~CAD 800/month</dd></div>
+ <div><dt>Citizenship</dt><dd>~3 years</dd></div>
+ </dl>
+ <ul>
+ <li>Government-Assisted Refugee (GAR) and Private Sponsorship (PSR) programs</li>
+ <li>Special intake programs for Afghan and Iranian nationals</li>
+ <li>Refugee travel document issued on acceptance</li>
+ <li>Universal healthcare from day one; children's education fully funded</li>
+ <li>One of the fastest paths to citizenship globally</li>
+ </ul>
+ <p class="nat-note">Iranian ✓ · Afghan ✓ · Ukrainian ✓ · Myanmar ✓ · Syrian ◑</p>
+ <a href="#relocation-form" class="btn btn-outline-dark">Relocate to Canada →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=800&q=80" alt="New York City skyline, United States" loading="lazy">
+ <span class="badge">Complex</span>
+ <h3>United States</h3>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>6–36 months</dd></div>
+ <div><dt>Approval rate</dt><dd>~47%</dd></div>
+ <div><dt>Support</dt><dd>Varies</dd></div>
+ <div><dt>Citizenship</dt><dd>~5 years</dd></div>
+ </dl>
+ <ul>
+ <li>Multiple protection pathways: asylum, U-visa, T-visa, humanitarian parole, USRAP resettlement</li>
+ <li>Affirmative asylum within 1 year of arrival</li>
+ <li>Work authorization while case is pending</li>
+ <li>Green card eligibility 1 year after asylum grant</li>
+ <li>Legal representation is critical, we arrange it</li>
+ </ul>
+ <p class="nat-note">Afghan ✓ · Iranian ◑ · Ukrainian ◑ · Venezuelan ◑</p>
+ <a href="#relocation-form" class="btn btn-outline-dark">Relocate to USA →</a>
+ </article>
+ </div>
 
-        <div class="pillar-card">
-          <div class="pillar-card__icon"></div>
-          <div class="pillar-card__for">For: Active conflict, imminent arrest, persecution</div>
-          <h3 class="pillar-card__title">Emergency Extraction</h3>
-          <p class="pillar-card__desc">When time is critical, we mobilize extraction teams and partner with ground operators to get you and your family out safely. We know the border crossings, the checkpoints, and the safe corridors.</p>
-          <ul class="pillar-card__services">
-            <li>Route planning & safe passage</li>
-            <li>Ground transport coordination</li>
-            <li>Emergency documentation</li>
-            <li>Transit accommodation</li>
-            <li>Legal border crossing support</li>
-          </ul>
-          <a href="#relocation-form" class="btn btn--primary btn--sm" style="margin-top:1.5rem;display:inline-block">Get Emergency Help →</a>
-        </div>
+ <h3 style="margin:44px 0 24px">Nearby &amp; transit countries</h3>
+ <div class="grid grid-3">
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80" alt="Istanbul, Türkiye" loading="lazy">
+ <span class="badge">Easiest Entry</span>
+ <h3>Türkiye</h3>
+ <dl class="program-meta">
+ <div><dt>Entry</dt><dd>Visa-free (many)</dd></div>
+ <div><dt>Residence permit</dt><dd>~30 days</dd></div>
+ </dl>
+ <ul>
+ <li>Iranians: 90-day visa-free entry</li>
+ <li>Temporary Protection Status for Syrians</li>
+ <li>Residence permit obtainable within ~30 days</li>
+ <li>UNHCR resettlement submissions possible from Türkiye</li>
+ <li>Our Istanbul office on the ground</li>
+ </ul>
+ <p class="nat-note">Iranian ✓ · Syrian ✓ · Afghan ✓ · Ukrainian ✓ · Russian ✓</p>
+ <a href="#relocation-form" class="btn btn-outline-dark">Relocate via Türkiye →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Dubai skyline, UAE" loading="lazy">
+ <span class="badge">Investor &amp; Work Visas</span>
+ <h3>UAE / Dubai</h3>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>2–6 weeks</dd></div>
+ <div><dt>Income tax</dt><dd>0%</dd></div>
+ </dl>
+ <ul>
+ <li>Major hub for Iranian, Lebanese, and Middle Eastern professionals</li>
+ <li>No asylum system, but employment, freelance, business, and Golden Visa residency are accessible</li>
+ <li>Employment visa: weeks, not months</li>
+ <li>Large Iranian, Lebanese, Sudanese expat communities</li>
+ </ul>
+ <p class="nat-note">Iranian ✓ · Lebanese ✓ · Sudanese ✓ · Ukrainian ✓ · Syrian ◑</p>
+ <a href="travel-documents.html#golden-visa" class="btn btn-outline-dark">UAE Golden Visa →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=800&q=80" alt="Old town of Tbilisi, Georgia" loading="lazy">
+ <span class="badge">Visa-Free 365 Days</span>
+ <h3>Georgia</h3>
+ <dl class="program-meta">
+ <div><dt>Entry</dt><dd>Immediate</dd></div>
+ <div><dt>Cost of living</dt><dd>$800–1,200/mo</dd></div>
+ </dl>
+ <ul>
+ <li>365-day visa-free stays for most nationalities, including Iranians</li>
+ <li>Fast-growing expat communities from Iran, Russia, Ukraine</li>
+ <li>UNHCR registration available in Tbilisi</li>
+ <li>Onward visa applications straightforward from Georgia</li>
+ </ul>
+ <p class="nat-note">Iranian ✓ · Russian ✓ · Ukrainian ✓ · Belarusian ✓ · Afghan ◑</p>
+ <a href="#relocation-form" class="btn btn-outline-dark">Relocate to Georgia →</a>
+ </article>
+ </div>
 
-        <div class="pillar-card pillar-card--featured">
-          <div class="pillar-card__icon"></div>
-          <div class="pillar-card__for">For: Individuals seeking international protection</div>
-          <h3 class="pillar-card__title">Asylum & Refugee Applications</h3>
-          <p class="pillar-card__desc">Navigate the UNHCR registration process, national asylum systems, and legal protection frameworks. We work with immigration attorneys in 20+ destination countries.</p>
-          <ul class="pillar-card__services">
-            <li>UNHCR registration</li>
-            <li>National asylum application</li>
-            <li>Legal representation</li>
-            <li>Interview preparation</li>
-            <li>Appeal support</li>
-            <li>Family reunification</li>
-            <li>Translation services</li>
-          </ul>
-          <a href="#relocation-form" class="btn btn--primary btn--sm" style="margin-top:1.5rem;display:inline-block">Start Application →</a>
-        </div>
+ <h3 style="margin:44px 0 24px">Asia-Pacific</h3>
+ <div class="grid grid-2">
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80" alt="Sydney Opera House, Australia" loading="lazy">
+ <span class="badge">High Quality · Competitive</span>
+ <h3>Australia</h3>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>12–36 months</dd></div>
+ <div><dt>Offshore rate</dt><dd>~78%</dd></div>
+ <div><dt>Support</dt><dd>AUD 1,500+/mo</dd></div>
+ <div><dt>Citizenship</dt><dd>~4 years</dd></div>
+ </dl>
+ <ul>
+ <li>Humanitarian Program: ~20,000 places annually</li>
+ <li>Subclass 200 (Refugee) via UNHCR referral; Subclass 202 (Special Humanitarian)</li>
+ <li>Permanent residency granted on arrival</li>
+ <li>Full Medicare access and SRSS support for first 12 months</li>
+ </ul>
+ <p class="nat-note">Afghan ✓ · Myanmar ✓ · Iranian ◑ · Syrian ◑</p>
+ <a href="#relocation-form" class="btn btn-outline-dark">Apply for Australia →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=80" alt="Petronas Towers, Kuala Lumpur, Malaysia" loading="lazy">
+ <span class="badge">UNHCR Transit</span>
+ <h3>Malaysia</h3>
+ <dl class="program-meta">
+ <div><dt>Entry</dt><dd>Visa-free (many)</dd></div>
+ <div><dt>UNHCR</dt><dd>Office in KL</dd></div>
+ <div><dt>Cost of living</dt><dd>$500–800/mo</dd></div>
+ <div><dt>Avg transit</dt><dd>2–5 years</dd></div>
+ </dl>
+ <ul>
+ <li>Major UNHCR transit country for Rohingya, Afghans, and others awaiting resettlement</li>
+ <li>Active resettlement pipeline to Australia, Canada, US</li>
+ <li>English widely spoken; large Muslim community eases integration</li>
+ <li>Myanmar and Rohingya communities established</li>
+ </ul>
+ <p class="nat-note">Iranian ✓ · Rohingya ✓ · Afghan ✓ · Syrian ◑</p>
+ <a href="#relocation-form" class="btn btn-outline-dark">Transit via Malaysia →</a>
+ </article>
+ </div>
 
-        <div class="pillar-card">
-          <div class="pillar-card__icon"></div>
-          <div class="pillar-card__for">For: Families planning a safe move abroad</div>
-          <h3 class="pillar-card__title">Planned Relocation</h3>
-          <p class="pillar-card__desc">Comprehensive relocation planning, visas, housing, school enrollment, bank accounts, local registration. We handle the logistics so you can focus on the transition.</p>
-          <ul class="pillar-card__services">
-            <li>Destination country selection</li>
-            <li>Visa and residency applications</li>
-            <li>Housing search & lease</li>
-            <li>School enrollment</li>
-            <li>Banking setup</li>
-            <li>Community connections</li>
-          </ul>
-          <a href="#relocation-form" class="btn btn--primary btn--sm" style="margin-top:1.5rem;display:inline-block">Plan My Move →</a>
-        </div>
+ <p class="muted mt-40"> <strong>Approval rates and processing times are estimates</strong> based on publicly available UNHCR and government data. They vary significantly by individual case, nationality, legal representation quality, and current political conditions. Nationality indicators reflect general trends, individual cases may differ. <a href="../contact.html">Contact us for a case-specific assessment</a>.</p>
+ </div>
+</section>
 
-      </div>
-    </div>
-  </section>
+<section class="section">
+ <div class="container">
+ <div class="section-head">
+ <span class="eyebrow">Step by Step</span>
+ <h2>Understanding the asylum process</h2>
+ <p>Every situation is different, but most asylum journeys follow these six stages. We support you at every single step.</p>
+ </div>
+ <div class="steps" style="grid-template-columns:repeat(3,1fr)">
+ <div class="step">
+ <div class="step-num">1</div>
+ <h3>Safety first</h3>
+ <p>Reach a safe country through a lawful route, or a safe location within your current country. This is the immediate priority, before any paperwork. Contact us at any stage of this step.</p>
+ </div>
+ <div class="step">
+ <div class="step-num">2</div>
+ <h3>UNHCR registration</h3>
+ <p>Register as a Person of Concern with UNHCR if you are outside your home country in a transit country. This provides immediate legal protection and begins the documentation process. We accompany you.</p>
+ </div>
+ <div class="step">
+ <div class="step-num">3</div>
+ <h3>National asylum application</h3>
+ <p>Submit an asylum application in the destination country where you are present. Deadlines and procedures vary; we ensure you apply correctly, completely, and within required timeframes.</p>
+ </div>
+ <div class="step">
+ <div class="step-num">4</div>
+ <h3>Asylum interview</h3>
+ <p>The most critical step, how your case is presented can determine everything. We prepare you thoroughly and arrange legal representation in 20+ countries.</p>
+ </div>
+ <div class="step">
+ <div class="step-num">5</div>
+ <h3>Decision &amp; appeal</h3>
+ <p>If initially rejected, do not give up, we support appeals in all countries. Many successful cases are won on appeal with the right legal representation.</p>
+ </div>
+ <div class="step">
+ <div class="step-num">6</div>
+ <h3>Status &amp; settlement</h3>
+ <p>Once status is granted, we begin settlement support: housing, employment connections, language programs, school enrollment, banking, and community integration. The journey doesn't end at approval.</p>
+ </div>
+ </div>
+ </div>
+</section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       DESTINATION COUNTRY CARDS, WITH REAL PHOTOGRAPHY
-       ═══════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="container">
-      <div class="section__header text-center">
-        <span class="section-pill">35+ Countries</span>
-        <h2 class="section__title">Popular Destination Countries</h2>
-        <p class="section__subtitle">We have established networks, legal partners, and ground operators in all of these countries. Every pathway is real, click any card for a free consultation.</p>
-      </div>
+<section class="section section-dark">
+ <div class="container">
+ <div class="section-head">
+ <span class="eyebrow">Our Commitment</span>
+ <h2>Fast, and always lawful</h2>
+ </div>
+ <div class="principles">
+ <div class="principle">
+ <div class="num">01</div>
+ <h3>Every lawful lever, accelerated</h3>
+ <p>Urgent visa categories, expedited consular appointments, fast-track residency routes, and same-week charter flights on lawful routes. Where speed is possible within the rules, we know where to find it.</p>
+ </div>
+ <div class="principle">
+ <div class="num">02</div>
+ <h3>Honest limits</h3>
+ <p>We do not arrange irregular border crossings or undocumented travel, for your safety as much as legality. An irregular crossing can permanently damage your future asylum or visa case. If someone promises you that, they are putting your family at risk.</p>
+ </div>
+ <div class="principle">
+ <div class="num">03</div>
+ <h3>Protection frameworks</h3>
+ <p>Where a situation calls for international protection, we work within UNHCR and national asylum frameworks and alongside established organizations, supporting every lawful step of your case.</p>
+ </div>
+ </div>
+ </div>
+</section>
 
-      <!-- ── EUROPE ── -->
-      <div style="margin:3rem 0 1.5rem">
-        <h3 style="font-family:'Cormorant Garamond',Georgia,serif;color:var(--gold);font-size:1.5rem;border-bottom:1px solid rgba(201,168,76,.2);padding-bottom:.75rem">Europe</h3>
-      </div>
-      <div class="dest-grid">
+<section class="section section-warm">
+ <div class="container">
+ <div class="section-head">
+ <span class="eyebrow">Verified Partners</span>
+ <h2>NGO &amp; resource directory</h2>
+ <p>Trusted international organizations that work alongside our services. These are legitimate, established resources, not affiliates.</p>
+ </div>
+ <table class="data-table">
+ <thead>
+ <tr><th>Organization</th><th>Website</th><th>What they provide</th><th>Best for</th></tr>
+ </thead>
+ <tbody>
+ <tr><td><strong>UNHCR</strong></td><td><a href="https://unhcr.org" rel="noopener">unhcr.org</a></td><td>Global refugee registration and international protection</td><td>All nationalities</td></tr>
+ <tr><td><strong>IRC, International Rescue Committee</strong></td><td><a href="https://rescue.org" rel="noopener">rescue.org</a></td><td>Emergency relief, resettlement, and recovery</td><td>All; strong in US/EU</td></tr>
+ <tr><td><strong>ICRC, International Red Cross</strong></td><td><a href="https://icrc.org" rel="noopener">icrc.org</a></td><td>Conflict zone protection, family tracing, humanitarian law</td><td>Active conflict zones</td></tr>
+ <tr><td><strong>IOM, Int'l Organization for Migration</strong></td><td><a href="https://iom.int" rel="noopener">iom.int</a></td><td>Migration support, voluntary repatriation, resettlement</td><td>Transit countries</td></tr>
+ <tr><td><strong>Asylum Access</strong></td><td><a href="https://asylumaccess.org" rel="noopener">asylumaccess.org</a></td><td>Legal rights for refugees in the Global South</td><td>Malaysia, Kenya, Ecuador</td></tr>
+ <tr><td><strong>Human Rights Watch</strong></td><td><a href="https://hrw.org" rel="noopener">hrw.org</a></td><td>Documentation of persecution; case evidence support</td><td>All, builds legal record</td></tr>
+ <tr><td><strong>HIAS</strong></td><td><a href="https://hias.org" rel="noopener">hias.org</a></td><td>US resettlement; global refugee legal services</td><td>US-bound applicants</td></tr>
+ </tbody>
+ </table>
+ </div>
+</section>
 
-        <!-- Germany -->
-        <div class="dest-card">
-          <div class="dest-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80"
-                 alt="Germany, Brandenburg Gate Berlin, asylum and relocation destination"
-                 loading="lazy" class="dest-card__img">
-            <div class="dest-card__overlay"></div>
-            <div class="dest-card__top">
-              <div class="dest-card__flag">🇩🇪</div>
-              <div class="dest-card__badges">
-                <span class="dest-badge dest-badge--blue">MOST POPULAR</span>
-              </div>
-            </div>
-            <div class="dest-card__name-wrap">
-              <h3 class="dest-card__name">Germany</h3>
-              <div class="dest-card__region">Central Europe</div>
-            </div>
-          </div>
-          <div class="dest-card__stats">
-            <div class="dest-card__stat"><span class="dest-card__stat-val">3–18 mo</span><span class="dest-card__stat-lbl">Processing</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">~56%</span><span class="dest-card__stat-lbl">Approval Rate</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">€450/mo</span><span class="dest-card__stat-lbl">Support Benefit</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">8 yrs</span><span class="dest-card__stat-lbl">To Citizenship</span></div>
-          </div>
-          <div class="dest-card__body">
-            <p class="dest-card__desc">Germany operates one of Europe's largest and best-funded asylum systems. Applicants receive accommodation, monthly support, healthcare, and legal aid while their case is processed. Family reunification rights are strong once status is granted.</p>
-            <ul class="dest-card__points">
-              <li>Section 60a humanitarian residence for Afghans, Syrians, Iranians</li>
-              <li>Full legal aid and free interpreter services</li>
-              <li>Right to work and language courses from day one</li>
-              <li>Family reunification with recognized refugees</li>
-              <li>Path to permanent residence after 5 years</li>
-            </ul>
-            <div class="dest-card__nationalities">
-              <span class="nat-lbl nat-open">Iranian ✓</span>
-              <span class="nat-lbl nat-open">Afghan ✓</span>
-              <span class="nat-lbl nat-open">Syrian ✓</span>
-              <span class="nat-lbl nat-open">Ukrainian ✓</span>
-              <span class="nat-lbl nat-moderate">Iraqi ◑</span>
-            </div>
-            <div class="dest-card__cta">
-              <a href="#relocation-form" class="btn btn--primary btn--sm" style="display:block;text-align:center">Relocate to Germany →</a>
-            </div>
-          </div>
-        </div>
+<section class="section" id="relocation-form">
+ <div class="container">
+ <div class="section-head center">
+ <span class="eyebrow">Need to Leave?</span>
+ <h2>Tell us your situation</h2>
+ <p>We respond within 1 hour, 24 hours a day. Your information is encrypted and never shared.</p>
+ </div>
+ <form class="form-panel" method="post" action="https://formsubmit.co/info@movenowgroup.com">
+ <input type="hidden" name="_subject" value="RELOCATION REQUEST, Relocation page">
+ <input type="hidden" name="_template" value="table">
+ <input type="hidden" name="_captcha" value="false">
+ <input type="hidden" name="_next" value="https://movenowgroup.com/thanks.html">
+ <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+ <div class="form-grid">
+ <div class="form-field"><label for="rl-name">Full name *</label><input id="rl-name" name="name" type="text" required></div>
+ <div class="form-field"><label for="rl-phone">WhatsApp / phone *</label><input id="rl-phone" name="phone" type="tel" required></div>
+ <div class="form-field"><label for="rl-current">Country you are in NOW *</label><input id="rl-current" name="current_country" type="text" required></div>
+ <div class="form-field"><label for="rl-dest">Target destination</label><input id="rl-dest" name="destination" type="text" placeholder="e.g. Germany, Canada, undecided"></div>
+ <div class="form-field"><label for="rl-people">Number of people</label>
+ <select id="rl-people" name="party">
+ <option>Just me</option><option>2–4 people</option><option>5–10 people</option><option>More than 10</option>
+ </select>
+ </div>
+ <div class="form-field"><label for="rl-urgency">Urgency *</label>
+ <select id="rl-urgency" name="urgency" required>
+ <option>Within 24 hours</option><option>Within a week</option><option>Planning ahead (1–3 months)</option>
+ </select>
+ </div>
+ <div class="form-field full"><label for="rl-notes">Brief situation</label><textarea id="rl-notes" name="situation" rows="4"></textarea></div>
+ </div>
+ <div class="text-center mt-40"><button type="submit" class="btn btn-gold">Request Urgent Help →</button></div>
+ <p class="form-note">Encrypted and confidential. We've helped 4,200+ people reach safety through lawful routes.</p>
+ </form>
+ </div>
+</section>
 
-        <!-- Netherlands -->
-        <div class="dest-card">
-          <div class="dest-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=800&q=80"
-                 alt="Netherlands Amsterdam canals, asylum relocation destination"
-                 loading="lazy" class="dest-card__img">
-            <div class="dest-card__overlay"></div>
-            <div class="dest-card__top">
-              <div class="dest-card__flag">🇳🇱</div>
-              <div class="dest-card__badges">
-                <span class="dest-badge dest-badge--green">RECOMMENDED</span>
-              </div>
-            </div>
-            <div class="dest-card__name-wrap">
-              <h3 class="dest-card__name">Netherlands</h3>
-              <div class="dest-card__region">Western Europe</div>
-            </div>
-          </div>
-          <div class="dest-card__stats">
-            <div class="dest-card__stat"><span class="dest-card__stat-val">6–24 mo</span><span class="dest-card__stat-lbl">Processing</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">~62%</span><span class="dest-card__stat-lbl">Approval Rate</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">€900/mo</span><span class="dest-card__stat-lbl">Allowance</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">5 yrs</span><span class="dest-card__stat-lbl">To Citizenship</span></div>
-          </div>
-          <div class="dest-card__body">
-            <p class="dest-card__desc">The Netherlands has high recognition rates for persecuted nationalities. COA (Central Agency for Reception of Asylum Seekers) provides full housing, healthcare, and support during the procedure. Large Iranian and Afghan diaspora communities.</p>
-            <ul class="dest-card__points">
-              <li>Temporary Protection Directive for Ukrainians</li>
-              <li>High recognition rates for Iranians and Afghans</li>
-              <li>Established Farsi, Dari, and Arabic support networks</li>
-              <li>Strong integration program and language courses</li>
-              <li>Children have full right to education immediately</li>
-            </ul>
-            <div class="dest-card__nationalities">
-              <span class="nat-lbl nat-open">Iranian ✓</span>
-              <span class="nat-lbl nat-open">Afghan ✓</span>
-              <span class="nat-lbl nat-open">Syrian ✓</span>
-              <span class="nat-lbl nat-open">Ukrainian ✓</span>
-            </div>
-            <div class="dest-card__cta">
-              <a href="#relocation-form" class="btn btn--primary btn--sm" style="display:block;text-align:center">Relocate to Netherlands →</a>
-            </div>
-          </div>
-        </div>
+<section class="section section-warm">
+ <div class="container">
+ <div class="section-head center">
+ <span class="eyebrow">You May Also Need</span>
+ <h2>Our services work together</h2>
+ </div>
+ <div class="grid grid-2">
+ <div class="card"><div class="card-body">
+ <h3>Travel Documents</h3>
+ <p>Emergency passports via official channels, second citizenship, and residency programs in 20+ countries including Caribbean CBI and European golden visas.</p>
+ <a href="travel-documents.html" class="card-link">Document services</a>
+ </div></div>
+ <div class="card"><div class="card-body">
+ <h3>Private Jet Charter</h3>
+ <p>Emergency air travel available 24/7, arranged lawfully and discreetly from over 130 countries through certificated operators.</p>
+ <a href="private-jet.html" class="card-link">Charter options</a>
+ </div></div>
+ </div>
+ </div>
+</section>
 
-        <!-- United Kingdom -->
-        <div class="dest-card">
-          <div class="dest-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80"
-                 alt="United Kingdom London, asylum and refugee relocation destination"
-                 loading="lazy" class="dest-card__img">
-            <div class="dest-card__overlay"></div>
-            <div class="dest-card__top">
-              <div class="dest-card__flag">🇬🇧</div>
-              <div class="dest-card__badges">
-                <span class="dest-badge dest-badge--yellow">MODERATE</span>
-              </div>
-            </div>
-            <div class="dest-card__name-wrap">
-              <h3 class="dest-card__name">United Kingdom</h3>
-              <div class="dest-card__region">Northwestern Europe</div>
-            </div>
-          </div>
-          <div class="dest-card__stats">
-            <div class="dest-card__stat"><span class="dest-card__stat-val">6–24 mo</span><span class="dest-card__stat-lbl">Processing</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">~72%</span><span class="dest-card__stat-lbl">Approval Rate</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">£49.18/wk</span><span class="dest-card__stat-lbl">Support</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">5 yrs</span><span class="dest-card__stat-lbl">To ILR</span></div>
-          </div>
-          <div class="dest-card__body">
-            <p class="dest-card__desc">The UK has a full asylum system with free legal aid. Special programs exist for Afghan nationals (ARAP, ACRS) and Ukrainian nationals (Homes for Ukraine). Once granted leave to remain, full rights to work, benefits and healthcare apply.</p>
-            <ul class="dest-card__points">
-              <li>ARAP & ACRS schemes for Afghan nationals</li>
-              <li>Homes for Ukraine, up to 3-year visa</li>
-              <li>Free legal representation via Legal Aid</li>
-              <li>Right to work after 12 months in system</li>
-              <li>NHS healthcare from arrival</li>
-            </ul>
-            <div class="dest-card__nationalities">
-              <span class="nat-lbl nat-open">Afghan ✓</span>
-              <span class="nat-lbl nat-open">Ukrainian ✓</span>
-              <span class="nat-lbl nat-open">Syrian ✓</span>
-              <span class="nat-lbl nat-moderate">Iranian ◑</span>
-            </div>
-            <div class="dest-card__cta">
-              <a href="#relocation-form" class="btn btn--primary btn--sm" style="display:block;text-align:center">Relocate to the UK →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sweden -->
-        <div class="dest-card">
-          <div class="dest-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=800&q=80"
-                 alt="Sweden Stockholm city, asylum relocation destination"
-                 loading="lazy" class="dest-card__img">
-            <div class="dest-card__overlay"></div>
-            <div class="dest-card__top">
-              <div class="dest-card__flag">🇸🇪</div>
-              <div class="dest-card__badges">
-                <span class="dest-badge dest-badge--green">HIGH APPROVAL</span>
-              </div>
-            </div>
-            <div class="dest-card__name-wrap">
-              <h3 class="dest-card__name">Sweden</h3>
-              <div class="dest-card__region">Northern Europe</div>
-            </div>
-          </div>
-          <div class="dest-card__stats">
-            <div class="dest-card__stat"><span class="dest-card__stat-val">3–12 mo</span><span class="dest-card__stat-lbl">Processing</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">~65%</span><span class="dest-card__stat-lbl">Approval Rate</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">SEK 71/day</span><span class="dest-card__stat-lbl">Daily Support</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">5 yrs</span><span class="dest-card__stat-lbl">To Citizenship</span></div>
-          </div>
-          <div class="dest-card__body">
-            <p class="dest-card__desc">Sweden has historically been one of Europe's most welcoming countries for asylum seekers, with a particularly strong record for Iranians and Afghans. The Migrationsverket (Migration Agency) provides full housing and support.</p>
-            <ul class="dest-card__points">
-              <li>Among the highest acceptance rates in Europe for Iranians</li>
-              <li>Strong LGBT+ protection for persecution cases</li>
-              <li>Full healthcare and school access from day one</li>
-              <li>Swedish for Immigrants (SFI) language program</li>
-              <li>Large established Persian community</li>
-            </ul>
-            <div class="dest-card__nationalities">
-              <span class="nat-lbl nat-open">Iranian ✓</span>
-              <span class="nat-lbl nat-open">Afghan ✓</span>
-              <span class="nat-lbl nat-open">Syrian ✓</span>
-              <span class="nat-lbl nat-open">Stateless ✓</span>
-            </div>
-            <div class="dest-card__cta">
-              <a href="#relocation-form" class="btn btn--primary btn--sm" style="display:block;text-align:center">Relocate to Sweden →</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /Europe grid -->
-
-      <!-- ── NORTH AMERICA ── -->
-      <div style="margin:3.5rem 0 1.5rem">
-        <h3 style="font-family:'Cormorant Garamond',Georgia,serif;color:var(--gold);font-size:1.5rem;border-bottom:1px solid rgba(201,168,76,.2);padding-bottom:.75rem">🌎 North America</h3>
-      </div>
-      <div class="dest-grid">
-
-        <!-- Canada -->
-        <div class="dest-card">
-          <div class="dest-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80"
-                 alt="Canada Rocky Mountains Banff, refugee relocation destination"
-                 loading="lazy" class="dest-card__img">
-            <div class="dest-card__overlay"></div>
-            <div class="dest-card__top">
-              <div class="dest-card__flag">🇨🇦</div>
-              <div class="dest-card__badges">
-                <span class="dest-badge dest-badge--blue">TOP CHOICE</span>
-              </div>
-            </div>
-            <div class="dest-card__name-wrap">
-              <h3 class="dest-card__name">Canada</h3>
-              <div class="dest-card__region">North America</div>
-            </div>
-          </div>
-          <div class="dest-card__stats">
-            <div class="dest-card__stat"><span class="dest-card__stat-val">6–24 mo</span><span class="dest-card__stat-lbl">Processing</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">~60%</span><span class="dest-card__stat-lbl">Approval Rate</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">CAD 800/mo</span><span class="dest-card__stat-lbl">Support</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">3 yrs</span><span class="dest-card__stat-lbl">To Citizenship</span></div>
-          </div>
-          <div class="dest-card__body">
-            <p class="dest-card__desc">Canada accepts refugees through the Government-Assisted Refugee (GAR) program, Private Sponsorship of Refugees (PSR), and direct asylum claims at the border or inland. IRCC actively prioritizes persecuted groups from Iran, Afghanistan, and Myanmar.</p>
-            <ul class="dest-card__points">
-              <li>Private sponsorship by Canadian citizens</li>
-              <li>Afghan and Iranian special intake programs</li>
-              <li>Refugee Travel Document issued immediately</li>
-              <li>Universal healthcare (provincial) from day one</li>
-              <li>Children's education fully funded</li>
-              <li>One of fastest paths to citizenship globally</li>
-            </ul>
-            <div class="dest-card__nationalities">
-              <span class="nat-lbl nat-open">Iranian ✓</span>
-              <span class="nat-lbl nat-open">Afghan ✓</span>
-              <span class="nat-lbl nat-open">Ukrainian ✓</span>
-              <span class="nat-lbl nat-open">Myanmar ✓</span>
-              <span class="nat-lbl nat-moderate">Syrian ◑</span>
-            </div>
-            <div class="dest-card__cta">
-              <a href="#relocation-form" class="btn btn--primary btn--sm" style="display:block;text-align:center">Relocate to Canada →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- United States -->
-        <div class="dest-card">
-          <div class="dest-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=800&q=80"
-                 alt="United States New York City, asylum relocation destination"
-                 loading="lazy" class="dest-card__img">
-            <div class="dest-card__overlay"></div>
-            <div class="dest-card__top">
-              <div class="dest-card__flag">🇺🇸</div>
-              <div class="dest-card__badges">
-                <span class="dest-badge dest-badge--red">COMPLEX</span>
-              </div>
-            </div>
-            <div class="dest-card__name-wrap">
-              <h3 class="dest-card__name">United States</h3>
-              <div class="dest-card__region">North America</div>
-            </div>
-          </div>
-          <div class="dest-card__stats">
-            <div class="dest-card__stat"><span class="dest-card__stat-val">6–36 mo</span><span class="dest-card__stat-lbl">Processing</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">~47%</span><span class="dest-card__stat-lbl">Approval Rate</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">Varies</span><span class="dest-card__stat-lbl">Support</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">5 yrs</span><span class="dest-card__stat-lbl">To Citizenship</span></div>
-          </div>
-          <div class="dest-card__body">
-            <p class="dest-card__desc">The US has multiple protection pathways: asylum (affirmative and defensive), U-visa for crime victims, T-visa for trafficking survivors, humanitarian parole, and the USRAP resettlement program. Legal representation is critical, we provide it.</p>
-            <ul class="dest-card__points">
-              <li>Affirmative asylum within 1 year of arrival</li>
-              <li>Humanitarian parole for urgent cases</li>
-              <li>Work authorization while case is pending</li>
-              <li>Green card eligibility 1 year after asylum grant</li>
-              <li>Strong diaspora communities in major cities</li>
-            </ul>
-            <div class="dest-card__nationalities">
-              <span class="nat-lbl nat-moderate">Iranian ◑</span>
-              <span class="nat-lbl nat-open">Afghan ✓</span>
-              <span class="nat-lbl nat-moderate">Ukrainian ◑</span>
-              <span class="nat-lbl nat-moderate">Venezuelan ◑</span>
-              <span class="nat-lbl nat-hard">Syrian ✗</span>
-            </div>
-            <div class="dest-card__cta">
-              <a href="#relocation-form" class="btn btn--primary btn--sm" style="display:block;text-align:center">Relocate to USA →</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /North America grid -->
-
-      <!-- ── MIDDLE EAST & NEAR TRANSIT ── -->
-      <div style="margin:3.5rem 0 1.5rem">
-        <h3 style="font-family:'Cormorant Garamond',Georgia,serif;color:var(--gold);font-size:1.5rem;border-bottom:1px solid rgba(201,168,76,.2);padding-bottom:.75rem">Nearby Transit & Staging Countries</h3>
-      </div>
-      <div class="dest-grid">
-
-        <!-- Turkey -->
-        <div class="dest-card">
-          <div class="dest-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80"
-                 alt="Turkey Istanbul Hagia Sophia, refugee transit and relocation destination"
-                 loading="lazy" class="dest-card__img">
-            <div class="dest-card__overlay"></div>
-            <div class="dest-card__top">
-              <div class="dest-card__flag">🇹🇷</div>
-              <div class="dest-card__badges">
-                <span class="dest-badge dest-badge--green">EASIEST ENTRY</span>
-                <span class="dest-badge dest-badge--gold">TRANSIT HUB</span>
-              </div>
-            </div>
-            <div class="dest-card__name-wrap">
-              <h3 class="dest-card__name">Turkey</h3>
-              <div class="dest-card__region">Eurasia Bridge</div>
-            </div>
-          </div>
-          <div class="dest-card__stats">
-            <div class="dest-card__stat"><span class="dest-card__stat-val">1–4 wks</span><span class="dest-card__stat-lbl">Processing</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">Visa-Free</span><span class="dest-card__stat-lbl">Entry (many)</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">$0</span><span class="dest-card__stat-lbl">Investment Min</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">5 yrs</span><span class="dest-card__stat-lbl">Residence</span></div>
-          </div>
-          <div class="dest-card__body">
-            <p class="dest-card__desc">Turkey hosts the world's largest refugee population and serves as the primary transit hub for Middle Eastern, Central Asian, and African nationals heading to Europe. Iranians can enter visa-free for up to 90 days, making it an ideal first step.</p>
-            <ul class="dest-card__points">
-              <li>Iranians: 90-day visa-free entry</li>
-              <li>Temporary Protection Status for Syrians</li>
-              <li>Major staging point for onward EU migration</li>
-              <li>Residence permit obtainable within 30 days</li>
-              <li>UNHCR resettlement submissions possible from Turkey</li>
-              <li>Our Istanbul office</li>
-            </ul>
-            <div class="dest-card__nationalities">
-              <span class="nat-lbl nat-open">Iranian ✓</span>
-              <span class="nat-lbl nat-open">Syrian ✓</span>
-              <span class="nat-lbl nat-open">Afghan ✓</span>
-              <span class="nat-lbl nat-open">Ukrainian ✓</span>
-              <span class="nat-lbl nat-open">Russian ✓</span>
-            </div>
-            <div class="dest-card__cta">
-              <a href="#relocation-form" class="btn btn--primary btn--sm" style="display:block;text-align:center">Stage Through Turkey →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- UAE -->
-        <div class="dest-card">
-          <div class="dest-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80"
-                 alt="UAE Dubai skyline, relocation and golden visa destination"
-                 loading="lazy" class="dest-card__img">
-            <div class="dest-card__overlay"></div>
-            <div class="dest-card__top">
-              <div class="dest-card__flag">🇦🇪</div>
-              <div class="dest-card__badges">
-                <span class="dest-badge dest-badge--gold">INVESTOR VISA</span>
-              </div>
-            </div>
-            <div class="dest-card__name-wrap">
-              <h3 class="dest-card__name">UAE / Dubai</h3>
-              <div class="dest-card__region">Gulf Region</div>
-            </div>
-          </div>
-          <div class="dest-card__stats">
-            <div class="dest-card__stat"><span class="dest-card__stat-val">2–6 wks</span><span class="dest-card__stat-lbl">Processing</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">$545K</span><span class="dest-card__stat-lbl">Golden Visa</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">10 yrs</span><span class="dest-card__stat-lbl">Residency Term</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">0%</span><span class="dest-card__stat-lbl">Income Tax</span></div>
-          </div>
-          <div class="dest-card__body">
-            <p class="dest-card__desc">Dubai is a major relocation hub for Iranian, Lebanese, and other Middle Eastern professionals. UAE does not operate an asylum system, but long-term residency via employment, business, or the Golden Visa program is accessible. Crypto and cash-friendly.</p>
-            <ul class="dest-card__points">
-              <li>Employment visa, fastest route, weeks not months</li>
-              <li>Freelance/self-employed visa available</li>
-              <li>Golden Visa for investors and professionals</li>
-              <li>No income or capital gains tax</li>
-              <li>Full crypto economy, USDT widely accepted</li>
-              <li>Large Iranian, Lebanese, Sudanese expat communities</li>
-            </ul>
-            <div class="dest-card__nationalities">
-              <span class="nat-lbl nat-open">Iranian ✓</span>
-              <span class="nat-lbl nat-open">Lebanese ✓</span>
-              <span class="nat-lbl nat-open">Sudanese ✓</span>
-              <span class="nat-lbl nat-open">Ukrainian ✓</span>
-              <span class="nat-lbl nat-moderate">Syrian ◑</span>
-            </div>
-            <div class="dest-card__cta">
-              <a href="../services/travel-documents.html#golden-visa" class="btn btn--primary btn--sm" style="display:block;text-align:center">UAE Golden Visa →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Georgia -->
-        <div class="dest-card">
-          <div class="dest-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=800&q=80"
-                 alt="Georgia Tbilisi old town, affordable relocation destination"
-                 loading="lazy" class="dest-card__img">
-            <div class="dest-card__overlay"></div>
-            <div class="dest-card__top">
-              <div class="dest-card__flag">🇬🇪</div>
-              <div class="dest-card__badges">
-                <span class="dest-badge dest-badge--green">VISA-FREE 365 DAYS</span>
-              </div>
-            </div>
-            <div class="dest-card__name-wrap">
-              <h3 class="dest-card__name">Georgia</h3>
-              <div class="dest-card__region">South Caucasus</div>
-            </div>
-          </div>
-          <div class="dest-card__stats">
-            <div class="dest-card__stat"><span class="dest-card__stat-val">Immediate</span><span class="dest-card__stat-lbl">Entry</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">$100K</span><span class="dest-card__stat-lbl">Residency Min</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">1%</span><span class="dest-card__stat-lbl">Flat Tax Rate</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">Low</span><span class="dest-card__stat-lbl">Cost of Living</span></div>
-          </div>
-          <div class="dest-card__body">
-            <p class="dest-card__desc">Georgia offers 365-day visa-free stays for most nationalities, a flat 1% freelance tax, and a fast-growing expat community from Iran, Russia, and Ukraine. Tbilisi has become a major digital nomad and relocation hub since 2022.</p>
-            <ul class="dest-card__points">
-              <li>Iranians: 1 year visa-free stay</li>
-              <li>Russians and Ukrainians: large existing communities</li>
-              <li>Very low cost of living, $800–1,200/mo comfortable</li>
-              <li>Fast UNHCR refugee registration in Tbilisi</li>
-              <li>Onward visa applications easy from Georgia</li>
-            </ul>
-            <div class="dest-card__nationalities">
-              <span class="nat-lbl nat-open">Iranian ✓</span>
-              <span class="nat-lbl nat-open">Russian ✓</span>
-              <span class="nat-lbl nat-open">Ukrainian ✓</span>
-              <span class="nat-lbl nat-open">Belarusian ✓</span>
-              <span class="nat-lbl nat-moderate">Afghan ◑</span>
-            </div>
-            <div class="dest-card__cta">
-              <a href="#relocation-form" class="btn btn--primary btn--sm" style="display:block;text-align:center">Relocate to Georgia →</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /Nearby Transit grid -->
-
-      <!-- ── ASIA-PACIFIC ── -->
-      <div style="margin:3.5rem 0 1.5rem">
-        <h3 style="font-family:'Cormorant Garamond',Georgia,serif;color:var(--gold);font-size:1.5rem;border-bottom:1px solid rgba(201,168,76,.2);padding-bottom:.75rem">🌏 Asia-Pacific</h3>
-      </div>
-      <div class="dest-grid">
-
-        <!-- Australia -->
-        <div class="dest-card">
-          <div class="dest-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80"
-                 alt="Australia Sydney Opera House, humanitarian visa relocation"
-                 loading="lazy" class="dest-card__img">
-            <div class="dest-card__overlay"></div>
-            <div class="dest-card__top">
-              <div class="dest-card__flag">🇦🇺</div>
-              <div class="dest-card__badges">
-                <span class="dest-badge dest-badge--red">DIFFICULT</span>
-                <span class="dest-badge dest-badge--blue">HIGH QUALITY</span>
-              </div>
-            </div>
-            <div class="dest-card__name-wrap">
-              <h3 class="dest-card__name">Australia</h3>
-              <div class="dest-card__region">Pacific</div>
-            </div>
-          </div>
-          <div class="dest-card__stats">
-            <div class="dest-card__stat"><span class="dest-card__stat-val">12–36 mo</span><span class="dest-card__stat-lbl">Processing</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">~78%</span><span class="dest-card__stat-lbl">Offshore Rate</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">AUD 1,500+</span><span class="dest-card__stat-lbl">Support/mo</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">4 yrs</span><span class="dest-card__stat-lbl">To Citizenship</span></div>
-          </div>
-          <div class="dest-card__body">
-            <p class="dest-card__desc">Australia's Humanitarian Program allocates 20,000 places annually. Offshore applications (subclass 200 series) are the primary route, you apply from outside Australia via UNHCR referral. Once granted, you receive permanent residency immediately.</p>
-            <ul class="dest-card__points">
-              <li>Subclass 200 (Refugee), UNHCR referral required</li>
-              <li>Subclass 202 (Global Special Humanitarian Program)</li>
-              <li>Permanent residency granted on arrival</li>
-              <li>Full Medicare (healthcare) access</li>
-              <li>SRSS support package for first 12 months</li>
-              <li>One of the highest quality of life standards globally</li>
-            </ul>
-            <div class="dest-card__nationalities">
-              <span class="nat-lbl nat-open">Afghan ✓</span>
-              <span class="nat-lbl nat-open">Myanmar ✓</span>
-              <span class="nat-lbl nat-moderate">Iranian ◑</span>
-              <span class="nat-lbl nat-moderate">Syrian ◑</span>
-              <span class="nat-lbl nat-hard">Iraqi ✗</span>
-            </div>
-            <div class="dest-card__cta">
-              <a href="#relocation-form" class="btn btn--primary btn--sm" style="display:block;text-align:center">Apply for Australia →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Malaysia -->
-        <div class="dest-card">
-          <div class="dest-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=80"
-                 alt="Malaysia Kuala Lumpur Petronas Towers, UNHCR transit relocation"
-                 loading="lazy" class="dest-card__img">
-            <div class="dest-card__overlay"></div>
-            <div class="dest-card__top">
-              <div class="dest-card__flag">🇲🇾</div>
-              <div class="dest-card__badges">
-                <span class="dest-badge dest-badge--gold">UNHCR TRANSIT</span>
-              </div>
-            </div>
-            <div class="dest-card__name-wrap">
-              <h3 class="dest-card__name">Malaysia</h3>
-              <div class="dest-card__region">Southeast Asia</div>
-            </div>
-          </div>
-          <div class="dest-card__stats">
-            <div class="dest-card__stat"><span class="dest-card__stat-val">Immediate</span><span class="dest-card__stat-lbl">Entry (visa-free)</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">Low</span><span class="dest-card__stat-lbl">Cost of Living</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">UNHCR</span><span class="dest-card__stat-lbl">Office in KL</span></div>
-            <div class="dest-card__stat"><span class="dest-card__stat-val">2–5 yrs</span><span class="dest-card__stat-lbl">Avg Transit</span></div>
-          </div>
-          <div class="dest-card__body">
-            <p class="dest-card__desc">Malaysia is a major UNHCR transit country for Rohingya, Afghans, and others awaiting resettlement to Australia, Canada, or the US. Kuala Lumpur is affordable and has a large Muslim community, making integration easier for Middle Eastern nationals.</p>
-            <ul class="dest-card__points">
-              <li>Visa-free entry for many Middle Eastern nationalities</li>
-              <li>Active UNHCR resettlement pipeline to Aus/Canada/US</li>
-              <li>Low cost, $500–800/mo for basic living</li>
-              <li>English widely spoken</li>
-              <li>Myanmar and Rohingya communities established</li>
-            </ul>
-            <div class="dest-card__nationalities">
-              <span class="nat-lbl nat-open">Iranian ✓</span>
-              <span class="nat-lbl nat-open">Rohingya ✓</span>
-              <span class="nat-lbl nat-open">Afghan ✓</span>
-              <span class="nat-lbl nat-moderate">Syrian ◑</span>
-            </div>
-            <div class="dest-card__cta">
-              <a href="#relocation-form" class="btn btn--primary btn--sm" style="display:block;text-align:center">Transit via Malaysia →</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /Asia-Pacific grid -->
-
-      <!-- Disclaimer note -->
-      <div style="background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:1.5rem 2rem;margin-top:3rem;display:flex;gap:1rem;align-items:flex-start">
-        <span style="font-size:1.5rem">ℹ️</span>
-        <div>
-          <p style="color:var(--text-muted);font-size:.85rem;line-height:1.7;margin:0">
-            <strong style="color:var(--text-light)">Approval rates and processing times are estimates</strong> based on publicly available UNHCR and government data. They vary significantly by individual case, nationality, legal representation quality, and current political conditions. All green/orange/red nationality indicators reflect general trends, individual cases may differ. <a href="../contact.html" style="color:var(--gold)">Contact us for a case-specific assessment</a>.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ASYLUM PROCESS TIMELINE -->
-  <section class="section section--light">
-    <div class="container container--narrow">
-      <div class="section__header text-center">
-        <span class="section-pill">Step by Step</span>
-        <h2 class="section__title">Understanding the Asylum Process</h2>
-        <p class="section__subtitle" style="margin-bottom:3rem">Every situation is different, but most asylum journeys follow these six stages. We support you at every single step.</p>
-      </div>
-
-      <div class="timeline">
-
-        <div class="timeline__step">
-          <div class="timeline__number">1</div>
-          <div class="timeline__content">
-            <h3 class="timeline__title">Safety First</h3>
-            <p class="timeline__desc">Reach a safe country or a safe location within your current country. This is the immediate priority, before any paperwork or applications. Contact us at any stage of this step.</p>
-          </div>
-        </div>
-
-        <div class="timeline__step">
-          <div class="timeline__number">2</div>
-          <div class="timeline__content">
-            <h3 class="timeline__title">UNHCR Registration</h3>
-            <p class="timeline__desc">Register as a Person of Concern with UNHCR if you are outside your home country and in a transit country. This provides immediate legal protection and begins the documentation process. We accompany you.</p>
-          </div>
-        </div>
-
-        <div class="timeline__step">
-          <div class="timeline__number">3</div>
-          <div class="timeline__content">
-            <h3 class="timeline__title">National Asylum Application</h3>
-            <p class="timeline__desc">Submit an asylum application in the destination country where you are present. Deadlines and procedures vary by country. We ensure you apply correctly, completely, and within required timeframes.</p>
-          </div>
-        </div>
-
-        <div class="timeline__step">
-          <div class="timeline__number">4</div>
-          <div class="timeline__content">
-            <h3 class="timeline__title">Asylum Interview</h3>
-            <p class="timeline__desc">Attend an asylum interview conducted by national authorities. This is the most critical step, how your case is presented can determine everything. We prepare you thoroughly and provide legal representation in 20+ countries.</p>
-          </div>
-        </div>
-
-        <div class="timeline__step">
-          <div class="timeline__number">5</div>
-          <div class="timeline__content">
-            <h3 class="timeline__title">Decision & Appeal</h3>
-            <p class="timeline__desc">Receive a decision on your application. If initially rejected, do not give up, we support appeals in all countries. Many successful cases are won on appeal with the right legal representation.</p>
-          </div>
-        </div>
-
-        <div class="timeline__step timeline__step--last">
-          <div class="timeline__number">6</div>
-          <div class="timeline__content">
-            <h3 class="timeline__title">Status & Settlement</h3>
-            <p class="timeline__desc">Once refugee or protected status is granted, we begin settlement support, housing, employment connections, language programs, school enrollment, banking, and community integration. The journey doesn't end at approval.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- NGO DIRECTORY -->
-  <section class="section">
-    <div class="container">
-      <div class="section__header text-center">
-        <span class="section-pill">Verified Partners</span>
-        <h2 class="section__title">NGO & Resource Directory</h2>
-        <p class="section__subtitle" style="margin-bottom:2.5rem">Trusted international organizations that work alongside our services. These are legitimate, established resources, not affiliates.</p>
-      </div>
-      <div class="table-wrap">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Organization</th>
-              <th>Website</th>
-              <th>What They Provide</th>
-              <th>Best For</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>UNHCR</strong></td>
-              <td><a href="https://unhcr.org" target="_blank" rel="noopener">unhcr.org</a></td>
-              <td>Global refugee registration and international protection</td>
-              <td>All nationalities</td>
-            </tr>
-            <tr>
-              <td><strong>IRC, International Rescue Committee</strong></td>
-              <td><a href="https://rescue.org" target="_blank" rel="noopener">rescue.org</a></td>
-              <td>Emergency relief, resettlement, and recovery</td>
-              <td>All, strong in US/EU</td>
-            </tr>
-            <tr>
-              <td><strong>ICRC, International Red Cross</strong></td>
-              <td><a href="https://icrc.org" target="_blank" rel="noopener">icrc.org</a></td>
-              <td>Conflict zone protection, family tracing, humanitarian law</td>
-              <td>Active conflict zones</td>
-            </tr>
-            <tr>
-              <td><strong>IOM, Int'l Organization for Migration</strong></td>
-              <td><a href="https://iom.int" target="_blank" rel="noopener">iom.int</a></td>
-              <td>Migration support, voluntary repatriation, resettlement</td>
-              <td>Transit countries</td>
-            </tr>
-            <tr>
-              <td><strong>Asylum Access</strong></td>
-              <td><a href="https://asylumaccess.org" target="_blank" rel="noopener">asylumaccess.org</a></td>
-              <td>Legal rights for refugees in Global South</td>
-              <td>Malaysia, Kenya, Ecuador</td>
-            </tr>
-            <tr>
-              <td><strong>Human Rights Watch</strong></td>
-              <td><a href="https://hrw.org" target="_blank" rel="noopener">hrw.org</a></td>
-              <td>Documentation of persecution; case evidence support</td>
-              <td>All, builds legal record</td>
-            </tr>
-            <tr>
-              <td><strong>HIAS</strong></td>
-              <td><a href="https://hias.org" target="_blank" rel="noopener">hias.org</a></td>
-              <td>US resettlement; global refugee legal services</td>
-              <td>US-bound applicants</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIAL -->
-  <section class="section section--dark">
-    <div class="container container--narrow">
-      <div class="testimonial testimonial--featured">
-        <div class="testimonial__quote-mark">"</div>
-        <blockquote class="testimonial__text">
-          We were a family of five in Kabul when everything collapsed. They coordinated our extraction within 48 hours, they knew routes that didn't exist on any map. We are now safe in Germany with full refugee status, our children in school.
-        </blockquote>
-        <div class="testimonial__author">
-          <div class="testimonial__name">Ahmad K.</div>
-          <div class="testimonial__role">Afghan family, relocated 2021</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INTERNAL LINKS -->
-  <section class="section section--light">
-    <div class="container">
-      <h2 class="section__title text-center">You May Also Need</h2>
-      <div class="related-services">
-        <a href="../services/travel-documents.html" class="related-card">
-          <div class="related-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg></div>
-          <div>
-            <h4>Travel Documents</h4>
-            <p>Emergency passport, second citizenship, and residency programs in 20+ countries including Caribbean CBI and European Golden Visas.</p>
-          </div>
-          <span class="related-card__arrow">→</span>
-        </a>
-        <a href="../services/private-jet.html" class="related-card">
-          <div class="related-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 1 16.5 2.5L13 6 4.8 4.2C4.3 4.1 3.9 4.4 3.6 4.7L2.1 6.1c-.4.4-.2 1 .2 1.3l7 3.4L5.6 14H3c-.6 0-1 .4-1 1v.5c0 .4.2.8.5 1l3 2c.3.2.7.4 1 .5l3 .5c.3.1.7 0 1-.2l4-4.5 3.3 7c.3.4.9.6 1.3.2l1.4-1.4c.4-.3.6-.7.3-1.1z"/></svg></div>
-          <div>
-            <h4>Private Jet Evacuation</h4>
-            <p>Emergency air extraction available 24/7. Discreet, fast, and accessible from over 130 countries. Crypto accepted.</p>
-          </div>
-          <span class="related-card__arrow">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <div class="footer__logo"><img src="../logo-light.svg" alt="Move Now Group" width="220" height="49"></div>
-        <p style="color:var(--text-muted);font-size:.9rem;margin-top:.75rem;line-height:1.7">Crisis relocation, travel documents, and secure financial services for individuals worldwide, any conflict zone, any country, 24/7.</p>
-      </div>
-      <div>
-        <h4 class="footer__heading">Services</h4>
-        <ul class="footer__links">
-          <li><a href="../services/private-jet.html">Private Jets</a></li>
-            <li><a href="../services/last-minute-private-jet-charter.html">Last-Minute Private Jet</a></li>
-          <li><a href="../services/travel-documents.html">Travel Documents</a></li>
-            <li><a href="../services/urgent-travel-coordination.html">Urgent Travel Coordination</a></li>
-          <li><a href="../services/crypto.html">Crypto Exchange</a></li>
-          <li><a href="../services/remittance.html">Remittance</a></li>
-            <li><a href="../services/crisis-relocation-planning.html">Crisis Relocation Planning</a></li>
-            <li><a href="../services/relocation.html">Relocation</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="footer__heading">Company</h4>
-        <ul class="footer__links">
-          <li><a href="../about.html">About Us</a></li>
-          <li><a href="../contact.html">Contact</a></li>
-          <li><a href="../resources.html">Resources</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="footer__heading">Emergency</h4>
-        <a href="tel:+14237669105" style="font-size:1.4rem;font-weight:700;color:var(--gold);display:block;margin-bottom:.5rem">+1 (423) 766-9105</a>
-        <p style="color:var(--text-muted);font-size:.85rem">24/7, WhatsApp, Signal, Telegram</p>
-        <a href="https://wa.me/14237669105?text=I%20need%20urgent%20assistance" class="btn btn--primary btn--sm" style="margin-top:1rem;display:inline-block">WhatsApp Now</a>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <p>© 2026 Move Now Group. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
-    </div>
-  </div>
+<footer class="site-footer">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="../index.html" class="logo"><img src="../logo-light.svg" alt="Move Now Group"></a>
+ <p>Crisis relocation, private aviation, and emergency documents for clients worldwide, including conflict-affected regions, always through lawful channels. Trusted since 2015.</p>
+ </div>
+ <div>
+ <h4>Services</h4>
+ <ul>
+ <li><a href="private-jet.html">Private Jet Charter</a></li>
+ <li><a href="last-minute-private-jet-charter.html">Last-Minute Private Jet</a></li>
+ <li><a href="travel-documents.html">Travel Documents</a></li>
+ <li><a href="urgent-travel-coordination.html">Urgent Travel Coordination</a></li>
+ <li><a href="crisis-relocation-planning.html">Crisis Relocation Planning</a></li>
+ <li><a href="relocation.html">Relocation</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Company</h4>
+ <ul>
+ <li><a href="../about.html">About Us</a></li>
+ <li><a href="../contact.html">Contact</a></li>
+ <li><a href="../privacy.html">Privacy Policy</a></li>
+ <li><a href="../terms.html">Terms of Service</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Emergency</h4>
+ <ul>
+ <li><a href="tel:+15097806963">+1 (509) 780-6963</a></li>
+ <li><a href="mailto:info@movenowgroup.com">info@movenowgroup.com</a></li>
+ <li><a href="https://wa.me/15097806963">WhatsApp 24/7</a></li>
+ <li>UNHCR: +1-800-230-5920</li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-legal">
+ <p>© 2026 Move Now Group Pty Ltd. All rights reserved.</p>
+ </div>
+ </div>
 </footer>
-
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/14237669105?text=I%20need%20urgent%20assistance" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp us">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
-<script src="../js/translations.js"></script>
-<script src="../js/main.js"></script>
-
-<!-- Google Translate (cookie-based, auto-detects on first visit) -->
-<script>
-(function () {
-  // Browser locale primary -> Google Translate target language
-  var BROWSER_MAP = {
-    ar: 'ar', fa: 'fa', ps: 'fa', ur: 'ur',
-    tr: 'tr', az: 'tr', ku: 'ku', ckb: 'ku', kmr: 'ku',
-    ru: 'ru', be: 'ru', kk: 'ru', tg: 'ru', ky: 'ru', uz: 'ru',
-    uk: 'uk',
-    es: 'es', ca: 'es', gl: 'es', pt: 'pt',
-    fr: 'fr', de: 'de',
-    zh: 'zh-CN', hi: 'hi', my: 'my'
-  };
-  // ISO-3166 country -> probable native language (used when browser locale is generic English)
-  var COUNTRY_MAP = {
-    IR: 'fa', AF: 'fa', TJ: 'fa',
-    IQ: 'ar', SY: 'ar', LB: 'ar', YE: 'ar', AE: 'ar', SA: 'ar', EG: 'ar',
-    JO: 'ar', PS: 'ar', KW: 'ar', BH: 'ar', OM: 'ar', QA: 'ar', LY: 'ar',
-    TN: 'ar', DZ: 'ar', MA: 'ar', SD: 'ar', SO: 'ar', MR: 'ar', DJ: 'ar', KM: 'ar',
-    TR: 'tr', AZ: 'tr',
-    PK: 'ur',
-    RU: 'ru', BY: 'ru', KZ: 'ru', KG: 'ru', UZ: 'ru', TM: 'ru', AM: 'ru', GE: 'ru',
-    UA: 'uk',
-    ES: 'es', MX: 'es', AR: 'es', CO: 'es', PE: 'es', VE: 'es', CL: 'es',
-    EC: 'es', GT: 'es', BO: 'es', DO: 'es', HN: 'es', PY: 'es', SV: 'es',
-    NI: 'es', CR: 'es', PA: 'es', UY: 'es', PR: 'es', CU: 'es',
-    BR: 'pt', PT: 'pt', AO: 'pt', MZ: 'pt',
-    FR: 'fr', BE: 'fr', LU: 'fr', SN: 'fr', CI: 'fr', CM: 'fr', MG: 'fr',
-    DE: 'de', AT: 'de', CH: 'de', LI: 'de',
-    CN: 'zh-CN', TW: 'zh-CN', HK: 'zh-CN', SG: 'zh-CN', MO: 'zh-CN',
-    IN: 'hi', NP: 'hi',
-    MM: 'my'
-  };
-
-  // Set or clear the googtrans cookie. Google Translate Element reads this
-  // on page load. We must set it BEFORE the GT script initialises.
-  function setGoogTrans (lang) {
-    var hosts = [
-      '',                                  // current path only
-      '; domain=' + location.hostname,
-      '; domain=.' + location.hostname
-    ];
-    if (!lang || lang === 'en') {
-      hosts.forEach(function (h) {
-        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + h;
-      });
-    } else {
-      var value = '/en/' + lang;
-      hosts.forEach(function (h) {
-        document.cookie = 'googtrans=' + value + '; path=/' + h;
-      });
-    }
-  }
-
-  function detectFromBrowser () {
-    var raw = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-    var primary = raw.split('-')[0];
-    return BROWSER_MAP[primary] || null;
-  }
-
-  // 1) Determine language synchronously (so cookie is set before GT loads)
-  var stored = null;
-  try { stored = localStorage.getItem('mng_lang'); } catch (e) {}
-
-  if (stored) {
-    // Returning visitor — make sure cookie matches their saved preference
-    setGoogTrans(stored);
-  } else {
-    // First visit: try the browser locale (synchronous, instant)
-    var browserLang = detectFromBrowser();
-    if (browserLang) {
-      try { localStorage.setItem('mng_lang', browserLang); } catch (e) {}
-      setGoogTrans(browserLang);
-    } else {
-      // Generic English browser — fall back to IP-based country detection.
-      // This is async, so it forces ONE reload on first visit.
-      fetch('https://get.geojs.io/v1/ip/country.json', { cache: 'no-store' })
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (d) {
-          if (!d) return;
-          var country = (d.country || d.country_code || '').toUpperCase();
-          var ipLang = COUNTRY_MAP[country];
-          if (ipLang) {
-            try { localStorage.setItem('mng_lang', ipLang); } catch (e) {}
-            setGoogTrans(ipLang);
-            location.reload();
-          } else {
-            // Country not in map — stay on English, mark detection done
-            try { localStorage.setItem('mng_lang', 'en'); } catch (e) {}
-          }
-        })
-        .catch(function () { /* fail silently, stay on English */ });
-    }
-  }
-
-  // 2) Wire the visible dropdown
-  document.addEventListener('DOMContentLoaded', function () {
-    var sel = document.getElementById('langSelect');
-    if (!sel) return;
-    var current = stored || detectFromBrowser() || 'en';
-    sel.value = current === 'en' ? '' : current;
-    sel.addEventListener('change', function (e) {
-      var lang = e.target.value;
-      try { localStorage.setItem('mng_lang', lang || 'en'); } catch (e) {}
-      setGoogTrans(lang);
-      location.reload();
-    });
-  });
-})();
-
-function googleTranslateElementInit () {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false,
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-  }, 'google_translate_element');
-}
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<style>
-/* Hide Google Translate UI chrome (we use our own dropdown) */
-.goog-te-banner-frame,
-.goog-te-balloon-frame,
-.goog-tooltip,
-.goog-tooltip:hover,
-#goog-gt-tt,
-.VIpgJd-ZVi9od-l4eHX-hSRGPd,
-.skiptranslate iframe { display: none !important; visibility: hidden !important; }
-body { top: 0 !important; position: static !important; }
-.goog-text-highlight { background: transparent !important; box-shadow: none !important; }
-</style>
-
-<!-- Searchable country list (used by all forms with country fields via list="countriesList") -->
-<datalist id="countriesList">
-<option value="Afghanistan"></option><option value="Albania"></option><option value="Algeria"></option><option value="Andorra"></option><option value="Angola"></option><option value="Antigua and Barbuda"></option><option value="Argentina"></option><option value="Armenia"></option><option value="Australia"></option><option value="Austria"></option><option value="Azerbaijan"></option><option value="Bahamas"></option><option value="Bahrain"></option><option value="Bangladesh"></option><option value="Barbados"></option><option value="Belarus"></option><option value="Belgium"></option><option value="Belize"></option><option value="Benin"></option><option value="Bhutan"></option><option value="Bolivia"></option><option value="Bosnia and Herzegovina"></option><option value="Botswana"></option><option value="Brazil"></option><option value="Brunei"></option><option value="Bulgaria"></option><option value="Burkina Faso"></option><option value="Burundi"></option><option value="Cabo Verde"></option><option value="Cambodia"></option><option value="Cameroon"></option><option value="Canada"></option><option value="Central African Republic"></option><option value="Chad"></option><option value="Chile"></option><option value="China"></option><option value="Colombia"></option><option value="Comoros"></option><option value="Congo (Brazzaville)"></option><option value="Congo (DRC)"></option><option value="Costa Rica"></option><option value="Côte d'Ivoire"></option><option value="Croatia"></option><option value="Cuba"></option><option value="Cyprus"></option><option value="Czechia"></option><option value="Denmark"></option><option value="Djibouti"></option><option value="Dominica"></option><option value="Dominican Republic"></option><option value="Ecuador"></option><option value="Egypt"></option><option value="El Salvador"></option><option value="Equatorial Guinea"></option><option value="Eritrea"></option><option value="Estonia"></option><option value="Eswatini"></option><option value="Ethiopia"></option><option value="Fiji"></option><option value="Finland"></option><option value="France"></option><option value="Gabon"></option><option value="Gambia"></option><option value="Georgia"></option><option value="Germany"></option><option value="Ghana"></option><option value="Greece"></option><option value="Grenada"></option><option value="Guatemala"></option><option value="Guinea"></option><option value="Guinea-Bissau"></option><option value="Guyana"></option><option value="Haiti"></option><option value="Honduras"></option><option value="Hong Kong"></option><option value="Hungary"></option><option value="Iceland"></option><option value="India"></option><option value="Indonesia"></option><option value="Iran"></option><option value="Iraq"></option><option value="Ireland"></option><option value="Israel"></option><option value="Italy"></option><option value="Jamaica"></option><option value="Japan"></option><option value="Jordan"></option><option value="Kazakhstan"></option><option value="Kenya"></option><option value="Kiribati"></option><option value="Kosovo"></option><option value="Kuwait"></option><option value="Kyrgyzstan"></option><option value="Laos"></option><option value="Latvia"></option><option value="Lebanon"></option><option value="Lesotho"></option><option value="Liberia"></option><option value="Libya"></option><option value="Liechtenstein"></option><option value="Lithuania"></option><option value="Luxembourg"></option><option value="Madagascar"></option><option value="Malawi"></option><option value="Malaysia"></option><option value="Maldives"></option><option value="Mali"></option><option value="Malta"></option><option value="Marshall Islands"></option><option value="Mauritania"></option><option value="Mauritius"></option><option value="Mexico"></option><option value="Micronesia"></option><option value="Moldova"></option><option value="Monaco"></option><option value="Mongolia"></option><option value="Montenegro"></option><option value="Morocco"></option><option value="Mozambique"></option><option value="Myanmar"></option><option value="Namibia"></option><option value="Nauru"></option><option value="Nepal"></option><option value="Netherlands"></option><option value="New Zealand"></option><option value="Nicaragua"></option><option value="Niger"></option><option value="Nigeria"></option><option value="North Korea"></option><option value="North Macedonia"></option><option value="Norway"></option><option value="Oman"></option><option value="Pakistan"></option><option value="Palau"></option><option value="Palestine"></option><option value="Panama"></option><option value="Papua New Guinea"></option><option value="Paraguay"></option><option value="Peru"></option><option value="Philippines"></option><option value="Poland"></option><option value="Portugal"></option><option value="Qatar"></option><option value="Romania"></option><option value="Russia"></option><option value="Rwanda"></option><option value="Saint Kitts and Nevis"></option><option value="Saint Lucia"></option><option value="Saint Vincent and the Grenadines"></option><option value="Samoa"></option><option value="San Marino"></option><option value="Sao Tome and Principe"></option><option value="Saudi Arabia"></option><option value="Senegal"></option><option value="Serbia"></option><option value="Seychelles"></option><option value="Sierra Leone"></option><option value="Singapore"></option><option value="Slovakia"></option><option value="Slovenia"></option><option value="Solomon Islands"></option><option value="Somalia"></option><option value="South Africa"></option><option value="South Korea"></option><option value="South Sudan"></option><option value="Spain"></option><option value="Sri Lanka"></option><option value="Sudan"></option><option value="Suriname"></option><option value="Sweden"></option><option value="Switzerland"></option><option value="Syria"></option><option value="Taiwan"></option><option value="Tajikistan"></option><option value="Tanzania"></option><option value="Thailand"></option><option value="Timor-Leste"></option><option value="Togo"></option><option value="Tonga"></option><option value="Trinidad and Tobago"></option><option value="Tunisia"></option><option value="Turkey"></option><option value="Turkmenistan"></option><option value="Tuvalu"></option><option value="Uganda"></option><option value="Ukraine"></option><option value="United Arab Emirates"></option><option value="United Kingdom"></option><option value="United States"></option><option value="Uruguay"></option><option value="Uzbekistan"></option><option value="Vanuatu"></option><option value="Vatican City"></option><option value="Venezuela"></option><option value="Vietnam"></option><option value="Yemen"></option><option value="Zambia"></option><option value="Zimbabwe"></option>
-</datalist>
 
 </body>
 </html>

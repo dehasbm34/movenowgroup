@@ -1,1573 +1,867 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emergency Passport Processing Under 1 Week | Second Passports & Citizenship by Investment | Move Now Group</title>
-  <meta name="description" content="Emergency passport processing in as little as 24 hours. Citizenship by investment programs, golden visas, and visa assistance for nationals of any country worldwide, including conflict zones and sanctioned countries.">
-  <link rel="canonical" href="https://movenowgroup.com/services/travel-documents">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Travel Document & Citizenship Services","provider":{"@type":"Organization","name":"Move Now Group"},"serviceType":["Citizenship by Investment","Residency by Investment","Emergency Passport","Visa Assistance"]}</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/main.css">
-  <style>
-    /* ── Country Card Grid ───────────────────────────────────── */
-    .country-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.75rem;
-      margin-top: 2.5rem;
-    }
-    .country-card {
-      background: var(--bg-elevated);
-      border-radius: var(--r-xl);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: var(--t-med);
-      display: flex;
-      flex-direction: column;
-    }
-    .country-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--gold);
-      box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 0 1px var(--gold);
-    }
-    .country-card__img {
-      position: relative;
-      height: 200px;
-      overflow: hidden;
-    }
-    .country-card__img img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform .6s ease;
-    }
-    .country-card:hover .country-card__img img { transform: scale(1.06); }
-    .country-card__overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(6,13,27,.85) 0%, rgba(6,13,27,.1) 60%);
-    }
-    .country-card__flag {
-      position: absolute; top: 1rem; right: 1rem;
-      font-size: 2rem;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,.5));
-    }
-    .country-card__badges {
-      position: absolute; bottom: .75rem; left: .75rem;
-      display: flex; gap: .4rem; flex-wrap: wrap;
-    }
-    .cb { font-size: .65rem; padding: .2rem .6rem; border-radius: var(--r-full); font-weight: 700; letter-spacing: .05em; }
-    .cb-gold   { background: var(--gold); color: #000; }
-    .cb-green  { background: rgba(34,197,94,.2); color: #22c55e; border: 1px solid rgba(34,197,94,.35); }
-    .cb-blue   { background: rgba(96,165,250,.2); color: #60a5fa; border: 1px solid rgba(96,165,250,.35); }
-    .cb-purple { background: rgba(167,139,250,.2); color: #a78bfa; border: 1px solid rgba(167,139,250,.35); }
-    .cb-red    { background: rgba(239,68,68,.15); color: #ef4444; border: 1px solid rgba(239,68,68,.3); }
-    .country-card__body {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: .85rem;
-    }
-    .country-card__name {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      color: var(--text-primary);
-      margin: 0;
-    }
-    .country-card__stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .5rem;
-    }
-    .country-card__stat {
-      background: var(--bg-surface);
-      border-radius: var(--r-lg);
-      padding: .6rem .75rem;
-    }
-    .country-card__stat-label {
-      font-size: .68rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      display: block;
-      margin-bottom: .15rem;
-    }
-    .country-card__stat-value {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--gold);
-    }
-    .country-card__desc {
-      color: var(--text-muted);
-      font-size: .875rem;
-      line-height: 1.65;
-      flex: 1;
-    }
-    .country-card__features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .3rem;
-    }
-    .country-card__features li {
-      font-size: .82rem;
-      color: var(--text-muted);
-      padding-left: 1.25rem;
-      position: relative;
-    }
-    .country-card__features li::before {
-      content: "✓";
-      color: var(--gold);
-      font-weight: 700;
-      position: absolute;
-      left: 0;
-    }
-    .country-card__cta {
-      margin-top: auto;
-    }
-    /* ── Section tabs ──────────────────────────────────────────── */
-    .prog-tabs {
-      display: flex; gap: .5rem; flex-wrap: wrap;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2.5rem;
-    }
-    .prog-tab {
-      padding: .7rem 1.4rem;
-      border-radius: var(--r-lg) var(--r-lg) 0 0;
-      font-size: .875rem; font-weight: 600;
-      color: var(--text-muted); cursor: pointer;
-      border: 1px solid transparent; border-bottom: none;
-      transition: var(--t-fast);
-    }
-    .prog-tab.active, .prog-tab:hover {
-      background: var(--bg-elevated);
-      border-color: var(--border);
-      color: var(--gold);
-    }
-    /* ── Nationality pills ─────────────────────────────────────── */
-    .nat-pill { display: inline-block; border-radius: var(--r-full); padding: .25rem .75rem; font-size: .78rem; margin: .2rem; }
-    .nat-open { background: rgba(34,197,94,.12); color: #22c55e; border: 1px solid rgba(34,197,94,.3); }
-    .nat-restricted { background: rgba(239,68,68,.1); color: #ef4444; border: 1px solid rgba(239,68,68,.25); }
-    .nat-case { background: rgba(251,191,36,.1); color: #fbbf24; border: 1px solid rgba(251,191,36,.25); }
-    /* ── descent card ──────────────────────────────────────────── */
-    .descent-card {
-      background: var(--bg-elevated); border-radius: var(--r-xl);
-      overflow: hidden; border: 1px solid var(--border);
-      transition: var(--t-med);
-    }
-    .descent-card:hover { transform: translateY(-4px); border-color: var(--gold); }
-    .descent-card__img { height: 160px; overflow: hidden; }
-    .descent-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
-    .descent-card:hover .descent-card__img img { transform: scale(1.06); }
-    .descent-card__body { padding: 1.5rem; }
-    .strength-bar { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; margin: .4rem 0; }
-    .strength-fill { height: 100%; background: linear-gradient(90deg, var(--gold), #e8c96e); border-radius: 3px; }
-    /* ── Digital nomad cards ───────────────────────────────────── */
-    .nomad-card {
-      background: var(--bg-elevated); border-radius: var(--r-xl);
-      overflow: hidden; border: 1px solid var(--border);
-      transition: var(--t-med);
-    }
-    .nomad-card:hover { border-color: var(--gold); transform: translateY(-3px); }
-    .nomad-card__img { height: 140px; overflow: hidden; }
-    .nomad-card__img img { width: 100%; height: 100%; object-fit: cover; }
-    .nomad-card__body { padding: 1.25rem; }
-    /* ── Section divider with label ───────────────────────────── */
-    .section-label {
-      display: flex; align-items: center; gap: 1rem;
-      margin: 3.5rem 0 1.5rem;
-    }
-    .section-label::before, .section-label::after {
-      content: ''; flex: 1; height: 1px; background: var(--border);
-    }
-    .section-label span {
-      background: var(--bg-elevated); border: 1px solid var(--border);
-      border-radius: var(--r-full); padding: .4rem 1.25rem;
-      font-size: .8rem; font-weight: 700; color: var(--gold);
-      letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
-    }
-    /* ── investment type tags ─────────────────────────────────── */
-    .inv-tag { display: inline-block; font-size: .72rem; padding: .2rem .6rem; border-radius: var(--r-full); background: var(--bg-surface); border: 1px solid var(--border); color: var(--text-muted); margin: .15rem; }
-  </style>
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="apple-touch-icon" href="../favicon.svg">
-<script>
-/* MNG analytics loader — reads window.MNG_CONFIG (defined at the top of js/main.js).
-   Loads gtag.js and Microsoft Clarity ONLY when real IDs are configured.
-   Safe to ship empty; becomes active the instant you set the IDs in main.js. */
-(function () {
-  function loadScript(src, attrs) {
-    var s = document.createElement('script');
-    s.src = src; s.async = true;
-    Object.keys(attrs || {}).forEach(function (k) { s.setAttribute(k, attrs[k]); });
-    document.head.appendChild(s);
-    return s;
-  }
-  // Wait one tick so MNG_CONFIG (defined in main.js after this <script>) is available.
-  window.addEventListener('DOMContentLoaded', function () {
-    var cfg = window.MNG_CONFIG || {};
-    var ga4  = cfg.GA4_ID;
-    var gads = cfg.GADS_CONVERSION_ID;
-    var clar = cfg.CLARITY_ID;
-    if (ga4 || gads) {
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () { window.dataLayer.push(arguments); };
-      window.gtag('js', new Date());
-      if (ga4)  { loadScript('https://www.googletagmanager.com/gtag/js?id=' + ga4); window.gtag('config', ga4, { anonymize_ip: true }); }
-      if (gads) { window.gtag('config', gads); }
-    }
-    if (clar) {
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, 'clarity', 'script', clar);
-    }
-  });
-})();
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<title>Emergency Passport Processing Under 1 Week | Second Passports &amp; Citizenship by Investment | Move Now Group</title>
+<meta name="description" content="Emergency passport processing in as little as 24 hours through official government urgent channels, where available. Citizenship by investment, golden visas, citizenship by descent, and visa assistance for nationals of any country.">
+<link rel="canonical" href="https://movenowgroup.com/services/travel-documents.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Move Now Group">
+<meta property="og:title" content="Emergency Passports &amp; Citizenship by Investment | Move Now Group">
+<meta property="og:description" content="Emergency travel documents in as little as 24 hours to 1 week via official channels. Full citizenship by investment, golden visa, and citizenship by descent catalog.">
+<meta property="og:url" content="https://movenowgroup.com/services/travel-documents.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://images.pexels.com/photos/29402988/pexels-photo-29402988.jpeg?auto=compress&cs=tinysrgb&w=1200">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "serviceType": "Emergency Travel Documents and Citizenship Advisory",
+ "provider": {"@type": "Organization", "name": "Move Now Group", "url": "https://movenowgroup.com/"},
+ "areaServed": "Worldwide",
+ "description": "Emergency passport expediting through official government urgent channels, visa assistance, citizenship by investment, golden visa, and citizenship by descent advisory."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {"@type": "Question", "name": "How quickly can I get a second passport?", "acceptedAnswer": {"@type": "Answer", "text": "Vanuatu is fastest at roughly 30–60 days. Caribbean programs typically take 2–4 months plus due diligence. Turkey 3–6 months. European golden visas 6–24 months. For emergency travel documents of your existing nationality (not citizenship), we can assist within 24–72 hours through official embassy and government urgent channels, where your issuing authority offers them."}},
+ {"@type": "Question", "name": "I am Iranian, which programs can I access?", "acceptedAnswer": {"@type": "Answer", "text": "More than you may think. Vanuatu accepts all nationalities. Turkey is the most popular route for Iranian nationals. Grenada, Antigua, and St. Lucia are open. Dominica requires 10+ years outside Iran. Jordan and Egypt accept Iranians. Malta excludes Iranian nationals under its rules. The UAE Golden Visa is widely used by Iranians, and Georgia offers 365-day visa-free stays. We give you a precise eligibility map in your free consultation."}},
+ {"@type": "Question", "name": "Can I include my whole family in one application?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, almost all citizenship and residency programs include spouses and minor children at little or no extra cost. Most Caribbean programs also allow adult children up to 30, parents, and grandparents as dependents for additional fees. We structure family applications to maximize cost efficiency."}},
+ {"@type": "Question", "name": "What is the difference between CBI and a golden visa?", "acceptedAnswer": {"@type": "Answer", "text": "CBI gives you full citizenship and a passport within months. A golden visa gives you the right to live in the country, with citizenship available after a qualifying residence period, typically 5–10 years. CBI is faster to a passport; a golden visa is usually lower cost but takes longer."}},
+ {"@type": "Question", "name": "Do I have to move to or visit the country?", "acceptedAnswer": {"@type": "Answer", "text": "For Caribbean CBI and Vanuatu: no physical presence is required. For European golden visas: minimal stays, Portugal about 7 days per year, Greece zero, UAE at least one visit every two years. We advise on exact requirements per program."}}
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://movenowgroup.com/"},{"@type":"ListItem","position":2,"name":"Travel Documents","item":"https://movenowgroup.com/services/travel-documents.html"}]}
 </script>
 </head>
 <body>
 
-<div id="emergencyBar" class="emergency-bar">
-  <span data-en="24/7 Emergency Line, If you are in immediate danger, call now" data-ar="خط طوارئ ٢٤/٧" data-fa="خط اورژانس ۲۴/۷">24/7 Emergency Line, If you are in immediate danger, call now</span>
-  <a href="tel:+14237669105" class="emergency-bar__cta">+1 (423) 766-9105</a>
-  <button class="emergency-bar__close" id="emergencyBarClose">✕</button>
-</div>
+<div class="alert-bar">Need a passport urgently? Official emergency channels can deliver in as little as 24h–7 days, where available. <a href="tel:+15097806963">+1 (509) 780-6963</a>, response within 1 hour, 24/7</div>
 
-<header class="nav" id="mainNav">
-  <div class="nav__inner container">
-    <a href="../index.html" class="nav__logo" aria-label="Move Now Group"><img src="../logo.svg" alt="Move Now Group" width="180" height="40"></a>
-    <nav class="nav__links" id="navLinks">
-      <a href="../index.html" data-en="Home" data-ar="الرئيسية" data-fa="خانه">Home</a>
-      <div class="nav__dropdown">
-        <button class="nav__dropdown-toggle">Services ▾</button>
-        <div class="nav__dropdown-menu">
-          <a href="private-jet.html">Private Jets</a>
-          <a href="last-minute-private-jet-charter.html">Last-Minute Private Jet</a>
-          <a href="travel-documents.html">Travel Documents</a>
-          <a href="urgent-travel-coordination.html">Urgent Travel Coordination</a>
-          <a href="crypto.html">Crypto Exchange</a>
-          <a href="remittance.html">Remittance</a>
-          <a href="crisis-relocation-planning.html">Crisis Relocation Planning</a>
-          <a href="relocation.html">Relocation</a>
-        </div>
-      </div>
-      
-      <a href="../about.html">About</a>
-      <a href="../resources.html">Resources</a>
-      <a href="../contact.html">Contact</a>
-    </nav>
-    <div class="nav__actions">
-      <select class="lang-select" id="langSelect" aria-label="Language"><option value="">EN</option><option value="ar">AR · العربية</option><option value="fa">FA · فارسی</option><option value="tr">TR · Türkçe</option><option value="ku">KU · کوردی</option><option value="ru">RU · Русский</option><option value="uk">UK · Українська</option><option value="es">ES · Español</option><option value="fr">FR · Français</option><option value="de">DE · Deutsch</option><option value="zh-CN">ZH · 中文</option><option value="hi">HI · हिन्दी</option><option value="ur">UR · اردو</option><option value="ps">PS · پښتو</option><option value="my">MY · မြန်မာ</option></select><div id="google_translate_element" style="display:none"></div>
-      <a href="../contact.html" class="btn btn--primary btn--sm">Get Help</a>
-
-      <button class="nav__hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
+<header class="site-header">
+ <div class="header-inner">
+ <a href="../index.html" class="logo"><img src="../logo-light.svg" alt="Move Now Group"></a>
+ <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
+ <nav class="main-nav" aria-label="Main navigation">
+ <a href="../index.html">Home</a>
+ <div class="dropdown">
+ <a href="#" aria-haspopup="true">Services</a>
+ <div class="dropdown-menu">
+ <a href="private-jet.html">Private Jet Charter</a>
+ <a href="last-minute-private-jet-charter.html">Last-Minute Private Jet</a>
+ <a href="travel-documents.html">Travel Documents</a>
+ <a href="urgent-travel-coordination.html">Urgent Travel Coordination</a>
+ <a href="crisis-relocation-planning.html">Crisis Relocation Planning</a>
+ <a href="relocation.html">Relocation</a>
+ </div>
+ </div>
+ <a href="../about.html">About</a>
+ <a href="../contact.html">Contact</a>
+ <div class="nav-cta"><a href="#doc-form" class="btn btn-gold">Free Assessment</a></div>
+ </nav>
+ </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu__close" id="mobileMenuClose">✕</button>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="private-jet.html">Private Jets</a>
-          <a href="last-minute-private-jet-charter.html">Last-Minute Private Jet</a>
-    <a href="travel-documents.html">Travel Documents</a>
-          <a href="urgent-travel-coordination.html">Urgent Travel Coordination</a>
-    <a href="crypto.html">Crypto Exchange</a>
-    <a href="remittance.html">Remittance</a>
-          <a href="crisis-relocation-planning.html">Crisis Relocation Planning</a>
-          <a href="relocation.html">Relocation</a>
-    
-    <a href="../about.html">About</a>
-    <a href="../resources.html">Resources</a>
-    <a href="../contact.html">Contact</a>
-  </nav>
-  <a href="tel:+14237669105" class="btn btn--danger" style="margin-top:2rem;display:block;text-align:center">Emergency: +1 (423) 766-9105</a>
-</div>
-
-<main>
-
-<!-- ═══════════════════════════════════════════════════════════
-     EMERGENCY CTA MODULE — TOP OF PAGE
-════════════════════════════════════════════════════════════ -->
-<div style="background:var(--navy);padding:2rem 0;">
-  <div class="container">
-    <div style="border:2px solid var(--gold);background:rgba(201,168,76,0.08);border-radius:12px;padding:2rem 2.5rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;">
-      <div>
-        <p style="font-size:1.35rem;font-weight:800;color:#fff;margin:0 0 .85rem;letter-spacing:-0.01em;">Need a passport in under 7 days?</p>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.5rem;">
-          <li style="font-size:.95rem;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span> 24-hour emergency processing available</li>
-          <li style="font-size:.95rem;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span> Any country, any situation, including conflict zones</li>
-          <li style="font-size:.95rem;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span> Crypto accepted, no bank transfer required</li>
-        </ul>
-      </div>
-      <a href="#passport-form" class="btn btn--primary btn--lg" style="white-space:nowrap;flex-shrink:0;">Get Emergency Help &#8594;</a>
-    </div>
-    <p style="text-align:center;font-size:.85rem;color:rgba(255,255,255,.5);margin:.75rem 0 0;">Emergency line: <a href="tel:+14237669105" style="color:var(--gold);text-decoration:none;">+1 (423) 766-9105</a> &nbsp;|&nbsp; We respond within 1 hour, 24/7</p>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════
-     HERO
-════════════════════════════════════════════════════════════ -->
-<section class="page-hero">
-  <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?auto=format&fit=crop&w=1920&q=85')"></div>
-  <div class="page-hero__content container">
-    <nav class="page-hero__breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="#">Services</a> <span>›</span> <span>Travel Documents</span></nav>
-    <h1 class="page-hero__title">Emergency Passport Processing.<br><em>Under 1 Week.</em></h1>
-    <p class="page-hero__subtitle">Most passport services leave you waiting weeks. We process emergency travel documents in as little as 24 hours, for clients in any country, including conflict zones.</p>
-    <p class="page-hero__text" style="max-width:660px">When your situation can't wait, neither do we. From a $100,000 Caribbean passport to an EU citizenship, from a 24-hour emergency document to a full golden visa pathway, we handle everything. Specialists in nationals from sanctioned and conflict-affected countries worldwide.</p>
-    <div class="page-hero__actions">
-      <a href="#passport-form" class="btn btn--primary btn--lg">Get Emergency Help →</a>
-      <a href="https://wa.me/14237669105?text=I%20need%20emergency%20passport%20help" class="btn btn--outline btn--lg">WhatsApp Now</a>
-    </div>
-    <div class="page-hero__trust">
-      <span>10+ Years Processing</span><span>80+ Countries</span><span>Under 1 Hour Response</span><span>Crypto Accepted</span><span>Discreet &amp; Confidential</span>
-    </div>
-  </div>
+<section class="hero" style="--hero-img: url('https://images.pexels.com/photos/29402988/pexels-photo-29402988.jpeg?auto=compress&cs=tinysrgb&w=1600')">
+ <div class="container">
+ <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <span>Services</span> › Travel Documents</nav>
+ <span class="eyebrow">Emergency Documents · Citizenship · Residency</span>
+ <h1>Emergency passport processing. <em>Under 1 week, where officially available.</em></h1>
+ <p class="lede">Most passport services leave you waiting weeks. We connect eligible clients to official government urgent channels that deliver emergency travel documents in as little as 24 hours, and when your situation calls for something more permanent, we manage everything from a $100,000 Caribbean passport to an EU golden visa pathway. Specialists in clients from conflict-affected countries worldwide.</p>
+ <div class="hero-ctas">
+ <a href="#doc-form" class="btn btn-gold">Get Emergency Help →</a>
+ <a href="https://wa.me/15097806963?text=I%20need%20emergency%20passport%20help" class="btn btn-outline">WhatsApp Now</a>
+ </div>
+ <div class="hero-points">
+ <div><strong>10+</strong>Years processing</div>
+ <div><strong>80+</strong>Countries served</div>
+ <div><strong>&lt;1 hr</strong>Avg emergency response</div>
+ <div><strong>100%</strong>Official channels</div>
+ </div>
+ </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     STATS
-════════════════════════════════════════════════════════════ -->
-<div class="stats-bar">
-  <div class="container">
-    <div class="stat-item"><span class="stat-item__number" data-target="4200+">0</span><span class="stat-item__label">Clients Served</span></div>
-    <div class="stat-item"><span class="stat-item__number" data-target="80+">0</span><span class="stat-item__label">Countries Served</span></div>
-    <div class="stat-item"><span class="stat-item__number" data-target="10+">0</span><span class="stat-item__label">Years Processing</span></div>
-    <div class="stat-item"><span class="stat-item__number" data-target="97%">0</span><span class="stat-item__label">Application Success Rate</span></div>
-    <div class="stat-item"><span class="stat-item__number">&lt;1 hr</span><span class="stat-item__label">Avg Emergency Response</span></div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════
-     TRUST SIGNALS
-════════════════════════════════════════════════════════════ -->
-<section style="background:var(--bg-secondary);padding:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-  <div class="container">
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem 3rem;text-align:center;">
-      <div style="display:flex;align-items:center;gap:.6rem;">
-        <span style="color:var(--gold);font-size:1.2rem;">&#10003;</span>
-        <span style="font-size:.9rem;color:var(--text-secondary);font-weight:600;">10+ years processing emergency travel documents</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:.6rem;">
-        <span style="color:var(--gold);font-size:1.2rem;">&#10003;</span>
-        <span style="font-size:.9rem;color:var(--text-secondary);font-weight:600;">Clients served from 80+ countries</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:.6rem;">
-        <span style="color:var(--gold);font-size:1.2rem;">&#10003;</span>
-        <span style="font-size:.9rem;color:var(--text-secondary);font-weight:600;">Average emergency response: under 1 hour</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:.6rem;">
-        <span style="color:var(--gold);font-size:1.2rem;">&#10003;</span>
-        <span style="font-size:.9rem;color:var(--text-secondary);font-weight:600;">Crypto accepted, no bank transfer required</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:.6rem;">
-        <span style="color:var(--gold);font-size:1.2rem;">&#10003;</span>
-        <span style="font-size:.9rem;color:var(--text-secondary);font-weight:600;">Discreet. Confidential. No judgment.</span>
-      </div>
-    </div>
-  </div>
+<section class="section section-warm">
+ <div class="container">
+ <div class="section-head">
+ <span class="eyebrow">Emergency Processing</span>
+ <h2>Passport processing tiers</h2>
+ <p>Choose your turnaround. All tiers include full document review and expert preparation; faster tiers include dedicated support and 24/7 access. Turnaround depends on your issuing authority's official service levels, confirmed before you pay.</p>
+ </div>
+ <div class="grid grid-4">
+ <article class="program-card">
+ <span class="badge">Tier 1</span>
+ <h3>Standard</h3>
+ <p class="price">From $299</p>
+ <p class="muted">2–4 weeks turnaround</p>
+ <ul>
+ <li>Document review</li>
+ <li>Expert preparation</li>
+ <li>Courier submission</li>
+ </ul>
+ <a href="#doc-form" class="btn btn-outline-dark">Get Started →</a>
+ </article>
+ <article class="program-card">
+ <span class="badge">Tier 2</span>
+ <h3>Expedited</h3>
+ <p class="price">From $499</p>
+ <p class="muted">3–7 business days</p>
+ <ul>
+ <li>All Standard features</li>
+ <li>Priority lane submission</li>
+ <li>Dedicated agent</li>
+ </ul>
+ <a href="#doc-form" class="btn btn-outline-dark">Get Started →</a>
+ </article>
+ <article class="program-card">
+ <span class="badge">Tier 3 · Most Popular</span>
+ <h3>Rush</h3>
+ <p class="price">From $699</p>
+ <p class="muted">1–3 business days</p>
+ <ul>
+ <li>All Expedited features</li>
+ <li>24/7 phone access</li>
+ <li>Same-day confirmation</li>
+ </ul>
+ <a href="#doc-form" class="btn btn-outline-dark">Get Started →</a>
+ </article>
+ <article class="program-card">
+ <span class="badge">Tier 4 · Emergency</span>
+ <h3>Emergency</h3>
+ <p class="price">From $999</p>
+ <p class="muted">As little as 24 hours*</p>
+ <ul>
+ <li>All Rush features</li>
+ <li>Dedicated case manager</li>
+ <li>After-hours support</li>
+ <li>Guaranteed 1-hour response</li>
+ </ul>
+ <a href="#doc-form" class="btn btn-outline-dark">Request Emergency Help →</a>
+ </article>
+ </div>
+ <p class="muted mt-40"><strong>Disclaimer:</strong> Service fees cover our processing and coordination services; government fees and shipping are additional. Turnaround begins once all documents are received. *Emergency turnaround is available only where your nationality's issuing authority operates an official urgent service, we confirm this for your case before any payment.</p>
+ </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     EMERGENCY PASSPORT PRICING
-════════════════════════════════════════════════════════════ -->
-<section class="section" id="passport-form" style="background:var(--bg-primary);">
-  <div class="container">
-    <div class="section__header" style="text-align:center;margin-bottom:3rem;">
-      <p class="section__eyebrow" style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.1);display:inline-block;padding:.3rem 1rem;border:1px solid rgba(201,168,76,.2);border-radius:2px;margin-bottom:1rem;">Emergency Processing</p>
-      <h2 class="section__title" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--text);margin-bottom:.75rem;">Passport Processing Tiers</h2>
-      <p class="section__sub" style="color:var(--text-muted);max-width:600px;margin:0 auto;">Choose your turnaround. All tiers include full document review and expert preparation. Faster tiers include dedicated support and 24/7 access.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;align-items:start;">
-
-      <!-- Tier 1: Standard -->
-      <div style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:12px;padding:1.75rem;position:relative;">
-        <p style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin:0 0 .5rem;">Tier 1</p>
-        <h3 style="font-size:1.15rem;font-weight:700;color:var(--text);margin:0 0 .4rem;">Standard Processing</h3>
-        <p style="font-size:2rem;font-weight:700;color:var(--gold);font-family:'Cormorant Garamond',Georgia,serif;margin:0 0 .3rem;">From $299</p>
-        <p style="font-size:.85rem;color:var(--text-muted);margin:0 0 1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);">2–4 weeks turnaround</p>
-        <ul style="list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:.5rem;">
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> Document review</li>
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> Expert preparation</li>
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> Courier submission</li>
-        </ul>
-        <a href="#doc-form" class="btn btn--outline" style="display:block;text-align:center;border-color:var(--border);color:var(--text-secondary);">Get Started →</a>
-      </div>
-
-      <!-- Tier 2: Expedited -->
-      <div style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:12px;padding:1.75rem;position:relative;">
-        <p style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin:0 0 .5rem;">Tier 2</p>
-        <h3 style="font-size:1.15rem;font-weight:700;color:var(--text);margin:0 0 .4rem;">Expedited Processing</h3>
-        <p style="font-size:2rem;font-weight:700;color:var(--gold);font-family:'Cormorant Garamond',Georgia,serif;margin:0 0 .3rem;">From $499</p>
-        <p style="font-size:.85rem;color:var(--text-muted);margin:0 0 1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);">3–7 business days</p>
-        <ul style="list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:.5rem;">
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> All Standard features</li>
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> Priority lane submission</li>
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> Dedicated agent</li>
-        </ul>
-        <a href="#doc-form" class="btn btn--outline" style="display:block;text-align:center;border-color:var(--border);color:var(--text-secondary);">Get Started →</a>
-      </div>
-
-      <!-- Tier 3: Rush -->
-      <div style="background:var(--bg-elevated);border:1px solid rgba(201,168,76,.4);border-radius:12px;padding:1.75rem;position:relative;box-shadow:0 8px 32px rgba(201,168,76,.1);">
-        <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:#050D1A;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .8rem;border-radius:0 0 6px 6px;white-space:nowrap;">Most Popular</div>
-        <p style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin:.75rem 0 .5rem;">Tier 3</p>
-        <h3 style="font-size:1.15rem;font-weight:700;color:var(--text);margin:0 0 .4rem;">Rush Processing</h3>
-        <p style="font-size:2rem;font-weight:700;color:var(--gold);font-family:'Cormorant Garamond',Georgia,serif;margin:0 0 .3rem;">From $699</p>
-        <p style="font-size:.85rem;color:var(--text-muted);margin:0 0 1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);">1–3 business days</p>
-        <ul style="list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:.5rem;">
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> All Expedited features</li>
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> 24/7 phone access</li>
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> Same-day confirmation</li>
-        </ul>
-        <a href="#doc-form" class="btn btn--primary" style="display:block;text-align:center;">Get Started →</a>
-      </div>
-
-      <!-- Tier 4: Emergency -->
-      <div style="background:rgba(201,168,76,0.06);border:2px solid var(--gold);border-radius:12px;padding:1.75rem;position:relative;">
-        <div style="position:absolute;top:-1px;right:1rem;background:#ef4444;color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .8rem;border-radius:0 0 6px 6px;">EMERGENCY</div>
-        <p style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin:0 0 .5rem;">Tier 4</p>
-        <h3 style="font-size:1.15rem;font-weight:700;color:var(--text);margin:0 0 .4rem;">Emergency Processing</h3>
-        <p style="font-size:2rem;font-weight:700;color:var(--gold);font-family:'Cormorant Garamond',Georgia,serif;margin:0 0 .3rem;">From $999</p>
-        <p style="font-size:.85rem;color:var(--text-muted);margin:0 0 1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(201,168,76,.25);">Under 24 hours</p>
-        <ul style="list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:.5rem;">
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> All Rush features</li>
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> Dedicated case manager</li>
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> After-hours support</li>
-          <li style="font-size:.875rem;color:var(--text-muted);padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">&#10003;</span> Guaranteed response in 1 hour</li>
-        </ul>
-        <a href="#doc-form" class="btn btn--primary" style="display:block;text-align:center;">Request Emergency Help →</a>
-      </div>
-
-    </div>
-
-    <div style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;margin-top:1.5rem;font-size:.85rem;color:var(--text-muted);line-height:1.7;">
-      <strong style="color:var(--text-secondary);">Disclaimer:</strong> Service fees cover our processing and coordination services. Government fees and shipping are additional. Turnaround begins once all documents are received.
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     HOW IT WORKS
-════════════════════════════════════════════════════════════ -->
-<section class="section" style="background:var(--bg-secondary);">
-  <div class="container">
-    <div class="section__header" style="text-align:center;margin-bottom:3rem;">
-      <p class="section__eyebrow" style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.1);display:inline-block;padding:.3rem 1rem;border:1px solid rgba(201,168,76,.2);border-radius:2px;margin-bottom:1rem;">Simple Process</p>
-      <h2 class="section__title" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--text);margin-bottom:.75rem;">How It Works</h2>
-      <p style="color:var(--text-muted);max-width:500px;margin:0 auto;">Three steps from first contact to delivered documents.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;max-width:900px;margin:0 auto;">
-
-      <div style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:12px;padding:2rem;position:relative;">
-        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:3.5rem;font-weight:700;color:rgba(201,168,76,.15);position:absolute;top:.5rem;right:1.25rem;line-height:1;">1</div>
-        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text);margin:0 0 .75rem;">Submit Your Request</h3>
-        <p style="font-size:.9rem;color:var(--text-muted);line-height:1.7;margin:0;">Contact us online or via WhatsApp. We respond within 1 hour, 24 hours a day, 7 days a week, including weekends and holidays.</p>
-      </div>
-
-      <div style="background:var(--bg-elevated);border:1px solid rgba(201,168,76,.35);border-radius:12px;padding:2rem;position:relative;">
-        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:3.5rem;font-weight:700;color:rgba(201,168,76,.15);position:absolute;top:.5rem;right:1.25rem;line-height:1;">2</div>
-        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text);margin:0 0 .75rem;">We Review &amp; Confirm</h3>
-        <p style="font-size:.9rem;color:var(--text-muted);line-height:1.7;margin:0;">Our experts review your documents and confirm your timeline. We'll give you a clear quote and realistic turnaround, with no surprises.</p>
-      </div>
-
-      <div style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:12px;padding:2rem;position:relative;">
-        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:3.5rem;font-weight:700;color:rgba(201,168,76,.15);position:absolute;top:.5rem;right:1.25rem;line-height:1;">3</div>
-        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text);margin:0 0 .75rem;">Documents Delivered</h3>
-        <p style="font-size:.9rem;color:var(--text-muted);line-height:1.7;margin:0;">Your documents are processed and delivered via secure courier. For emergency tiers, we provide real-time status updates throughout.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     CBI, CARIBBEAN
-════════════════════════════════════════════════════════════ -->
-<section class="section" id="cbi-programs">
-  <div class="container">
-    <div class="section__header">
-      <p class="section__eyebrow">Full Passport, Second Citizenship</p>
-      <h2 class="section__title">Citizenship by Investment Programs</h2>
-      <p class="section__sub">Obtain a genuine second passport through a legal government investment. Includes your spouse, children, and in most programs, parents too. No residency required.</p>
-    </div>
-
-    <div class="section-label"><span>🏝 Caribbean, Most Popular, Most Accessible, Fastest</span></div>
-    <p style="color:var(--text-muted);font-size:.9rem;max-width:780px">Caribbean CBI programs are government-authorized, internationally recognized, and generally open to all nationalities. Fast processing, zero physical residency requirement, and strong visa-free travel including Schengen.</p>
-
-    <div class="country-grid">
-
-      <!-- St. Kitts & Nevis -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=700&q=80" alt="St. Kitts and Nevis second passport citizenship by investment Caribbean program" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇰🇳</div>
-          <div class="country-card__badges"><span class="cb cb-gold">OLDEST PROGRAM</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">St. Kitts &amp; Nevis</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">$250,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">3–6 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Visa-Free</span><span class="country-card__stat-value">157 countries</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Residency Req.</span><span class="country-card__stat-value">None</span></div>
-          </div>
-          <p class="country-card__desc">The world's oldest and most established CBI program, founded in 1984. St. Kitts passport grants visa-free access to the UK, Schengen, Singapore, and 157 countries. Two investment routes: Sustainable Island State Fund (donation) or government-approved real estate.</p>
-          <ul class="country-card__features">
-            <li>Include spouse, children, parents, grandparents</li>
-            <li>UK &amp; Schengen visa-free</li>
-            <li>No interview required</li>
-            <li>Dual citizenship permitted</li>
-            <li>Investment types: <span class="inv-tag">Fund</span><span class="inv-tag">Real Estate</span></li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Iranians: case by case</span><span class="nat-open nat-pill">All others: open</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Dominica -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=700&q=80" alt="Dominica citizenship by investment second passport $100000 fastest program" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇩🇲</div>
-          <div class="country-card__badges"><span class="cb cb-green">LOWEST COST</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Dominica</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">$100,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">2–3 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Visa-Free</span><span class="country-card__stat-value">144 countries</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Residency Req.</span><span class="country-card__stat-value">None</span></div>
-          </div>
-          <p class="country-card__desc">The most affordable legitimate citizenship by investment program in the world. Dominica's "Nature Isle" passport grants Schengen access, UK visa-free entry, and visa-free access to China. Consistently ranked among the top CBI programs for value.</p>
-          <ul class="country-card__features">
-            <li>Schengen + UK visa-free</li>
-            <li>Visa-free to China (rare for Caribbean)</li>
-            <li>Single applicant from $100,000</li>
-            <li>Family of 4 from ~$175,000</li>
-            <li>Investment types: <span class="inv-tag">Fund</span><span class="inv-tag">Real Estate</span></li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-case nat-pill">Iranians: 10+ yrs outside Iran req.</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Antigua & Barbuda -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80" alt="Antigua Barbuda second passport citizenship by investment dual nationality" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇦🇬</div>
-          <div class="country-card__badges"><span class="cb cb-gold">FAMILY FRIENDLY</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Antigua &amp; Barbuda</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">$230,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">3–4 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Visa-Free</span><span class="country-card__stat-value">150 countries</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Dependents</span><span class="country-card__stat-value">Up to age 30</span></div>
-          </div>
-          <p class="country-card__desc">One of the Caribbean's most family-accommodating programs, adult children up to age 30 and parents of any age can be included. Beautiful twin-island nation with strong UK Commonwealth ties. Three investment routes including business investment.</p>
-          <ul class="country-card__features">
-            <li>Adult children up to age 30 included</li>
-            <li>Parents and grandparents eligible</li>
-            <li>UK &amp; Schengen visa-free</li>
-            <li>5-day residency every 5 years (minimal)</li>
-            <li>Investment types: <span class="inv-tag">Fund</span><span class="inv-tag">Real Estate</span><span class="inv-tag">Business</span></li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- St. Lucia -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1559825481-12a05cc00344?auto=format&fit=crop&w=700&q=80" alt="St Lucia second passport citizenship by investment Caribbean program 2025" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇱🇨</div>
-          <div class="country-card__badges"><span class="cb cb-blue">BONDS AVAILABLE</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Saint Lucia</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">$100,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">3–4 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Visa-Free</span><span class="country-card__stat-value">146 countries</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Residency Req.</span><span class="country-card__stat-value">None</span></div>
-          </div>
-          <p class="country-card__desc">St. Lucia offers one of the rare CBI programs with a government bond option, your investment is returned after 5 years (minus interest). Strong Schengen and UK visa-free access. Known for efficient, professional processing and the stunning backdrop of the Piton mountains.</p>
-          <ul class="country-card__features">
-            <li>Government bonds: capital returned after 5 years</li>
-            <li>Schengen + UK visa-free</li>
-            <li>No physical presence required</li>
-            <li>Processing: among fastest Caribbean</li>
-            <li>Investment types: <span class="inv-tag">Fund</span><span class="inv-tag">Real Estate</span><span class="inv-tag">Gov. Bonds</span></li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Grenada -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=700&q=80" alt="Grenada second passport citizenship by investment E-2 US visa access" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇬🇩</div>
-          <div class="country-card__badges"><span class="cb cb-gold">US E-2 TREATY ★</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Grenada</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">$150,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">4–6 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Visa-Free</span><span class="country-card__stat-value">144 countries</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">US E-2 Treaty</span><span class="country-card__stat-value">Yes ★</span></div>
-          </div>
-          <p class="country-card__desc">Grenada is uniquely valuable for one reason: it is the <strong style="color:var(--gold)">only Caribbean CBI country with a US E-2 Investor Treaty</strong>. Grenadian citizens can apply for a US E-2 visa, a pathway to long-term US residency. This makes Grenada the #1 choice for Iranians, Chinese, and other nationals who cannot directly access US investor visas.</p>
-          <ul class="country-card__features">
-            <li>🇺🇸 US E-2 treaty, long-term US residency path</li>
-            <li>UK &amp; Schengen visa-free</li>
-            <li>China visa-free</li>
-            <li>Dual citizenship: full rights, no disclosure</li>
-            <li>Investment types: <span class="inv-tag">Fund</span><span class="inv-tag">Real Estate</span></li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all, incl. Iranians</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-    </div><!-- /caribbean grid -->
-
-    <!-- ── PACIFIC ─────────────────────────────────────────── -->
-    <div class="section-label"><span>🌊 Pacific, World's Fastest Passport (30–60 Days)</span></div>
-
-    <div class="country-grid" style="grid-template-columns:repeat(auto-fill,minmax(340px,1fr))">
-
-      <!-- Vanuatu -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img" style="height:260px">
-          <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=900&q=80" alt="Vanuatu second passport citizenship by investment fastest 30 days Pacific" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇻🇺</div>
-          <div class="country-card__badges"><span class="cb cb-gold">WORLD'S FASTEST </span><span class="cb cb-green">ALL NATIONALITIES</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Vanuatu: Development Support Programme</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">$130,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value" style="color:#22c55e">30–60 DAYS</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Visa-Free</span><span class="country-card__stat-value">98 countries</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Nationality Bans</span><span class="country-card__stat-value" style="color:#22c55e">None</span></div>
-          </div>
-          <p class="country-card__desc">At 30–60 days from application to passport-in-hand, Vanuatu is by far the world's fastest legitimate citizenship program. Critically, <strong style="color:var(--gold)">Vanuatu accepts all nationalities without restriction</strong>, including Iranian, Afghan, Syrian, Sudanese, North Korean, and all other nationals. If you need a travel document fast, this is your answer. The Vanuatu passport gives visa-free access to the UK, Russia, Singapore, Hong Kong, and 95+ more countries.</p>
-          <ul class="country-card__features">
-            <li>No nationality restrictions, anyone can apply</li>
-            <li>30–60 day processing: fastest in the world</li>
-            <li>UK, Singapore, Russia visa-free</li>
-            <li>Single government contribution, no real estate</li>
-            <li>No physical presence ever required</li>
-            <li>Family included: spouse + children</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">✓ Iranians</span><span class="nat-open nat-pill">✓ Afghans</span><span class="nat-open nat-pill">✓ Syrians</span><span class="nat-open nat-pill">✓ Sudanese</span><span class="nat-open nat-pill">✓ All nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--lg country-card__cta" style="margin-top:1.25rem;display:block;text-align:center">Get Vanuatu Passport in 60 Days →</a>
-        </div>
-      </div>
-
-    </div><!-- /pacific grid -->
-
-    <!-- ── EUROPE, MIDDLE EAST & AFRICA ────────────────────── -->
-    <div class="section-label"><span>Europe, Middle East &amp; Africa, Premium Programs</span></div>
-
-    <div class="country-grid">
-
-      <!-- Malta -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1507041957456-9c397ce39c97?auto=format&fit=crop&w=700&q=80" alt="Malta golden visa residency citizenship by investment EU passport" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇲🇹</div>
-          <div class="country-card__badges"><span class="cb cb-blue">EU PASSPORT</span><span class="cb cb-purple">185 COUNTRIES</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Malta: MEIN</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">€600,000+</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">12–14 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Visa-Free</span><span class="country-card__stat-value">185 countries</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">EU Access</span><span class="country-card__stat-value">Full rights</span></div>
-          </div>
-          <p class="country-card__desc">Malta's Maltese Exceptional Investor Naturalisation (MEIN) program is the only legitimate EU citizenship by direct investment program. The Malta passport, ranked among the world's most powerful, provides visa-free access to 185 countries including the US, UK, Canada, and all Schengen states. Full EU rights: live, work, study anywhere in the 27-member European Union.</p>
-          <ul class="country-card__features">
-            <li>EU citizenship, full rights in all 27 EU countries</li>
-            <li>US, UK, Canada visa-free</li>
-            <li>1–3 year residency in Malta required</li>
-            <li>€600K contribution + €700K property + €10K charity</li>
-            <li>Dual nationality: Malta permits it</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-restricted nat-pill">Iranians: excluded under sanctions rules</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Turkey -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=700&q=80" alt="Turkey residency citizenship by investment $400000 real estate Middle East" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇹🇷</div>
-          <div class="country-card__badges"><span class="cb cb-gold">IRAN FRIENDLY ★</span><span class="cb cb-green">POPULAR</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Turkey: Turkish Citizenship</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">$400,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">3–6 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Visa-Free</span><span class="country-card__stat-value">110+ countries</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Residency Req.</span><span class="country-card__stat-value">None</span></div>
-          </div>
-          <p class="country-card__desc">Turkey is the <strong style="color:var(--gold)">most popular citizenship program for Iranian nationals</strong> and a major hub for Afghans, Arabs, and Central Asians. Turkish property investment at $400,000 qualifies for citizenship, held for 3 years, then fully resaleable. The Turkish passport provides access to Japan, South Korea, Singapore, and 110+ countries without visa. Multiple investment routes available.</p>
-          <ul class="country-card__features">
-            <li>Proven program, 50,000+ approvals annually</li>
-            <li>Property fully resaleable after 3 years</li>
-            <li>Japan, South Korea, Singapore visa-free</li>
-            <li>Bank deposit and business routes also available</li>
-            <li>Dual citizenship: Turkey permits it</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">✓ Iranians: fully accepted</span><span class="nat-open nat-pill">✓ Arabs</span><span class="nat-open nat-pill">✓ Afghans</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Jordan -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=700&q=80" alt="Jordan residency investment program Middle East relocation hub" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇯🇴</div>
-          <div class="country-card__badges"><span class="cb cb-gold">ARAB WORLD</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Jordan</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">$750,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">3–4 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Visa-Free</span><span class="country-card__stat-value">50+ countries</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Location</span><span class="country-card__stat-value">Middle East</span></div>
-          </div>
-          <p class="country-card__desc">Jordan's citizenship by investment program offers residency and full citizenship to qualifying investors. Located strategically between the Gulf, Europe, and Africa, Jordan's Hashemite passport is well-regarded in the Arab world. A significant number of approved applicants are Iranian and Syrian nationals.</p>
-          <ul class="country-card__features">
-            <li>Schengen visa-free entry (selected countries)</li>
-            <li>Strong standing in Gulf and Arab states</li>
-            <li>Real estate, business, and fund routes</li>
-            <li>Proven track record for Iranian &amp; Syrian applicants</li>
-            <li>Arabic-speaking country, culturally close</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">✓ Iranians: accepted</span><span class="nat-open nat-pill">✓ Syrians: large approved group</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Egypt -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1539768942893-daf53e448371?auto=format&fit=crop&w=700&q=80" alt="Egypt residency program affordable relocation Middle East North Africa" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇪🇬</div>
-          <div class="country-card__badges"><span class="cb cb-green">AFFORDABLE</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Egypt</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">$250,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">3–4 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Visa-Free</span><span class="country-card__stat-value">50+ countries</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Location</span><span class="country-card__stat-value">North Africa</span></div>
-          </div>
-          <p class="country-card__desc">Egypt offers one of the most affordable citizenship programs in the MENA region. Bank deposit or real estate investment qualifies. The Egyptian passport provides access to Arab League states, African Union countries, and select European nations.</p>
-          <ul class="country-card__features">
-            <li>Arab League &amp; African Union state access</li>
-            <li>Government deposit route: refundable</li>
-            <li>Real estate in approved developments</li>
-            <li>Open program, broad nationality acceptance</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- North Macedonia -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=700&q=80" alt="North Macedonia citizenship by investment EU candidate affordable second passport" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇲🇰</div>
-          <div class="country-card__badges"><span class="cb cb-purple">EU CANDIDATE</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">North Macedonia</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">€200,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">3–6 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Status</span><span class="country-card__stat-value">EU Candidate</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Residency Req.</span><span class="country-card__stat-value">None</span></div>
-          </div>
-          <p class="country-card__desc">An emerging and underused program. North Macedonia is an official EU accession candidate, citizenship acquired now may transition to EU membership rights as the country joins the bloc. Government contribution route, open nationalities.</p>
-          <ul class="country-card__features">
-            <li>EU candidate, potential future EU rights</li>
-            <li>Currently Schengen visa-free access</li>
-            <li>Government contribution, single payment</li>
-            <li>Strategically priced below Caribbean peers</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- São Tomé -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=700&q=80" alt="Sao Tome Principe citizenship second passport Africa visa-free travel" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇸🇹</div>
-          <div class="country-card__badges"><span class="cb cb-green">FROM $90K</span><span class="cb cb-gold">FASTEST AFRICA</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">São Tomé &amp; Príncipe</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">$90,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">1–3 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Location</span><span class="country-card__stat-value">West Africa</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Language</span><span class="country-card__stat-value">Portuguese</span></div>
-          </div>
-          <p class="country-card__desc">One of the world's least-known but most accessible citizenship programs. Portuguese-speaking island nation off West Africa with a government fund route starting at $90,000, among the cheapest in the world. Provides Community of Portuguese-speaking Countries (CPLP) mobility rights and access to Portugal pathways.</p>
-          <ul class="country-card__features">
-            <li>Cheapest legitimate CBI in existence at $90K</li>
-            <li>CPLP mobility, Portugal access pathway</li>
-            <li>1–3 month processing</li>
-            <li>Open to all nationalities</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-    </div><!-- /EMEA CBI grid -->
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     GOLDEN VISA / RESIDENCY BY INVESTMENT
-════════════════════════════════════════════════════════════ -->
-<section class="section" id="golden-visa" style="background:var(--bg-surface)">
-  <div class="container">
-    <div class="section__header">
-      <p class="section__eyebrow">Residency First, Citizenship Later</p>
-      <h2 class="section__title">Residency by Investment: Golden Visa Programs</h2>
-      <p class="section__sub">Residency gives you the right to live, work, and travel freely, with a path to citizenship after a qualifying period. Most programs require minimal or zero physical presence.</p>
-    </div>
-
-    <div class="section-label"><span>European Golden Visas, Live in Europe, Path to EU Citizenship</span></div>
-
-    <div class="country-grid">
-
-      <!-- Portugal -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?auto=format&fit=crop&w=700&q=80" alt="Portugal golden visa D7 residency EU citizenship investment Middle East" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇵🇹</div>
-          <div class="country-card__badges"><span class="cb cb-blue">EU CITIZENSHIP PATH</span><span class="cb cb-gold">MOST POPULAR</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Portugal: Golden Visa (ARI)</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">€250,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">12–24 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Citizenship After</span><span class="country-card__stat-value">5 years</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Annual Stay Req.</span><span class="country-card__stat-value">7 days/year</span></div>
-          </div>
-          <p class="country-card__desc">Portugal's Golden Visa is the most sought-after residency program in Europe. After just 5 years, spending only 7 days per year in Portugal, you qualify for full Portuguese citizenship and an EU passport with 190+ country access. Investment fund route (from €250K) is now the primary option after real estate was phased out in most areas.</p>
-          <ul class="country-card__features">
-            <li>EU citizenship and passport after 5 years</li>
-            <li>Only 7 days per year in Portugal required</li>
-            <li>Entire family included from day one</li>
-            <li>No language requirement for residency (only citizenship)</li>
-            <li>Investment types: <span class="inv-tag">Funds</span><span class="inv-tag">🎨 Arts/Heritage</span><span class="inv-tag">R&amp;D</span></li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities incl. sanctioned countries</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Greece -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=700&q=80" alt="Greece golden visa residency by investment EU citizenship path" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇬🇷</div>
-          <div class="country-card__badges"><span class="cb cb-green">FAST PROCESSING</span><span class="cb cb-blue">NO STAY REQ.</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Greece: Golden Visa</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">€250,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">2–4 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Citizenship After</span><span class="country-card__stat-value">7 years</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Annual Stay Req.</span><span class="country-card__stat-value">Zero</span></div>
-          </div>
-          <p class="country-card__desc">Greece offers the fastest EU residency processing in Europe and one of the most flexible, <strong style="color:var(--gold)">zero minimum stay required</strong>. The Greek Golden Visa was recently updated with higher thresholds (€400K) in Athens, Thessaloniki, and islands, while remaining at €250K in less-populated regions. Immediate Schengen zone access upon approval.</p>
-          <ul class="country-card__features">
-            <li>Zero physical presence requirement</li>
-            <li>Immediate Schengen travel upon approval</li>
-            <li>Real estate retains value in prime locations</li>
-            <li>Investment types: <span class="inv-tag">Real Estate</span><span class="inv-tag">Funds</span></li>
-            <li>Greek citizenship after 7 years (EU passport)</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Italy -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=700&q=80" alt="Italy golden visa elective residency investment EU citizenship path" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇮🇹</div>
-          <div class="country-card__badges"><span class="cb cb-blue">EU LIFESTYLE</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Italy: Investor Visa</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">€250,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">3–6 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Citizenship After</span><span class="country-card__stat-value">10 years</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Schengen</span><span class="country-card__stat-value">Day 1</span></div>
-          </div>
-          <p class="country-card__desc">Italy's investor visa program allows non-EU nationals to gain Italian residency through strategic investment, with an eventual path to Italian citizenship, one of the world's most powerful passports. Four investment routes including charitable donations and startups. Ideal for those who want to actually live in Europe.</p>
-          <ul class="country-card__features">
-            <li>€250K startup / €500K business / €1M government bonds</li>
-            <li>€1M charitable donation route available</li>
-            <li>Italian citizenship (EU): after 10 years residency</li>
-            <li>No maximum age for investment</li>
-            <li>Beautiful lifestyle destination</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Hungary -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=700&q=80" alt="Hungary guest investor golden visa EU residency by investment" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇭🇺</div>
-          <div class="country-card__badges"><span class="cb cb-purple">NEW 2024</span><span class="cb cb-blue">EU</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Hungary: Guest Investor Visa</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">€250,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">2–3 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Residency Term</span><span class="country-card__stat-value">10 years</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Schengen</span><span class="country-card__stat-value">Full access</span></div>
-          </div>
-          <p class="country-card__desc">Hungary's new Guest Investor Visa (launched 2024) provides 10-year renewable EU residency for qualifying investors, making it one of the longest-term EU residency programs available. Real estate fund investment route starts at €250K. Schengen area full access from day one.</p>
-          <ul class="country-card__features">
-            <li>10-year renewable residency</li>
-            <li>Full Schengen area access</li>
-            <li>Real estate fund investment route</li>
-            <li>Optional real estate purchase at €500K</li>
-            <li>Budapest: thriving capital with low cost of living</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Cyprus -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1530854717914-b7be70527751?auto=format&fit=crop&w=700&q=80" alt="Cyprus residency investment program fast track EU access Mediterranean" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇨🇾</div>
-          <div class="country-card__badges"><span class="cb cb-blue">EU RESIDENCY</span><span class="cb cb-green">FAST</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Cyprus: Permanent Residency</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">€300,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">2–4 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Citizenship After</span><span class="country-card__stat-value">5 years (naturalization)</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Status</span><span class="country-card__stat-value">EU Permanent</span></div>
-          </div>
-          <p class="country-card__desc">Cyprus offers one of the fastest EU permanent residency programs. The Category F Fast Track allows qualifying investors to obtain permanent residency within months. Real estate investment in Cyprus has proven resilient with strong rental yields. EU member state with English widely spoken.</p>
-          <ul class="country-card__features">
-            <li>Fast-track to EU permanent residency</li>
-            <li>Real estate: strong investment + rental income potential</li>
-            <li>English-speaking EU member</li>
-            <li>Mediterranean climate and lifestyle</li>
-            <li>Naturalization to citizenship after 5 years</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-    </div><!-- /EU golden visa grid -->
-
-    <div class="section-label"><span>🌏 Global Programs, Americas, Asia &amp; Beyond</span></div>
-
-    <div class="country-grid">
-
-      <!-- UAE -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80" alt="UAE Dubai golden visa 10 year residency investment no income tax" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇦🇪</div>
-          <div class="country-card__badges"><span class="cb cb-gold">NO INCOME TAX</span><span class="cb cb-green">10-YEAR VISA</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">UAE: Golden Visa</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">AED 2M (~$545K)</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">1–2 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Residency Term</span><span class="country-card__stat-value">10 years (renewable)</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Tax</span><span class="country-card__stat-value">0% income tax</span></div>
-          </div>
-          <p class="country-card__desc">The UAE Golden Visa offers 10-year renewable residency in one of the world's most connected and tax-free environments. Dubai and Abu Dhabi serve as global hubs with direct flights to every major city. Hugely popular with Iranians, Arabs, Russians, Ukrainians, and South Asians. No income, capital gains, or wealth tax.</p>
-          <ul class="country-card__features">
-            <li>Zero income tax jurisdiction</li>
-            <li>10-year renewable residence</li>
-            <li>Business setup and banking access</li>
-            <li>Family included: spouse + children</li>
-            <li>Real estate route + business + talent tracks</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">✓ Iranians</span><span class="nat-open nat-pill">✓ Russians</span><span class="nat-open nat-pill">✓ All nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Canada -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=700&q=80" alt="Canada permanent residency refugee program immigration Middle East" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇨🇦</div>
-          <div class="country-card__badges"><span class="cb cb-blue">PR → CITIZENSHIP</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Canada: Start-Up Visa</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">CAD 75,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">12–24 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Citizenship After</span><span class="country-card__stat-value">3 years PR</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Passport Strength</span><span class="country-card__stat-value">185 countries</span></div>
-          </div>
-          <p class="country-card__desc">Canada's Start-Up Visa links investors with a designated organization (VC fund, angel investor, or business incubator). Qualifying applicants and their families receive Canadian Permanent Residency (PR), with full citizenship and a top-10 world passport available after 3 years.</p>
-          <ul class="country-card__features">
-            <li>Canadian PR for whole family from day one</li>
-            <li>Citizenship after just 3 years</li>
-            <li>185-country passport, one of world's strongest</li>
-            <li>Multiple province-specific entrepreneur programs</li>
-            <li>Universal healthcare + education access</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Panama -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1554750735-4549a94f6a02?auto=format&fit=crop&w=700&q=80" alt="Panama friendly nations visa residency second passport program" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇵🇦</div>
-          <div class="country-card__badges"><span class="cb cb-gold">TERRITORIAL TAX</span><span class="cb cb-green">PERMANENT PR</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Panama: Qualified Investor Visa</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">From</span><span class="country-card__stat-value">$300,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Processing</span><span class="country-card__stat-value">3–6 months</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Status</span><span class="country-card__stat-value">Permanent Residency</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Tax</span><span class="country-card__stat-value">Territorial only</span></div>
-          </div>
-          <p class="country-card__desc">Panama offers permanent residency with a territorial tax system, foreign income is never taxed. The US dollar is Panama's official currency. Strategically located connecting North and South America, with direct flights to most major cities. Popular banking hub.</p>
-          <ul class="country-card__features">
-            <li>Permanent residency, no renewal needed</li>
-            <li>Territorial tax: foreign income tax-free</li>
-            <li>USD economy, no currency risk</li>
-            <li>Pensionado visa also available from $1,000/month income</li>
-            <li>Strong banking sector</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">Open to all nationalities</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-      <!-- Georgia -->
-      <div class="country-card fade-in-up">
-        <div class="country-card__img">
-          <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=700&q=80" alt="Georgia visa-free residency low tax relocation Iranian Afghan nationals" loading="lazy">
-          <div class="country-card__overlay"></div>
-          <div class="country-card__flag">🇬🇪</div>
-          <div class="country-card__badges"><span class="cb cb-green">VISA-FREE 1 YEAR</span><span class="cb cb-gold">IRAN FRIENDLY</span></div>
-        </div>
-        <div class="country-card__body">
-          <h3 class="country-card__name">Georgia: Residency &amp; Visa-Free Access</h3>
-          <div class="country-card__stats">
-            <div class="country-card__stat"><span class="country-card__stat-label">Visa-Free Stay</span><span class="country-card__stat-value">365 days</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Residency From</span><span class="country-card__stat-value">$100,000</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Income Tax</span><span class="country-card__stat-value">1% (Virtual Zone)</span></div>
-            <div class="country-card__stat"><span class="country-card__stat-label">Open To</span><span class="country-card__stat-value">Iranians ✓</span></div>
-          </div>
-          <p class="country-card__desc">Georgia offers 365-day visa-free access for Iranian, Ukrainian, Russian, and most nationalities, making it an immediate transit and base option. Real estate investment from $100,000 qualifies for permanent residency. Georgia's Virtual Zone program offers 0–1% income tax for IT workers and remote professionals.</p>
-          <ul class="country-card__features">
-            <li>365-day visa-free for Iranians, Russians, Ukrainians</li>
-            <li>Real estate residency from $100K</li>
-            <li>1% income tax for Virtual Zone IT companies</li>
-            <li>EU candidate status (applied)</li>
-            <li>Low cost of living, booming expat community</li>
-          </ul>
-          <div style="margin-top:.75rem"><span class="nat-open nat-pill">✓ Iranians: 365-day visa-free</span><span class="nat-open nat-pill">✓ All welcome</span></div>
-          <a href="#doc-form" class="btn btn--primary btn--sm country-card__cta" style="margin-top:1rem;display:block;text-align:center">Apply Now →</a>
-        </div>
-      </div>
-
-    </div><!-- /MENA/Americas golden visa grid -->
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     CITIZENSHIP BY DESCENT
-════════════════════════════════════════════════════════════ -->
-<section class="section" id="descent">
-  <div class="container">
-    <div class="section__header">
-      <p class="section__eyebrow">Free, Legal Right, No Investment</p>
-      <h2 class="section__title">Citizenship by Descent: Claim Your Heritage</h2>
-      <p class="section__sub">If you have a grandparent or great-grandparent from certain countries, you may be legally entitled to full citizenship and a passport, at no investment cost. We research your family tree and manage the entire process.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:2.5rem">
-
-      <div class="descent-card fade-in-up">
-        <div class="descent-card__img"><img src="https://images.unsplash.com/photo-1515542622106-078bda3e70ed?auto=format&fit=crop&w=600&q=80" alt="Italy elective residency visa EU citizenship second passport program" loading="lazy"></div>
-        <div class="descent-card__body">
-          <div style="font-size:1.75rem">🇮🇹</div>
-          <h3 style="font-family:var(--font-display);margin:.5rem 0">Italy: Jure Sanguinis</h3>
-          <div class="strength-bar"><div class="strength-fill" style="width:96%"></div></div>
-          <p style="font-size:.75rem;color:var(--text-muted);margin-bottom:.75rem">Passport rank: 188 visa-free countries, EU citizenship</p>
-          <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:.75rem">No generational limit. Pre-1948 ancestor minimum. One of the most powerful second passports in the world. EU full rights.</p>
-          <p style="color:var(--gold);font-size:.8rem;font-weight:600">Timeline: 12–36 months, Cost: legal fees only</p>
-          <a href="#doc-form" class="btn btn--outline btn--sm" style="margin-top:.75rem;display:inline-block">Check Eligibility →</a>
-        </div>
-      </div>
-
-      <div class="descent-card fade-in-up">
-        <div class="descent-card__img"><img src="https://images.unsplash.com/photo-1549918864-48ac978761a4?auto=format&fit=crop&w=600&q=80" alt="Ireland startup investor visa EU residency second passport English speaking" loading="lazy"></div>
-        <div class="descent-card__body">
-          <div style="font-size:1.75rem">🇮🇪</div>
-          <h3 style="font-family:var(--font-display);margin:.5rem 0">Ireland: Foreign Births Register</h3>
-          <div class="strength-bar"><div class="strength-fill" style="width:93%"></div></div>
-          <p style="font-size:.75rem;color:var(--text-muted);margin-bottom:.75rem">Passport rank: 187 visa-free countries, EU citizenship</p>
-          <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:.75rem">Irish grandparent qualifies you for citizenship. EU passport. Extremely powerful for UK, US, Canada access. Large diaspora globally.</p>
-          <p style="color:var(--gold);font-size:.8rem;font-weight:600">Timeline: 6–18 months, Cost: legal fees only</p>
-          <a href="#doc-form" class="btn btn--outline btn--sm" style="margin-top:.75rem;display:inline-block">Check Eligibility →</a>
-        </div>
-      </div>
-
-      <div class="descent-card fade-in-up">
-        <div class="descent-card__img"><img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80" alt="Poland EU residency immigration program Middle East affordable living" loading="lazy"></div>
-        <div class="descent-card__body">
-          <div style="font-size:1.75rem">🇵🇱</div>
-          <h3 style="font-family:var(--font-display);margin:.5rem 0">Poland: EU Citizenship</h3>
-          <div class="strength-bar"><div class="strength-fill" style="width:88%"></div></div>
-          <p style="font-size:.75rem;color:var(--text-muted);margin-bottom:.75rem">Passport rank: 183 visa-free countries, EU citizenship</p>
-          <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:.75rem">Polish grandparent or parent qualifies. EU passport with full Schengen rights. Large diaspora in USA, UK, Canada, Australia.</p>
-          <p style="color:var(--gold);font-size:.8rem;font-weight:600">Timeline: 12–24 months, Cost: legal fees only</p>
-          <a href="#doc-form" class="btn btn--outline btn--sm" style="margin-top:.75rem;display:inline-block">Check Eligibility →</a>
-        </div>
-      </div>
-
-      <div class="descent-card fade-in-up">
-        <div class="descent-card__img"><img src="https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?auto=format&fit=crop&w=600&q=80" alt="Portugal NHR tax residency golden visa EU passport second citizenship" loading="lazy"></div>
-        <div class="descent-card__body">
-          <div style="font-size:1.75rem">🇵🇹</div>
-          <h3 style="font-family:var(--font-display);margin:.5rem 0">Portugal: Sephardic Descent</h3>
-          <div class="strength-bar"><div class="strength-fill" style="width:91%"></div></div>
-          <p style="font-size:.75rem;color:var(--text-muted);margin-bottom:.75rem">Passport rank: 186 visa-free countries, EU citizenship</p>
-          <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:.75rem">Descendants of Sephardic Jews expelled from Portugal in 1496 qualify regardless of current nationality. Highly relevant for Iranian-Jewish, Moroccan-Jewish, and Turkish-Jewish communities.</p>
-          <p style="color:var(--gold);font-size:.8rem;font-weight:600">Timeline: 12–24 months, Cost: legal fees only</p>
-          <a href="#doc-form" class="btn btn--outline btn--sm" style="margin-top:.75rem;display:inline-block">Check Eligibility →</a>
-        </div>
-      </div>
-
-      <div class="descent-card fade-in-up">
-        <div class="descent-card__img"><img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=600&q=80" alt="Hungary golden visa EU residency investment fund program 2025" loading="lazy"></div>
-        <div class="descent-card__body">
-          <div style="font-size:1.75rem">🇭🇺</div>
-          <h3 style="font-family:var(--font-display);margin:.5rem 0">Hungary: EU Citizenship</h3>
-          <div class="strength-bar"><div class="strength-fill" style="width:86%"></div></div>
-          <p style="font-size:.75rem;color:var(--text-muted);margin-bottom:.75rem">Passport rank: 183 visa-free countries, EU citizenship</p>
-          <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:.75rem">Hungarian ancestor or language proficiency qualifies. Dual citizenship permitted. Fast processing compared to other EU descent programs.</p>
-          <p style="color:var(--gold);font-size:.8rem;font-weight:600">Timeline: 6–12 months, Cost: legal fees only</p>
-          <a href="#doc-form" class="btn btn--outline btn--sm" style="margin-top:.75rem;display:inline-block">Check Eligibility →</a>
-        </div>
-      </div>
-
-      <div class="descent-card fade-in-up">
-        <div class="descent-card__img"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Lithuania EU startup visa residency second EU passport program" loading="lazy"></div>
-        <div class="descent-card__body">
-          <div style="font-size:1.75rem">🇱🇹</div>
-          <h3 style="font-family:var(--font-display);margin:.5rem 0">Lithuania: EU Citizenship</h3>
-          <div class="strength-bar"><div class="strength-fill" style="width:84%"></div></div>
-          <p style="font-size:.75rem;color:var(--text-muted);margin-bottom:.75rem">Passport rank: 182 visa-free countries, EU citizenship</p>
-          <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:.75rem">Lithuanian ancestry. EU full rights. Dual citizenship permitted under specific conditions. Large diaspora in USA, UK, Brazil, and Australia.</p>
-          <p style="color:var(--gold);font-size:.8rem;font-weight:600">Timeline: 6–18 months, Cost: legal fees only</p>
-          <a href="#doc-form" class="btn btn--outline btn--sm" style="margin-top:.75rem;display:inline-block">Check Eligibility →</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     CONSULTATION FORM
-════════════════════════════════════════════════════════════ -->
-<section class="section" id="doc-form" style="background:var(--bg-surface)">
-  <div class="container" style="max-width:780px">
-    <div class="urgent-form">
-      <div class="urgent-form__header">
-        <h2 class="urgent-form__title">Free Document &amp; Citizenship Consultation</h2>
-        <p class="urgent-form__sub">Tell us your nationality, timeline, budget, and goal. We'll give you a precise eligibility assessment and recommend the best programs available to you. No commitment. No fee.</p>
-      </div>
-      <form class="urgent-form__body" data-form="passport_inquiry" novalidate>
-        <div class="form-row">
-          <div class="form-group"><label class="form-label">Full Name *</label><input type="text" class="form-input" placeholder="Your full name" required></div>
-          <div class="form-group"><label class="form-label">WhatsApp / Phone *</label><input type="tel" class="form-input" placeholder="+1 800 000 0000" required></div>
-        </div>
-        <div class="form-group"><label class="form-label">Email Address *</label><input type="email" class="form-input" placeholder="your@email.com" required></div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Your Nationality *</label>
-            <select class="form-input" required>
-              <option value="">, Select ,</option>
-              <option>Iranian</option><option>Afghan</option><option>Syrian</option><option>Iraqi</option>
-              <option>Lebanese</option><option>Sudanese</option><option>Yemeni</option><option>Ukrainian</option>
-              <option>Russian</option><option>Venezuelan</option><option>Myanmar/Burmese</option>
-              <option>Libyan</option><option>Palestinian/Gazan</option><option>Somali</option>
-              <option>Cuban</option><option>Belarusian</option><option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Current Travel Document</label>
-            <select class="form-input">
-              <option>Valid passport</option><option>Expired passport</option>
-              <option>No passport</option><option>Passport confiscated</option>
-              <option>Stateless, no nationality</option><option>Refugee travel document</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Service You Need *</label>
-          <select class="form-input" required>
-            <option value="">, What are you looking for? ,</option>
-            <optgroup label="🆘 Emergency">
-              <option>Emergency Passport (24–72 hours)</option>
-              <option>Emergency Travel Document</option>
-              <option>UNHCR / Refugee Travel Document</option>
-            </optgroup>
-            <optgroup label="Visa Assistance">
-              <option>Schengen Visa</option><option>UK Visa</option><option>US Visa</option>
-              <option>Canada Visa</option><option>UAE / Gulf Visa</option><option>Other Visa</option>
-            </optgroup>
-            <optgroup label=" Residency (Golden Visa)">
-              <option>Portugal Golden Visa</option><option>Greece Golden Visa</option>
-              <option>Italy Investor Visa</option><option>UAE Golden Visa</option>
-              <option>US EB-5</option><option>Canada Start-Up Visa</option>
-              <option>Georgia Residency</option><option>Other Residency</option>
-            </optgroup>
-            <optgroup label=" Citizenship by Investment">
-              <option>Caribbean (cheapest / fastest)</option>
-              <option>Vanuatu (30–60 days, fastest)</option>
-              <option>Turkey Citizenship</option>
-              <option>Grenada (US E-2 Treaty)</option>
-              <option>Malta EU Citizenship</option>
-              <option>Jordan / Egypt</option>
-              <option>Not sure, advise me</option>
-            </optgroup>
-            <optgroup label="🧬 Citizenship by Descent">
-              <option>Italian Ancestry</option><option>Irish Ancestry</option>
-              <option>Polish / Lithuanian Ancestry</option>
-              <option>Portuguese Sephardic Descent</option>
-              <option>Other European Ancestry</option>
-            </optgroup>
-          </select>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Investment Budget</label>
-            <select class="form-input">
-              <option>No investment, emergency/visa only</option>
-              <option>Under $100,000</option><option>$100K–$250K</option>
-              <option>$250K–$500K</option><option>$500K–$1M</option>
-              <option>Over $1M</option><option>Flexible, advise me</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Urgency</label>
-            <select class="form-input">
-              <option>Emergency, within 72 hours</option>
-              <option>Urgent, within 2 weeks</option>
-              <option>1–3 months</option><option>3–6 months</option>
-              <option>Planning ahead (6+ months)</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Family Members to Include</label>
-          <select class="form-input">
-            <option>Just me</option><option>Me + spouse</option>
-            <option>Me + spouse + children</option>
-            <option>Me + spouse + children + parents</option>
-            <option>Larger family group</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Tell us more (optional but helpful)</label>
-          <textarea class="form-input form-textarea" rows="4" placeholder="Countries lived in, destinations you want to reach, any prior refusals, special circumstances, or anything else we should know…"></textarea>
-        </div>
-        <button type="submit" class="btn btn--primary btn--lg" style="width:100%" onclick="if(window.trackConversion)trackConversion('passport_inquiry')">Request Free Assessment →</button>
-        <p class="urgent-form__privacy">Attorney-client confidentiality applies. We never share your information.</p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     FAQ
-════════════════════════════════════════════════════════════ -->
 <section class="section">
-  <div class="container" style="max-width:800px">
-    <div class="section__header"><h2 class="section__title">Frequently Asked Questions</h2></div>
-    <div class="accordion" id="faqAccordion">
-      <div class="accordion__item"><button class="accordion__trigger">How quickly can I get a second passport?</button><div class="accordion__content"><p>Vanuatu is fastest at 30–60 days. Caribbean programs typically take 2–4 months. Turkey 3–6 months. European golden visas 6–24 months. For emergency travel documents (not citizenship), we can assist within 24–72 hours through embassy channels.</p></div></div>
-      <div class="accordion__item"><button class="accordion__trigger">I am Iranian, which programs can I access?</button><div class="accordion__content"><p>More than you may think. Vanuatu accepts all nationalities. Turkey is the most popular CBI route for Iranians. Grenada, Antigua, St. Lucia, and most Caribbean programs are open. Dominica requires 10+ years outside Iran. Jordan and Egypt both accept Iranians. Malta explicitly excludes Iranian nationals. UAE Golden Visa is widely used by Iranians. Georgia is visa-free for 365 days. We will give you a precise eligibility map in your free consultation.</p></div></div>
-      <div class="accordion__item"><button class="accordion__trigger">Can I include my whole family in one application?</button><div class="accordion__content"><p>Yes, almost all CBI and RBI programs include spouses and minor children at little or no extra cost. Most Caribbean programs also allow adult children up to 30, parents, and grandparents as dependents for additional fees. We structure family applications to maximize cost efficiency.</p></div></div>
-      <div class="accordion__item"><button class="accordion__trigger">What is citizenship by descent and do I qualify?</button><div class="accordion__content"><p>If you have a grandparent or great-grandparent from Italy, Ireland, Poland, Hungary, Lithuania, Portugal, and several other countries, you may be entitled to citizenship, often for free. The process involves genealogy research, document collection, and legal filing. We handle the entire process. Book a free consultation and we can check your family history.</p></div></div>
-      <div class="accordion__item"><button class="accordion__trigger">What is the difference between CBI and a Golden Visa?</button><div class="accordion__content"><p>CBI gives you full citizenship and a passport immediately (or within months), no waiting period. Golden Visa gives you the right to live in the country, with citizenship available after a qualifying residence period (typically 5–10 years). CBI is faster to a passport; Golden Visa is usually lower cost but takes longer.</p></div></div>
-      <div class="accordion__item"><button class="accordion__trigger">Do I have to move to or visit the country?</button><div class="accordion__content"><p>For Caribbean CBI: No, zero physical presence required, ever. For Vanuatu: same. For European Golden Visas: minimal stays required, Portugal 7 days/year, Greece zero days/year, UAE at least one visit every 2 years. We advise on exact requirements per program.</p></div></div>
-      <div class="accordion__item"><button class="accordion__trigger">Can I pay for services with cryptocurrency?</button><div class="accordion__content"><p>Yes. We accept BTC, ETH, USDT, and other major cryptocurrencies for all advisory and document services. For the actual government program investment (e.g. Caribbean fund contribution), payment is typically bank wire, but we can assist with crypto-to-wire conversion as part of our service.</p></div></div>
-    </div>
-  </div>
+ <div class="container">
+ <div class="section-head">
+ <span class="eyebrow">Simple Process</span>
+ <h2>How it works</h2>
+ <p>Three steps from first contact to delivered documents.</p>
+ </div>
+ <div class="steps" style="grid-template-columns:repeat(3,1fr)">
+ <div class="step">
+ <div class="step-num">1</div>
+ <h3>Submit your request</h3>
+ <p>Contact us online or via WhatsApp. We respond within 1 hour, 24 hours a day, 7 days a week, including weekends and holidays.</p>
+ </div>
+ <div class="step">
+ <div class="step-num">2</div>
+ <h3>We review &amp; confirm</h3>
+ <p>Our experts review your documents and confirm your timeline against the official channels available to you. You get a clear quote and realistic turnaround, no surprises.</p>
+ </div>
+ <div class="step">
+ <div class="step-num">3</div>
+ <h3>Documents delivered</h3>
+ <p>Your documents are processed and delivered via secure courier. For emergency tiers, we provide real-time status updates throughout.</p>
+ </div>
+ </div>
+ </div>
 </section>
 
-<!-- Internal links -->
-<section class="section" style="background:var(--bg-surface);padding:3rem 0">
-  <div class="container" style="text-align:center">
-    <h3 style="font-family:var(--font-display);margin-bottom:1.5rem">You May Also Need</h3>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
-      <a href="private-jet.html" class="btn btn--outline">Private Jet Charter</a>
-      <a href="relocation.html" class="btn btn--outline">Full Relocation</a>
-      <a href="crypto.html" class="btn btn--outline">Pay with Crypto</a>
-      <a href="remittance.html" class="btn btn--outline">Money Transfer</a>
-      <a href="../resources.html" class="btn btn--outline">Free Guides</a>
-    </div>
-  </div>
+<section class="section section-warm" id="cbi">
+ <div class="container">
+ <div class="section-head">
+ <span class="eyebrow">Full Passport · Second Citizenship</span>
+ <h2>Citizenship by investment programs</h2>
+ <p>Obtain a genuine second passport through a legal government investment. Includes your spouse, children, and in most programs parents too. No residency required in most cases. All programs require government due diligence; eligibility varies by nationality, noted per program below and confirmed in your free assessment.</p>
+ </div>
+
+ <h3 style="margin-bottom:24px">Caribbean, most accessible, fastest</h3>
+ <div class="grid grid-3">
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=700&q=80" alt="Coastline of St. Kitts and Nevis" loading="lazy">
+ <span class="badge">Oldest Program</span>
+ <h3>St. Kitts &amp; Nevis</h3>
+ <p class="price">From $250,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>3–6 months</dd></div>
+ <div><dt>Visa-free</dt><dd>157 countries</dd></div>
+ <div><dt>Residency req.</dt><dd>None</dd></div>
+ <div><dt>Interview</dt><dd>Not required</dd></div>
+ </dl>
+ <ul>
+ <li>World's oldest CBI program, founded 1984</li>
+ <li>UK &amp; Schengen visa-free</li>
+ <li>Include spouse, children, parents, grandparents</li>
+ <li>Fund donation or approved real estate</li>
+ <li>Dual citizenship permitted</li>
+ </ul>
+ <p class="nat-note">Iranians: case by case · All others: open</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=700&q=80" alt="Lush tropical coastline of Dominica" loading="lazy">
+ <span class="badge">Lowest Cost</span>
+ <h3>Dominica</h3>
+ <p class="price">From $100,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>2–3 months</dd></div>
+ <div><dt>Visa-free</dt><dd>144 countries</dd></div>
+ <div><dt>Residency req.</dt><dd>None</dd></div>
+ <div><dt>Family of 4</dt><dd>~$175,000</dd></div>
+ </dl>
+ <ul>
+ <li>Most affordable established CBI program</li>
+ <li>Schengen + UK visa-free</li>
+ <li>Visa-free to China, rare for Caribbean</li>
+ <li>Fund or real estate routes</li>
+ </ul>
+ <p class="nat-note">Iranians: 10+ years outside Iran required</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80" alt="Twin-island beaches of Antigua and Barbuda" loading="lazy">
+ <span class="badge">Family Friendly</span>
+ <h3>Antigua &amp; Barbuda</h3>
+ <p class="price">From $230,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>3–4 months</dd></div>
+ <div><dt>Visa-free</dt><dd>150 countries</dd></div>
+ <div><dt>Dependents</dt><dd>Up to age 30</dd></div>
+ <div><dt>Stay req.</dt><dd>5 days / 5 years</dd></div>
+ </dl>
+ <ul>
+ <li>Adult children up to 30 included</li>
+ <li>Parents and grandparents eligible</li>
+ <li>UK &amp; Schengen visa-free</li>
+ <li>Fund, real estate, or business routes</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1559825481-12a05cc00344?auto=format&fit=crop&w=700&q=80" alt="The Piton mountains of Saint Lucia" loading="lazy">
+ <span class="badge">Bonds Available</span>
+ <h3>Saint Lucia</h3>
+ <p class="price">From $100,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>3–4 months</dd></div>
+ <div><dt>Visa-free</dt><dd>146 countries</dd></div>
+ <div><dt>Residency req.</dt><dd>None</dd></div>
+ <div><dt>Bond option</dt><dd>Returned after 5 yrs</dd></div>
+ </dl>
+ <ul>
+ <li>Rare government bond route, capital returned</li>
+ <li>Schengen + UK visa-free</li>
+ <li>Among the fastest Caribbean processing</li>
+ <li>Fund, real estate, or bond routes</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=700&q=80" alt="White sand beach in Grenada" loading="lazy">
+ <span class="badge">US E-2 Treaty ★</span>
+ <h3>Grenada</h3>
+ <p class="price">From $150,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>4–6 months</dd></div>
+ <div><dt>Visa-free</dt><dd>144 countries</dd></div>
+ <div><dt>US E-2 treaty</dt><dd>Yes ★</dd></div>
+ <div><dt>China</dt><dd>Visa-free</dd></div>
+ </dl>
+ <ul>
+ <li>Only Caribbean CBI state with a US E-2 investor treaty</li>
+ <li>Pathway to apply for long-term US residency via E-2</li>
+ <li>UK &amp; Schengen visa-free</li>
+ <li>Top choice for nationals who cannot directly access US investor visas</li>
+ </ul>
+ <p class="nat-note">Open to all, incl. Iranians (subject to due diligence)</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=700&q=80" alt="Turquoise Pacific waters of Vanuatu" loading="lazy">
+ <span class="badge">World's Fastest</span>
+ <h3>Vanuatu</h3>
+ <p class="price">From $130,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>30–60 days</dd></div>
+ <div><dt>Visa-free</dt><dd>98 countries</dd></div>
+ <div><dt>Residency req.</dt><dd>None, ever</dd></div>
+ <div><dt>Nationality bans</dt><dd>None</dd></div>
+ </dl>
+ <ul>
+ <li>Fastest established citizenship program in the world</li>
+ <li>Accepts applications from all nationalities, subject to due diligence</li>
+ <li>UK, Singapore, Hong Kong visa-free</li>
+ <li>Single government contribution, no real estate</li>
+ <li>Family included: spouse + children</li>
+ </ul>
+ <p class="nat-note">All nationalities may apply · Government due diligence applies</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Get Vanuatu Passport in ~60 Days →</a>
+ </article>
+ </div>
+
+ <h3 style="margin:54px 0 24px">Europe, Middle East &amp; Africa, premium programs</h3>
+ <div class="grid grid-3">
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1507041957456-9c397ce39c97?auto=format&fit=crop&w=700&q=80" alt="Historic harbor of Valletta, Malta" loading="lazy">
+ <span class="badge">EU Passport · 185 Countries</span>
+ <h3>Malta (MEIN)</h3>
+ <p class="price">From €600,000+</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>12–14 months</dd></div>
+ <div><dt>Visa-free</dt><dd>185 countries</dd></div>
+ <div><dt>EU access</dt><dd>Full rights</dd></div>
+ <div><dt>Residency</dt><dd>1–3 years</dd></div>
+ </dl>
+ <ul>
+ <li>The only direct EU citizenship-by-investment route</li>
+ <li>US, UK, Canada visa-free</li>
+ <li>Live, work, study anywhere in the EU-27</li>
+ <li>€600K contribution + €700K property + €10K charity</li>
+ </ul>
+ <p class="nat-note">Iranians: excluded under program rules</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=700&q=80" alt="Istanbul skyline with Hagia Sophia, Turkey" loading="lazy">
+ <span class="badge">Most Popular · MENA</span>
+ <h3>Türkiye</h3>
+ <p class="price">From $400,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>3–6 months</dd></div>
+ <div><dt>Visa-free</dt><dd>110+ countries</dd></div>
+ <div><dt>Residency req.</dt><dd>None</dd></div>
+ <div><dt>Hold period</dt><dd>3 years</dd></div>
+ </dl>
+ <ul>
+ <li>The most popular citizenship program for Iranian nationals, 50,000+ approvals annually across all nationalities</li>
+ <li>Property fully resaleable after 3 years</li>
+ <li>Japan, South Korea, Singapore visa-free</li>
+ <li>Bank deposit and business routes available</li>
+ <li>Dual citizenship permitted</li>
+ </ul>
+ <p class="nat-note">✓ Iranians · ✓ Arabs · ✓ Afghans, fully accepted</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=700&q=80" alt="The ancient city of Petra, Jordan" loading="lazy">
+ <span class="badge">Arab World</span>
+ <h3>Jordan</h3>
+ <p class="price">From $750,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>3–4 months</dd></div>
+ <div><dt>Visa-free</dt><dd>50+ countries</dd></div>
+ <div><dt>Location</dt><dd>Middle East</dd></div>
+ <div><dt>Routes</dt><dd>RE, business, fund</dd></div>
+ </dl>
+ <ul>
+ <li>Well-regarded Hashemite passport in the Arab world</li>
+ <li>Strong standing in Gulf and Arab states</li>
+ <li>Proven track record for Iranian &amp; Syrian applicants</li>
+ <li>Arabic-speaking, culturally close</li>
+ </ul>
+ <p class="nat-note">✓ Iranians accepted · ✓ Syrians: large approved group</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1539768942893-daf53e448371?auto=format&fit=crop&w=700&q=80" alt="Pyramids of Giza, Egypt" loading="lazy">
+ <span class="badge">Affordable</span>
+ <h3>Egypt</h3>
+ <p class="price">From $250,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>3–4 months</dd></div>
+ <div><dt>Visa-free</dt><dd>50+ countries</dd></div>
+ <div><dt>Location</dt><dd>North Africa</dd></div>
+ <div><dt>Deposit route</dt><dd>Refundable</dd></div>
+ </dl>
+ <ul>
+ <li>Among the most affordable MENA programs</li>
+ <li>Arab League &amp; African Union access</li>
+ <li>Bank deposit or approved real estate</li>
+ <li>Broad nationality acceptance</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=700&q=80" alt="Skopje old town, North Macedonia" loading="lazy">
+ <span class="badge">EU Candidate</span>
+ <h3>North Macedonia</h3>
+ <p class="price">From €200,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>3–6 months</dd></div>
+ <div><dt>Status</dt><dd>EU candidate</dd></div>
+ <div><dt>Residency req.</dt><dd>None</dd></div>
+ <div><dt>Schengen</dt><dd>Visa-free access</dd></div>
+ </dl>
+ <ul>
+ <li>Emerging, underused program</li>
+ <li>Citizenship now may transition to EU rights on accession</li>
+ <li>Single government contribution</li>
+ <li>Priced below Caribbean peers</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=700&q=80" alt="Island coastline of São Tomé and Príncipe" loading="lazy">
+ <span class="badge">From $90K · Fastest Africa</span>
+ <h3>São Tomé &amp; Príncipe</h3>
+ <p class="price">From $90,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>1–3 months</dd></div>
+ <div><dt>Location</dt><dd>West Africa</dd></div>
+ <div><dt>Language</dt><dd>Portuguese</dd></div>
+ <div><dt>CPLP</dt><dd>Mobility rights</dd></div>
+ </dl>
+ <ul>
+ <li>Among the least-known, most accessible programs</li>
+ <li>Cheapest established CBI at $90K</li>
+ <li>CPLP mobility, Portugal access pathway</li>
+ <li>1–3 month processing</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ </div>
+ </div>
 </section>
 
-</main>
+<section class="section" id="golden-visa">
+ <div class="container">
+ <div class="section-head">
+ <span class="eyebrow">Residency First, Citizenship Later</span>
+ <h2>Residency by investment: golden visa programs</h2>
+ <p>Residency gives you the right to live, work, and travel freely, with a path to citizenship after a qualifying period. Most programs require minimal or zero physical presence.</p>
+ </div>
+ <div class="grid grid-3">
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?auto=format&fit=crop&w=700&q=80" alt="Hillside houses of Lisbon, Portugal" loading="lazy">
+ <span class="badge">EU Citizenship Path · Most Popular</span>
+ <h3>Portugal Golden Visa</h3>
+ <p class="price">From €250,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>12–24 months</dd></div>
+ <div><dt>Citizenship after</dt><dd>5 years</dd></div>
+ <div><dt>Stay req.</dt><dd>7 days/year</dd></div>
+ <div><dt>Routes</dt><dd>Funds, arts, R&amp;D</dd></div>
+ </dl>
+ <ul>
+ <li>EU citizenship and passport after 5 years</li>
+ <li>Only 7 days per year in Portugal required</li>
+ <li>Entire family included from day one</li>
+ <li>No language requirement for residency</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities, subject to due diligence</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=700&q=80" alt="Whitewashed island buildings over the Aegean, Greece" loading="lazy">
+ <span class="badge">Fast · No Stay Requirement</span>
+ <h3>Greece Golden Visa</h3>
+ <p class="price">From €250,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>2–4 months</dd></div>
+ <div><dt>Citizenship after</dt><dd>7 years</dd></div>
+ <div><dt>Stay req.</dt><dd>Zero</dd></div>
+ <div><dt>Schengen</dt><dd>On approval</dd></div>
+ </dl>
+ <ul>
+ <li>Fastest EU residency processing in Europe</li>
+ <li>Zero minimum stay required</li>
+ <li>€400K threshold in Athens/Thessaloniki; €250K elsewhere</li>
+ <li>Real estate or fund routes</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=700&q=80" alt="Italian coastal town, Italy investor visa" loading="lazy">
+ <span class="badge">EU Lifestyle</span>
+ <h3>Italy Investor Visa</h3>
+ <p class="price">From €250,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>3–6 months</dd></div>
+ <div><dt>Citizenship after</dt><dd>10 years</dd></div>
+ <div><dt>Schengen</dt><dd>Day 1</dd></div>
+ <div><dt>Routes</dt><dd>4 options</dd></div>
+ </dl>
+ <ul>
+ <li>€250K startup / €500K business / €1M bonds</li>
+ <li>€1M charitable donation route available</li>
+ <li>Path to one of the world's strongest passports</li>
+ <li>For those who want to actually live in Europe</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=700&q=80" alt="Budapest parliament on the Danube, Hungary" loading="lazy">
+ <span class="badge">New 2024 · EU</span>
+ <h3>Hungary Guest Investor Visa</h3>
+ <p class="price">From €250,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>2–3 months</dd></div>
+ <div><dt>Term</dt><dd>10 years, renewable</dd></div>
+ <div><dt>Schengen</dt><dd>Full access</dd></div>
+ <div><dt>Route</dt><dd>RE fund</dd></div>
+ </dl>
+ <ul>
+ <li>10-year renewable EU residency, among the longest available</li>
+ <li>Full Schengen access from day one</li>
+ <li>Optional real estate purchase at €500K</li>
+ <li>Low cost of living in Budapest</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1530854717914-b7be70527751?auto=format&fit=crop&w=700&q=80" alt="Mediterranean coast of Cyprus" loading="lazy">
+ <span class="badge">EU Residency · Fast</span>
+ <h3>Cyprus Permanent Residency</h3>
+ <p class="price">From €300,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>2–4 months</dd></div>
+ <div><dt>Status</dt><dd>Permanent</dd></div>
+ <div><dt>Citizenship after</dt><dd>5 yrs naturalization</dd></div>
+ <div><dt>English</dt><dd>Widely spoken</dd></div>
+ </dl>
+ <ul>
+ <li>Among the fastest EU permanent residency routes</li>
+ <li>Real estate with strong rental yields</li>
+ <li>Mediterranean climate and lifestyle</li>
+ <li>Naturalization path after 5 years</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80" alt="Dubai skyline at dusk, United Arab Emirates" loading="lazy">
+ <span class="badge">No Income Tax · 10-Year Visa</span>
+ <h3>UAE Golden Visa</h3>
+ <p class="price">From AED 2M (~$545K)</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>1–2 months</dd></div>
+ <div><dt>Term</dt><dd>10 years, renewable</dd></div>
+ <div><dt>Income tax</dt><dd>0%</dd></div>
+ <div><dt>Routes</dt><dd>RE, business, talent</dd></div>
+ </dl>
+ <ul>
+ <li>Zero income, capital gains, or wealth tax</li>
+ <li>Global hub with direct flights everywhere</li>
+ <li>Hugely popular with Iranian, Arab, Russian, Ukrainian, and South Asian nationals</li>
+ <li>Family included: spouse + children</li>
+ </ul>
+ <p class="nat-note">✓ Iranians · ✓ Russians · ✓ All nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=700&q=80" alt="Moraine Lake in the Canadian Rockies" loading="lazy">
+ <span class="badge">PR → Citizenship</span>
+ <h3>Canada Start-Up Visa</h3>
+ <p class="price">From CAD 75,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>12–24 months</dd></div>
+ <div><dt>Citizenship after</dt><dd>3 years PR</dd></div>
+ <div><dt>Passport</dt><dd>185 countries</dd></div>
+ <div><dt>Healthcare</dt><dd>Universal</dd></div>
+ </dl>
+ <ul>
+ <li>Canadian PR for the whole family from day one</li>
+ <li>Citizenship after just 3 years</li>
+ <li>Requires endorsement by a designated organization</li>
+ <li>Provincial entrepreneur programs also available</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1554750735-4549a94f6a02?auto=format&fit=crop&w=700&q=80" alt="Panama City skyline, Panama" loading="lazy">
+ <span class="badge">Territorial Tax · Permanent PR</span>
+ <h3>Panama Qualified Investor</h3>
+ <p class="price">From $300,000</p>
+ <dl class="program-meta">
+ <div><dt>Processing</dt><dd>3–6 months</dd></div>
+ <div><dt>Status</dt><dd>Permanent residency</dd></div>
+ <div><dt>Tax</dt><dd>Territorial only</dd></div>
+ <div><dt>Currency</dt><dd>USD</dd></div>
+ </dl>
+ <ul>
+ <li>Permanent residency, no renewal needed</li>
+ <li>Foreign income never taxed</li>
+ <li>Pensionado visa from $1,000/month income</li>
+ <li>Strong banking sector, USD economy</li>
+ </ul>
+ <p class="nat-note">Open to all nationalities</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ <article class="program-card">
+ <img class="program-photo" src="https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=700&q=80" alt="Old town of Tbilisi, Georgia" loading="lazy">
+ <span class="badge">Visa-Free 1 Year</span>
+ <h3>Georgia Residency</h3>
+ <p class="price">From $100,000</p>
+ <dl class="program-meta">
+ <div><dt>Visa-free stay</dt><dd>365 days</dd></div>
+ <div><dt>Residency from</dt><dd>$100K real estate</dd></div>
+ <div><dt>IT tax</dt><dd>~1% (Virtual Zone)</dd></div>
+ <div><dt>EU status</dt><dd>Candidate (applied)</dd></div>
+ </dl>
+ <ul>
+ <li>365-day visa-free for Iranian, Ukrainian, Russian, and most nationalities</li>
+ <li>Real estate residency from $100K</li>
+ <li>Low cost of living, booming expat community</li>
+ <li>Practical base while longer applications run</li>
+ </ul>
+ <p class="nat-note">✓ Iranians: 365-day visa-free · ✓ All welcome</p>
+ <a href="#doc-form" class="btn btn-outline-dark">Apply Now →</a>
+ </article>
+ </div>
+ </div>
+</section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <div class="footer__logo"><img src="../logo-light.svg" alt="Move Now Group" width="220" height="49"></div>
-        <p style="color:var(--text-muted);font-size:.9rem;margin-top:.75rem;line-height:1.7">Citizenship, travel documents, and crisis services, worldwide, 24/7.</p>
-      </div>
-      <div>
-        <h4 class="footer__heading">Services</h4>
-        <ul class="footer__links">
-          <li><a href="private-jet.html">Private Jets</a></li>
-          <li><a href="last-minute-private-jet-charter.html">Last-Minute Private Jet</a></li>
-          <li><a href="travel-documents.html">Travel Documents</a></li>
-          <li><a href="urgent-travel-coordination.html">Urgent Travel Coordination</a></li>
-          <li><a href="crypto.html">Crypto</a></li>
-          <li><a href="remittance.html">Remittance</a></li>
-          <li><a href="crisis-relocation-planning.html">Crisis Relocation Planning</a></li>
-          <li><a href="relocation.html">Relocation</a></li>
-        </ul>
-      </div>
-      <div><h4 class="footer__heading">Company</h4><ul class="footer__links"><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../resources.html">Resources</a></li></ul></div>
-      <div>
-        <h4 class="footer__heading">Emergency</h4>
-        <a href="tel:+14237669105" style="font-size:1.4rem;font-weight:700;color:var(--gold);display:block;margin-bottom:.5rem">+1 (423) 766-9105</a>
-        <p style="color:var(--text-muted);font-size:.85rem">24/7, WhatsApp, Signal, Telegram</p>
-        <a href="https://wa.me/14237669105" class="btn btn--primary btn--sm" style="margin-top:1rem;display:inline-block">WhatsApp Now</a>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <p>© 2026 Move Now Group. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
-      <p style="margin-top:.5rem;font-size:.75rem;color:var(--text-muted)">Citizenship and residency programs offered are subject to applicable law and individual eligibility. Not legal advice.</p>
-    </div>
-  </div>
+<section class="section section-warm" id="descent">
+ <div class="container">
+ <div class="section-head">
+ <span class="eyebrow">Free · Legal Right · No Investment</span>
+ <h2>Citizenship by descent: claim your heritage</h2>
+ <p>If you have a grandparent or great-grandparent from certain countries, you may be legally entitled to full citizenship and a passport, at no investment cost. We research your family tree and manage the entire process with licensed counsel.</p>
+ </div>
+ <div class="grid grid-3">
+ <div class="card"><div class="card-body">
+ <h3>Italy, Jure Sanguinis</h3>
+ <p>188 visa-free countries, EU citizenship. No generational limit in many lines. One of the most powerful second passports in the world.</p>
+ <p class="muted" style="margin-top:10px">Timeline: 12–36 months · Cost: legal fees only</p>
+ <a href="#doc-form" class="card-link">Check Eligibility</a>
+ </div></div>
+ <div class="card"><div class="card-body">
+ <h3>Ireland, Foreign Births Register</h3>
+ <p>187 visa-free countries, EU citizenship. An Irish grandparent qualifies you. Extremely powerful for UK, US, Canada access.</p>
+ <p class="muted" style="margin-top:10px">Timeline: 6–18 months · Cost: legal fees only</p>
+ <a href="#doc-form" class="card-link">Check Eligibility</a>
+ </div></div>
+ <div class="card"><div class="card-body">
+ <h3>Poland, EU Citizenship</h3>
+ <p>183 visa-free countries. A Polish grandparent or parent qualifies. Full Schengen rights; large diaspora in the US, UK, Canada, Australia.</p>
+ <p class="muted" style="margin-top:10px">Timeline: 12–24 months · Cost: legal fees only</p>
+ <a href="#doc-form" class="card-link">Check Eligibility</a>
+ </div></div>
+ <div class="card"><div class="card-body">
+ <h3>Portugal, Sephardic Descent</h3>
+ <p>186 visa-free countries, EU citizenship. Descendants of Sephardic Jews expelled in 1496 may qualify regardless of current nationality, highly relevant for Iranian-Jewish, Moroccan-Jewish, and Turkish-Jewish communities.</p>
+ <p class="muted" style="margin-top:10px">Timeline: 12–24 months · Cost: legal fees only</p>
+ <a href="#doc-form" class="card-link">Check Eligibility</a>
+ </div></div>
+ <div class="card"><div class="card-body">
+ <h3>Hungary, EU Citizenship</h3>
+ <p>183 visa-free countries. Hungarian ancestry or language proficiency qualifies. Dual citizenship permitted; fast processing versus other EU descent programs.</p>
+ <p class="muted" style="margin-top:10px">Timeline: 6–12 months · Cost: legal fees only</p>
+ <a href="#doc-form" class="card-link">Check Eligibility</a>
+ </div></div>
+ <div class="card"><div class="card-body">
+ <h3>Lithuania, EU Citizenship</h3>
+ <p>182 visa-free countries. Lithuanian ancestry with dual citizenship permitted under specific conditions. Large diaspora in the US, UK, Brazil, and Australia.</p>
+ <p class="muted" style="margin-top:10px">Timeline: 6–18 months · Cost: legal fees only</p>
+ <a href="#doc-form" class="card-link">Check Eligibility</a>
+ </div></div>
+ </div>
+ </div>
+</section>
+
+<section class="section" id="doc-form">
+ <div class="container">
+ <div class="section-head center">
+ <span class="eyebrow">Free Consultation</span>
+ <h2>Free document &amp; citizenship consultation</h2>
+ <p>Tell us your nationality, timeline, budget, and goal. We'll give you a precise eligibility assessment and recommend the best official programs available to you. No commitment. No fee.</p>
+ </div>
+ <form class="form-panel" method="post" action="https://formsubmit.co/info@movenowgroup.com">
+ <input type="hidden" name="_subject" value="DOCUMENT/CITIZENSHIP ASSESSMENT, Travel Documents page">
+ <input type="hidden" name="_template" value="table">
+ <input type="hidden" name="_captcha" value="false">
+ <input type="hidden" name="_next" value="https://movenowgroup.com/thanks.html">
+ <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+ <div class="form-grid">
+ <div class="form-field"><label for="cb-name">Full name *</label><input id="cb-name" name="name" type="text" required></div>
+ <div class="form-field"><label for="cb-phone">WhatsApp / phone *</label><input id="cb-phone" name="phone" type="tel" required></div>
+ <div class="form-field"><label for="cb-email">Email address *</label><input id="cb-email" name="email" type="email" required></div>
+ <div class="form-field"><label for="cb-nat">Your nationality *</label>
+ <select id="cb-nat" name="nationality" required>
+ <option value="">Select…</option>
+ <option>Iranian</option><option>Afghan</option><option>Syrian</option><option>Iraqi</option><option>Lebanese</option>
+ <option>Sudanese</option><option>Yemeni</option><option>Ukrainian</option><option>Russian</option><option>Venezuelan</option>
+ <option>Myanmar/Burmese</option><option>Libyan</option><option>Palestinian</option><option>Somali</option><option>Cuban</option>
+ <option>Belarusian</option><option>Other</option>
+ </select>
+ </div>
+ <div class="form-field"><label for="cb-docstatus">Current travel document</label>
+ <select id="cb-docstatus" name="document_status">
+ <option>Valid passport</option><option>Expired passport</option><option>No passport</option>
+ <option>Passport confiscated</option><option>Stateless, no nationality</option><option>Refugee travel document</option>
+ </select>
+ </div>
+ <div class="form-field"><label for="cb-service">Service you need *</label>
+ <select id="cb-service" name="service" required>
+ <option value="">What are you looking for?</option>
+ <optgroup label="Emergency"><option>Emergency passport (24–72h, official channels)</option>
+ <option>Emergency travel document</option>
+ <option>UNHCR / refugee travel document</option>
+ </optgroup>
+ <optgroup label="Visa assistance"><option>Schengen visa</option><option>UK visa</option><option>US visa</option><option>Canada visa</option><option>UAE / Gulf visa</option><option>Other visa</option>
+ </optgroup>
+ <optgroup label="Residency (golden visa)"><option>Portugal Golden Visa</option><option>Greece Golden Visa</option><option>Italy Investor Visa</option>
+ <option>UAE Golden Visa</option><option>US EB-5</option><option>Canada Start-Up Visa</option><option>Georgia residency</option><option>Other residency</option>
+ </optgroup>
+ <optgroup label="Citizenship by investment"><option>Caribbean (cheapest / fastest)</option><option>Vanuatu (30–60 days)</option><option>Türkiye citizenship</option>
+ <option>Grenada (US E-2 treaty)</option><option>Malta EU citizenship</option><option>Jordan / Egypt</option><option>Not sure, advise me</option>
+ </optgroup>
+ <optgroup label="Citizenship by descent"><option>Italian ancestry</option><option>Irish ancestry</option><option>Polish / Lithuanian ancestry</option>
+ <option>Portuguese Sephardic descent</option><option>Other European ancestry</option>
+ </optgroup>
+ </select>
+ </div>
+ <div class="form-field"><label for="cb-budget">Investment budget</label>
+ <select id="cb-budget" name="budget">
+ <option>No investment, emergency/visa only</option><option>Under $100,000</option><option>$100K–$250K</option>
+ <option>$250K–$500K</option><option>$500K–$1M</option><option>Over $1M</option><option>Flexible, advise me</option>
+ </select>
+ </div>
+ <div class="form-field"><label for="cb-urgency">Urgency</label>
+ <select id="cb-urgency" name="urgency">
+ <option>Emergency, within 72 hours</option><option>Urgent, within 2 weeks</option><option>1–3 months</option>
+ <option>3–6 months</option><option>Planning ahead (6+ months)</option>
+ </select>
+ </div>
+ <div class="form-field"><label for="cb-family">Family members to include</label>
+ <select id="cb-family" name="family">
+ <option>Just me</option><option>Me + spouse</option><option>Me + spouse + children</option>
+ <option>Me + spouse + children + parents</option><option>Larger family group</option>
+ </select>
+ </div>
+ <div class="form-field full"><label for="cb-notes">Tell us more (optional but helpful)</label><textarea id="cb-notes" name="notes" rows="4"></textarea></div>
+ </div>
+ <div class="text-center mt-40"><button type="submit" class="btn btn-gold">Request Free Assessment →</button></div>
+ <p class="form-note">Strictly confidential. We never share your information.</p>
+ </form>
+ </div>
+</section>
+
+<section class="section section-warm">
+ <div class="container">
+ <div class="section-head center">
+ <span class="eyebrow">Frequently Asked Questions</span>
+ <h2>Documents &amp; citizenship, answered plainly</h2>
+ </div>
+ <div class="faq-list">
+ <details class="faq-item">
+ <summary>How quickly can I get a second passport?</summary>
+ <p>Vanuatu is fastest at roughly 30–60 days. Caribbean programs typically take 2–4 months plus due diligence. Türkiye 3–6 months. European golden visas 6–24 months. For emergency travel documents of your existing nationality (not citizenship), we can assist within 24–72 hours through official embassy and government urgent channels, where your issuing authority offers them.</p>
+ </details>
+ <details class="faq-item">
+ <summary>I am Iranian, which programs can I access?</summary>
+ <p>More than you may think. Vanuatu accepts applications from all nationalities. Türkiye is the most popular route for Iranians. Grenada, Antigua, and St. Lucia are open. Dominica requires 10+ years outside Iran. Jordan and Egypt accept Iranians. Malta explicitly excludes Iranian nationals. The UAE Golden Visa is widely used by Iranians, and Georgia is visa-free for 365 days. We give you a precise eligibility map in your free consultation, all subject to each government's due diligence.</p>
+ </details>
+ <details class="faq-item">
+ <summary>Can I include my whole family in one application?</summary>
+ <p>Yes, almost all CBI and residency programs include spouses and minor children at little or no extra cost. Most Caribbean programs also allow adult children up to 30, parents, and grandparents as dependents for additional fees. We structure family applications to maximize cost efficiency.</p>
+ </details>
+ <details class="faq-item">
+ <summary>What is citizenship by descent and do I qualify?</summary>
+ <p>If you have a grandparent or great-grandparent from Italy, Ireland, Poland, Hungary, Lithuania, Portugal, and several other countries, you may be entitled to citizenship, often for free. The process involves genealogy research, document collection, and a legal filing. We handle the entire process; book a free consultation and we can check your family history.</p>
+ </details>
+ <details class="faq-item">
+ <summary>What is the difference between CBI and a golden visa?</summary>
+ <p>CBI gives you full citizenship and a passport within months, no waiting period. A golden visa gives you the right to live in the country, with citizenship available after a qualifying residence period (typically 5–10 years). CBI is faster to a passport; a golden visa is usually lower cost but takes longer.</p>
+ </details>
+ <details class="faq-item">
+ <summary>Do I have to move to or visit the country?</summary>
+ <p>For Caribbean CBI and Vanuatu: no, zero physical presence required, ever. For European golden visas: minimal stays, Portugal about 7 days/year, Greece zero, UAE at least one visit every 2 years. We advise on exact requirements per program.</p>
+ </details>
+ <details class="faq-item">
+ <summary>Will I pass due diligence?</summary>
+ <p>Every reputable program runs multi-layer background checks covering identity, criminal history, sanctions screening, and source of funds. We pre-assess your file honestly before you commit, and we do not submit applications that would require misrepresentation, an application built on omissions can be revoked years later.</p>
+ </details>
+ </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="container">
+ <div class="section-head center">
+ <span class="eyebrow">You May Also Need</span>
+ <h2>Our services work together</h2>
+ </div>
+ <div class="grid grid-2">
+ <div class="card"><div class="card-body">
+ <h3>Private Jet Charter</h3>
+ <p>Emergency air travel available 24/7, arranged through certificated operators from over 130 countries.</p>
+ <a href="private-jet.html" class="card-link">Charter options</a>
+ </div></div>
+ <div class="card"><div class="card-body">
+ <h3>Full Relocation</h3>
+ <p>Destination housing, school enrollment, legal residency, and complete logistics once your documents are in hand.</p>
+ <a href="relocation.html" class="card-link">Relocation services</a>
+ </div></div>
+ </div>
+ </div>
+</section>
+
+<footer class="site-footer">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="../index.html" class="logo"><img src="../logo-light.svg" alt="Move Now Group"></a>
+ <p>Crisis relocation, private aviation, and emergency documents for clients worldwide, including conflict-affected regions, always through lawful channels. Trusted since 2015.</p>
+ </div>
+ <div>
+ <h4>Services</h4>
+ <ul>
+ <li><a href="private-jet.html">Private Jet Charter</a></li>
+ <li><a href="last-minute-private-jet-charter.html">Last-Minute Private Jet</a></li>
+ <li><a href="travel-documents.html">Travel Documents</a></li>
+ <li><a href="urgent-travel-coordination.html">Urgent Travel Coordination</a></li>
+ <li><a href="crisis-relocation-planning.html">Crisis Relocation Planning</a></li>
+ <li><a href="relocation.html">Relocation</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Company</h4>
+ <ul>
+ <li><a href="../about.html">About Us</a></li>
+ <li><a href="../contact.html">Contact</a></li>
+ <li><a href="../privacy.html">Privacy Policy</a></li>
+ <li><a href="../terms.html">Terms of Service</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Emergency</h4>
+ <ul>
+ <li><a href="tel:+15097806963">+1 (509) 780-6963</a></li>
+ <li><a href="mailto:info@movenowgroup.com">info@movenowgroup.com</a></li>
+ <li><a href="https://wa.me/15097806963">WhatsApp 24/7</a></li>
+ <li>UNHCR: +1-800-230-5920</li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-legal">
+ <p>© 2026 Move Now Group Pty Ltd. All rights reserved.</p>
+ </div>
+ </div>
 </footer>
-
-<a href="https://wa.me/14237669105?text=I%20need%20passport%20or%20citizenship%20help" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp us">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
-<script src="../js/translations.js"></script>
-<script src="../js/main.js"></script>
-
-<!-- Google Translate (cookie-based, auto-detects on first visit) -->
-<script>
-(function () {
-  // Browser locale primary -> Google Translate target language
-  var BROWSER_MAP = {
-    ar: 'ar', fa: 'fa', ps: 'fa', ur: 'ur',
-    tr: 'tr', az: 'tr', ku: 'ku', ckb: 'ku', kmr: 'ku',
-    ru: 'ru', be: 'ru', kk: 'ru', tg: 'ru', ky: 'ru', uz: 'ru',
-    uk: 'uk',
-    es: 'es', ca: 'es', gl: 'es', pt: 'pt',
-    fr: 'fr', de: 'de',
-    zh: 'zh-CN', hi: 'hi', my: 'my'
-  };
-  // ISO-3166 country -> probable native language (used when browser locale is generic English)
-  var COUNTRY_MAP = {
-    IR: 'fa', AF: 'fa', TJ: 'fa',
-    IQ: 'ar', SY: 'ar', LB: 'ar', YE: 'ar', AE: 'ar', SA: 'ar', EG: 'ar',
-    JO: 'ar', PS: 'ar', KW: 'ar', BH: 'ar', OM: 'ar', QA: 'ar', LY: 'ar',
-    TN: 'ar', DZ: 'ar', MA: 'ar', SD: 'ar', SO: 'ar', MR: 'ar', DJ: 'ar', KM: 'ar',
-    TR: 'tr', AZ: 'tr',
-    PK: 'ur',
-    RU: 'ru', BY: 'ru', KZ: 'ru', KG: 'ru', UZ: 'ru', TM: 'ru', AM: 'ru', GE: 'ru',
-    UA: 'uk',
-    ES: 'es', MX: 'es', AR: 'es', CO: 'es', PE: 'es', VE: 'es', CL: 'es',
-    EC: 'es', GT: 'es', BO: 'es', DO: 'es', HN: 'es', PY: 'es', SV: 'es',
-    NI: 'es', CR: 'es', PA: 'es', UY: 'es', PR: 'es', CU: 'es',
-    BR: 'pt', PT: 'pt', AO: 'pt', MZ: 'pt',
-    FR: 'fr', BE: 'fr', LU: 'fr', SN: 'fr', CI: 'fr', CM: 'fr', MG: 'fr',
-    DE: 'de', AT: 'de', CH: 'de', LI: 'de',
-    CN: 'zh-CN', TW: 'zh-CN', HK: 'zh-CN', SG: 'zh-CN', MO: 'zh-CN',
-    IN: 'hi', NP: 'hi',
-    MM: 'my'
-  };
-
-  // Set or clear the googtrans cookie. Google Translate Element reads this
-  // on page load. We must set it BEFORE the GT script initialises.
-  function setGoogTrans (lang) {
-    var hosts = [
-      '',                                  // current path only
-      '; domain=' + location.hostname,
-      '; domain=.' + location.hostname
-    ];
-    if (!lang || lang === 'en') {
-      hosts.forEach(function (h) {
-        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + h;
-      });
-    } else {
-      var value = '/en/' + lang;
-      hosts.forEach(function (h) {
-        document.cookie = 'googtrans=' + value + '; path=/' + h;
-      });
-    }
-  }
-
-  function detectFromBrowser () {
-    var raw = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-    var primary = raw.split('-')[0];
-    return BROWSER_MAP[primary] || null;
-  }
-
-  // 1) Determine language synchronously (so cookie is set before GT loads)
-  var stored = null;
-  try { stored = localStorage.getItem('mng_lang'); } catch (e) {}
-
-  if (stored) {
-    // Returning visitor — make sure cookie matches their saved preference
-    setGoogTrans(stored);
-  } else {
-    // First visit: try the browser locale (synchronous, instant)
-    var browserLang = detectFromBrowser();
-    if (browserLang) {
-      try { localStorage.setItem('mng_lang', browserLang); } catch (e) {}
-      setGoogTrans(browserLang);
-    } else {
-      // Generic English browser — fall back to IP-based country detection.
-      // This is async, so it forces ONE reload on first visit.
-      fetch('https://get.geojs.io/v1/ip/country.json', { cache: 'no-store' })
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (d) {
-          if (!d) return;
-          var country = (d.country || d.country_code || '').toUpperCase();
-          var ipLang = COUNTRY_MAP[country];
-          if (ipLang) {
-            try { localStorage.setItem('mng_lang', ipLang); } catch (e) {}
-            setGoogTrans(ipLang);
-            location.reload();
-          } else {
-            // Country not in map — stay on English, mark detection done
-            try { localStorage.setItem('mng_lang', 'en'); } catch (e) {}
-          }
-        })
-        .catch(function () { /* fail silently, stay on English */ });
-    }
-  }
-
-  // 2) Wire the visible dropdown
-  document.addEventListener('DOMContentLoaded', function () {
-    var sel = document.getElementById('langSelect');
-    if (!sel) return;
-    var current = stored || detectFromBrowser() || 'en';
-    sel.value = current === 'en' ? '' : current;
-    sel.addEventListener('change', function (e) {
-      var lang = e.target.value;
-      try { localStorage.setItem('mng_lang', lang || 'en'); } catch (e) {}
-      setGoogTrans(lang);
-      location.reload();
-    });
-  });
-})();
-
-function googleTranslateElementInit () {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false,
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-  }, 'google_translate_element');
-}
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<style>
-/* Hide Google Translate UI chrome (we use our own dropdown) */
-.goog-te-banner-frame,
-.goog-te-balloon-frame,
-.goog-tooltip,
-.goog-tooltip:hover,
-#goog-gt-tt,
-.VIpgJd-ZVi9od-l4eHX-hSRGPd,
-.skiptranslate iframe { display: none !important; visibility: hidden !important; }
-body { top: 0 !important; position: static !important; }
-.goog-text-highlight { background: transparent !important; box-shadow: none !important; }
-</style>
 
 </body>
 </html>
