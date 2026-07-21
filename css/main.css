@@ -1522,6 +1522,79 @@ h1,h2,h3,h4,h5,h6 { line-height: 1.2; font-weight: 700; }
 .divider--gold { background: linear-gradient(90deg, transparent, var(--gold-border), transparent); }
 
 /* ============================================================
+   29B. SEO LANDING PAGES
+   ============================================================ */
+.seo-page .section-header { max-width: 760px; }
+.seo-page .page-hero { min-height: 58vh; }
+.seo-badges {
+  display: flex; flex-wrap: wrap; gap: var(--s-3);
+  margin-top: var(--s-6);
+}
+.seo-badge {
+  display: inline-flex; align-items: center;
+  min-height: 36px; padding: 0.45rem 0.85rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--r-full);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.78);
+  font-size: 0.8125rem; font-weight: 600;
+}
+.seo-card {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: var(--s-7);
+  transition: transform var(--t), border-color var(--t), box-shadow var(--t);
+}
+.seo-card:hover {
+  transform: translateY(-4px); border-color: var(--gold-border);
+  box-shadow: var(--shadow-md);
+}
+.seo-card__label {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; height: 34px; padding-inline: var(--s-3);
+  border-radius: var(--r); background: var(--gold-dim);
+  border: 1px solid var(--gold-border); color: var(--gold);
+  font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: var(--s-4);
+}
+.seo-card h3 { font-size: 1.125rem; margin-bottom: var(--s-3); }
+.seo-card p { color: var(--text-2); font-size: 0.9375rem; line-height: 1.7; }
+.seo-list {
+  display: flex; flex-direction: column; gap: var(--s-3);
+  margin-block: var(--s-5);
+}
+.seo-list li {
+  position: relative; padding-left: 1.6rem;
+  color: var(--text-2); font-size: 0.9375rem; line-height: 1.65;
+}
+.seo-list li::before {
+  content: ""; position: absolute; left: 0; top: 0.72em;
+  width: 0.75rem; height: 2px; background: var(--gold);
+}
+.seo-note {
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--r-md); padding: var(--s-5);
+  color: var(--text-2); font-size: 0.9rem; line-height: 1.7;
+}
+.seo-form-layout {
+  display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--s-8); align-items: start;
+}
+.seo-form-copy h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.75rem);
+  margin-top: var(--s-3); margin-bottom: var(--s-4);
+}
+.seo-form-copy p { color: var(--text-2); line-height: 1.75; margin-bottom: var(--s-5); }
+.seo-related-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5);
+}
+@media (max-width: 900px) {
+  .seo-form-layout, .seo-related-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    30. FOOTER
    ============================================================ */
 .footer {
